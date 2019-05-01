@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.ziming.my.trip.web.admin.dao.UserDao">
+
+	<!--片段-->
+	<sql id="UserColumns">
+
+    </sql>
+
+	<!--查询所有用户-->
+	<select id="selectAll" resultType="Admin">
+		SELECT * FROM tp_admin
+	</select>
+
+</mapper>
