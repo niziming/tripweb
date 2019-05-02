@@ -47,7 +47,7 @@ Guidlines:
 
 Joining the Project
 -------------
- - Active committers and contributors are invited to introduce yourself and request commit access to this project.  Please send an email to hello@nickdownie.com or file an issue. 
+ - Active committers and contributors are invited to introduce yourself and request commit access to this project.  Please send an uemail to hello@nickdownie.com or file an issue. 
 
 License
 -------

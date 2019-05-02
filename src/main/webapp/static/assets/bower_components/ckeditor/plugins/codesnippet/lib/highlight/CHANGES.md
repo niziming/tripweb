@@ -690,7 +690,7 @@ files. If you use some third-party language files they should be updated.
 
 A very nice version in my opinion fixing a number of small bugs and slightly
 increased speed in a couple of corner cases. Thanks to everybody who reports
-bugs in he [forum][f] and by email!
+bugs in he [forum][f] and by uemail!
 
 There is also a new language — XML. A custom XML formerly was detected as HTML
 and didn't highlight custom tags. In this version I tried to make custom XML to

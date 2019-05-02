@@ -21,28 +21,28 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="static/assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">${user.uname}</span>
+                        <img src="/static/assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                        <span class="hidden-xs">${admin.aname}</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="static/assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="/static/assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                             <p>
-                                ${user.email}<br>
-
-                                <small>登陆时间-${timestamp}</small>
+                                ${admin.aemail}
+                                  <br>
+                                <small>登陆时间 - ${timestamp}</small>
                             </p>
                         </li>
 
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="/main" class="btn btn-default btn-flat">个人</a>
+                                <a href="/admin/main" class="btn btn-default btn-flat">个人</a>
                             </div>
                             <div class="pull-right">
-                                <a href="/signout" class="btn btn-default btn-flat">注销</a>
+                                <a href="/admin/loginout" class="btn btn-default btn-flat">注销</a>
                             </div>
                         </li>
                     </ul>

@@ -14,5 +14,6 @@ public interface AdminDao {
 	 */
 	Admin selectAdmin(Admin admin);
 
+
 	List<Admin> selectAll();
 }

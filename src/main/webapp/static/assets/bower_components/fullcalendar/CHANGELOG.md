@@ -523,7 +523,7 @@ v2.2.3 (2014-11-26)
 - Bug when rendering business hours and navigating away from original view ([2365])
 - Links to Google Calendar events will use current timezone ([2122])
 - Google Calendar plugin works with timezone names that have spaces
-- Google Calendar plugin accepts person email addresses as calendar IDs
+- Google Calendar plugin accepts person uemail addresses as calendar IDs
 - Internally use numeric sort instead of alphanumeric sort ([2370])
 
 [2368]: https://code.google.com/p/fullcalendar/issues/detail?id=2368

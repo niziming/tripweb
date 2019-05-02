@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.zm.trip.web.dao.UserDao">
+	<!--片段-->
+	<sql id="UserColumns">
+		tp_uid as uid,
+		tp_uname as uname,
+		tp_uemail as uemail,
+		tp_upwd as upwd,
+		tp_age as age,
+		tp_gender as gender,
+		tp_phone as phone,
+		tp_regdate as regDate,
+		tp_update_time as updateTime
+    </sql>
+	<!--新建用户-->
+	<insert id="insertUser">
+		insert into tp_user(
+			tp_uname,
+			tp_uemail,
+			tp_upwd,
+			tp_regdate
+		)values (
+		 	#{uname},
+            #{uemail},
+            #{upwd},
+            #{regDate}
+		)
+	</insert>
+
+	<!--查询Admin-->
+	<select id="selectAll" resultType="User">
+		SELECT * FROM tp_user
+	</select>
+
+</mapper>

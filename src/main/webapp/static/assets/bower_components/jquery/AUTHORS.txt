@@ -171,8 +171,8 @@ Rod Vagg <rod@vagg.org>
 Bennett Sorbo <bsorbo@gmail.com>
 Sebastian Burkhard <sebi.burkhard@gmail.com>
 Zachary Adam Kaplan <razic@viralkitty.com>
-nanto_vi <nanto@moon.email.ne.jp>
-nanto <nanto@moon.email.ne.jp>
+nanto_vi <nanto@moon.uemail.ne.jp>
+nanto <nanto@moon.uemail.ne.jp>
 Danil Somsikov <danilasomsikov@gmail.com>
 Ryunosuke SATO <tricknotes.rs@gmail.com>
 Jean Boussier <jean.boussier@gmail.com>

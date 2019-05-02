@@ -892,6 +892,7 @@
     <column id="221" parent="208" name="tp_gender">
       <Position>6</Position>
       <DataType>varchar(4)|0s</DataType>
+      <DefaultExpression>&apos;男&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="222" parent="208" name="tp_phone">

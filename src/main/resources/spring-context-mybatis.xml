@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
-
+	<!--spring集成mybatis-->
 	<!-- 配置 SqlSession -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
@@ -9,11 +9,11 @@
 		<property name="typeAliasesPackage" value="cn.zm.trip.web.domain"/>
 		<!-- 用于配置对象关系映射配置文件所在目录 -->
 		<property name="mapperLocations" value="classpath:/mapper/**/*.xml"/>
-		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
+		<property name="configLocation" value="classpath:/mybatis-config.xml"/>
 	</bean>
 
-	<!-- 扫描 Mapper -->
+	<!-- 扫描dao Mapper -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="cn.zm.trip.web.dao" />
+		<property name="basePackage" value="cn.zm.trip.web.dao"/>
 	</bean>
 </beans>

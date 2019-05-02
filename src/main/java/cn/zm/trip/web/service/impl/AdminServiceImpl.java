@@ -15,10 +15,8 @@ public class AdminServiceImpl implements AdminService {
 
 	@Override
 	public Admin login(String email, String pwd) {
-		Admin getAdmin = new Admin(email, pwd);
-		System.out.println(getAdmin);
-		Admin user = adminDao.selectAdmin(getAdmin);
-		return user;
+		Admin admin = adminDao.selectAdmin(new Admin(email, pwd));
+		return admin;
 	}
 
 	@Override

@@ -8,10 +8,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="static/assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="/static/assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>${user.uname}</p>
+                <p>${admin.aname}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -38,8 +38,8 @@
                         </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/userlist" target="admin"><i class="fa fa-circle-o"></i>用户列表</a></li>
-                    <li><a href="/userform" target="admin"><i class="fa fa-circle-o"></i>新增用户</a></li>
+                    <li><a href="/admin/userlist" target="admin"><i class="fa fa-circle-o"></i>用户列表</a></li>
+                    <li><a href="user/form" target="admin"><i class="fa fa-circle-o"></i>新增用户</a></li>
                 </ul>
             </li>
         </ul>

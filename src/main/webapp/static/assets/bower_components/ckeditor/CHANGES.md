@@ -409,8 +409,8 @@ Other Changes:
 Fixed Issues:
 
 * [#13887](https://dev.ckeditor.com/ticket/13887): Fixed: [Link](https://ckeditor.com/cke4/addon/link) plugin alters the `target` attribute value. Thanks to [SamZiemer](https://github.com/SamZiemer)!
-* [#12189](https://dev.ckeditor.com/ticket/12189): Fixed: The [Link](https://ckeditor.com/cke4/addon/link) plugin dialog does not display the subject of email links if the subject parameter is not lowercase.
-* [#9192](https://dev.ckeditor.com/ticket/9192): Fixed: An `undefined` string is appended to an email address added with the [Link](https://ckeditor.com/cke4/addon/link) plugin if subject and email body are empty and [`config.emailProtection`](https://docs.ckeditor.com/ckeditor4/docs/#!/api/CKEDITOR.config-cfg-emailProtection) is set to `encode`.
+* [#12189](https://dev.ckeditor.com/ticket/12189): Fixed: The [Link](https://ckeditor.com/cke4/addon/link) plugin dialog does not display the subject of uemail links if the subject parameter is not lowercase.
+* [#9192](https://dev.ckeditor.com/ticket/9192): Fixed: An `undefined` string is appended to an uemail address added with the [Link](https://ckeditor.com/cke4/addon/link) plugin if subject and uemail body are empty and [`config.emailProtection`](https://docs.ckeditor.com/ckeditor4/docs/#!/api/CKEDITOR.config-cfg-emailProtection) is set to `encode`.
 * [#13790](https://dev.ckeditor.com/ticket/13790): Fixed: It is not possible to destroy the editor `<iframe>` after the editor was detached from DOM. Thanks to [Stefan Rijnhart](https://github.com/StefanRijnhart)!
 * [#13803](https://dev.ckeditor.com/ticket/13803): Fixed: The editor cannot be destroyed before being fully initialized. Thanks to [Cyril Fluck](https://github.com/cyril-sf)!
 * [#13867](https://dev.ckeditor.com/ticket/13867): Fixed: CKEditor does not work when the `classList` polyfill is used.
@@ -1379,7 +1379,7 @@ Fixed Issues:
 * [#9800](https://dev.ckeditor.com/ticket/9800): Hide float panel when resizing the window.
 * [#9721](https://dev.ckeditor.com/ticket/9721): Padding in content of div-based editor puts the editing area under the bottom UI space.
 * [#9528](https://dev.ckeditor.com/ticket/9528): Host page `box-sizing` style should not influence the editor UI elements.
-* [#9503](https://dev.ckeditor.com/ticket/9503): [Form Elements](https://ckeditor.com/cke4/addon/forms) plugin adds context menu listeners only on supported input types. Added support for `tel`, `email`, `search` and `url` input types.
+* [#9503](https://dev.ckeditor.com/ticket/9503): [Form Elements](https://ckeditor.com/cke4/addon/forms) plugin adds context menu listeners only on supported input types. Added support for `tel`, `uemail`, `search` and `url` input types.
 * [#9769](https://dev.ckeditor.com/ticket/9769): Improved floating toolbar positioning in a narrow window.
 * [#9875](https://dev.ckeditor.com/ticket/9875): Table dialog window does not populate width correctly.
 * [#8675](https://dev.ckeditor.com/ticket/8675): Deleting cells in a nested table removes the outer table cell.
