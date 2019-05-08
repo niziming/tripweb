@@ -7,7 +7,7 @@
 <html>
 <%--Header Begin--%>
 <head>
-	<title>MyShop | 登陆</title>
+	<title>Edit | 用户</title>
 	<jsp:include page="../../../includes/header.jsp"/>
 </head>
 

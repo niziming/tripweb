@@ -19,11 +19,7 @@ import java.util.List;
 public class AdminController {
 	@Autowired
 	private AdminService adminService;
-
-	@Autowired
 	private UserService userService;
-
-	@Autowired
 	private HttpSession session;
 
 	/**

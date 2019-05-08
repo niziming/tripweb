@@ -18,7 +18,7 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li><a href="#">景点VIEWS</a></li>
+					<li><a href="/view/point">景点VIEWS</a></li>
 					<li><a href="#">定制CUSTOMIZE</a></li>
 					<li><a href="#">酒店HOTEL</a></li>
 					<li><a href="#">新闻NEWS</a></li>
