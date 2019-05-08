@@ -1,4 +1,4 @@
-package cn.zm.trip.web.service.impl;
+package cn.zm.trip.web.service;
 
 import cn.zm.trip.web.domain.Admin;
 import cn.zm.trip.web.service.AdminService;
@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring-context.xml", "classpath:spring-context-druid.xml", "classpath:spring-context-mybatis.xml"})
-public class AdminServiceImplTest {
+public class AdminServiceTest {
 	@Autowired
 	private AdminService adminService;
 	@Test

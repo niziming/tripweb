@@ -1,7 +1,9 @@
+<%@ page import="java.util.Date" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<% Date nowDate = new Date();
+	request.setAttribute("nowDate", nowDate); %>
 <header class="main-header">
 	<nav class="navbar navbar-static-top">
 		<div class="container">
@@ -16,11 +18,11 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">首页SHOW<span class="sr-only">(current)</span></a></li>
 					<li><a href="#">景点VIEWS</a></li>
 					<li><a href="#">定制CUSTOMIZE</a></li>
 					<li><a href="#">酒店HOTEL</a></li>
-					<li><a href="#">信息FAQ</a></li>
+					<li><a href="#">新闻NEWS</a></li>
+					<li><a href="#">留言COMM</a></li>
 				</ul>
 				<form class="navbar-form navbar-right" role="search">
 					<div class="form-group">
@@ -31,34 +33,39 @@
 			<!-- /.navbar-collapse -->
 			<!-- 登陆后navigate -->
 			<div class="navbar-custom-menu">
+
 				<c:if test="${user != null}">
 					<ul class="nav navbar-nav">
+
 						<!-- User Account Menu -->
 						<li class="dropdown user user-menu">
+
 							<!-- Menu Toggle Button -->
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								<!-- The user image in the navbar-->
-								<img src="static/assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
+								<img src="${path}/static/assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
 								<!-- hidden-xs hides the username on small devices so only the image appears. -->
-								<span class="hidden-xs">Alexander Pierce</span>
+								<span class="hidden-xs">${user.uname}</span>
 							</a>
 							<ul class="dropdown-menu">
+
 								<!-- The user image in the menu -->
 								<li class="user-header">
-									<img src="static/assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+									<img src="${path}/static/assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
 									<p>
-											${user.uname} - Web Developer
-										<small></small>
+											${user.uname} - 欢迎登陆
+										<small>登录时间:<fmt:formatDate value="${nowDate}" pattern="yyyy-MM-dd:HH:mm:ss"/></small>
 									</p>
 								</li>
 								<!-- Menu Footer-->
 								<li class="user-footer">
 									<div class="pull-left">
-										<a href="#" class="btn btn-default btn-flat">个人</a>
+										<a href="/user/info" class="btn btn-default btn-flat">个人</a>
 									</div>
 									<div class="pull-right">
-										<a href="#" class="btn btn-default btn-flat">${user != null ? '注销' : '登陆'}</a>
+										<a href="/user/loginout" class="btn btn-default btn-flat">${user != null ? '注销' : '登陆'}</a>
 									</div>
 								</li>
 							</ul>
@@ -78,21 +85,35 @@
 							</a>
 							<ul class="dropdown-menu">
 								<li>
+
 									<div class="box box-info">
+
 										<div class="box-header with-border">
+												<%--Denger alert--%>
+											<c:if test="${msg.msg != null}">
+												<div class="alert alert-${msg.status == 200 ? "success" : "danger"} alert-dismissible">
+													<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;
+													</button>
+														<%--${msg}--%>
+													<p>${msg.msg}</p>
+												</div>
+											</c:if>
+												<%--/.alert--%>
 											<h3 class="box-title">欢迎登陆</h3>
 										</div>
+
 										<!-- /.box-header -->
 										<!-- form start -->
-										<form class="form-horizontal">
+										<form class="form-horizontal" action="/user/login" method="post">
 											<div class="box-body">
 												<div class="form-group">
 													<label for="inputEmail3" class="col-sm-3 control-label">邮 箱:</label>
 
 													<div class="col-sm-9">
-														<input type="uemail" class="form-control" id="inputEmail3"
-														       placeholder="Email">
+														<input type="email" class="form-control" id="inputEmail3"
+														       placeholder="Email" name="uemail">
 													</div>
+
 												</div>
 												<div class="form-group">
 													<label for="inputPassword3" class="col-sm-3 control-label">密
@@ -100,7 +121,7 @@
 
 													<div class="col-sm-9">
 														<input type="password" class="form-control" id="inputPassword3"
-														       placeholder="Password">
+														       placeholder="Password" name="upwd">
 													</div>
 												</div>
 											</div>

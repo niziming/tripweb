@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!--数据库驱动-->
+	<!--
+		如果IDE(eclipse或者idea) 项目里导入了jar包，那么就不需要配置了jar包的绝对路径了
+		 <classPathEntry    location="e:/project/mybatis/lib/mysql-connector-java-5.0.8-bin.jar"/>
+	-->
+
+	<!-- 引入配置文件 -->
+	<properties resource="tripweb.properties"/>
+
+	<!--一般情况下由于 MBG 生成的注释信息没有任何价值，而且有时间戳的情况下每次生成的注释都不一样，使用 ** 版本控制 ** -->
+	<!--的时候每次都会提交，因而一般情况下我们都会屏蔽注释信息，可以如下配置：-->
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<!--是否生成注释代时间戳-->
+			<property name="suppressDate" value="true"/>
+			<!--是否取消注释-->
+			<property name="suppressAllComments" value="false"/>
+		</commentGenerator>
+
+		<!--数据库链接驱动地址账号密码-->
+		<jdbcConnection driverClass="${jdbc.driverClass}"
+		                connectionURL="${jdbc.connectionURL}"
+		                userId="${jdbc.username}"
+		                password="${jdbc.password}">
+		</jdbcConnection>
+
+		<!--这个元素的配置用来指定 JDBC 类型和 Java 类型如何转换。-->
+		<javaTypeResolver>
+			<!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+			<property name="forceBigDecimals" value="false"/>
+		</javaTypeResolver>
+
+		<!--生成Model类存放位置 该元素用来控制生成的实体类，根据 <context> 中配置的 defaultModelType，一个表可能会对应生成多个不同的实体类。
+		一个表对应多个类实际上并不方便，所以前面也推荐使用 flat，这种情况下一个表对应一个实体类。-->
+		<javaModelGenerator targetPackage="cn.zm.trip.web.domain" targetProject="src\main\java">
+			<property name="enableSubPackages" value="true"/>
+			<property name="trimStrings" value="true"/>
+		</javaModelGenerator>
+
+		<!--生成映射文件存放位置-->
+		<sqlMapGenerator targetPackage="resources.mapper" targetProject="src\main">
+			<property name="enableSubPackages" value="true"/>
+		</sqlMapGenerator>
+
+		<!--生成Dao类存放位置-->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="cn.zm.trip.web.dao" targetProject="src\main\java">
+			<!-- 是否在当前路径下新加一层schema,eg：fase路径com.oop.eksp.user.model， true:com.oop.eksp.user.model.[schemaName] -->
+			<property name="enableSubPackages" value="true"/>
+		</javaClientGenerator>
+
+		<!--生成对应表及类名-->
+		<table tableName="tp_viewpoint" mapperName="ViewPointDao" domainObjectName="ViewPoint" enableCountByExample="false"
+		       enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+		       selectByExampleQueryId="false">
+		</table>
+
+	</context>
+</generatorConfiguration>

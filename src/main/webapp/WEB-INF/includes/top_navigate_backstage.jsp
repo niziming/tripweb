@@ -3,7 +3,7 @@
 
 <header class="main-header">
     <!-- Logo -->
-    <a href="/main" class="logo">
+    <a href="/index" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>TRIP</b></span>
         <!-- logo for regular state and mobile devices -->

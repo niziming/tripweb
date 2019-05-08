@@ -19,4 +19,34 @@ public interface UserDao {
 	 * @return
 	 */
 	List<User> selectAll();
+
+	/**
+	 * 用户模糊查询
+	 * @param user
+	 * @return
+	 */
+	List<User> search(User user);
+
+	/**
+	 * 单击删除用户
+	 */
+	void userDelete(String uid);
+
+	/**
+	 * 用户登陆
+	 *
+	 */
+	User userLogin(User user);
+
+	/**
+	 * 用户单个查询
+	 *
+	 */
+	User userGet(String uid);
+
+	/**
+	 * 用户信息更新
+	 *
+	 */
+	void updataUserInfo(User user);
 }

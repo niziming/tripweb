@@ -131,58 +131,6 @@
 							</div>
 						</div>
 					</div>
-
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="/static/assets/img/photo1.png" alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>2019-05-01 19:46:13,538 INFO [com.alibaba.druid.pool.DruidDataSource] -
-									{dataSource-1} inited
-									Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl'
-									adapter.
-									2019-05-01 19:46:14,048 INFO [org.springframework.web.context.ContextLoader] - Root
-									WebAppli</p>
-								<p>
-									<a href="#" class="btn btn-primary -align-right" role="button">查看</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="/static/assets/img/photo1.png" alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>2019-05-01 19:46:13,538 INFO [com.alibaba.druid.pool.DruidDataSource] -
-									{dataSource-1} inited
-									Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl'
-									adapter.
-									2019-05-01 19:46:14,048 INFO [org.springframework.web.context.ContextLoader] - Root
-									WebAppli</p>
-								<p>
-									<a href="#" class="btn btn-primary -align-right" role="button">查看</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="/static/assets/img/photo1.png" alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>2019-05-01 19:46:13,538 INFO [com.alibaba.druid.pool.DruidDataSource] -
-									{dataSource-1} inited
-									Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl'
-									adapter.
-									2019-05-01 19:46:14,048 INFO [org.springframework.web.context.ContextLoader] - Root
-									WebAppli</p>
-								<p>
-									<a href="#" class="btn btn-primary -align-right" role="button">查看</a>
-							</div>
-						</div>
-					</div>
-
 				</div>
 			</section>
 			<%--酒店--%>
@@ -244,58 +192,6 @@
 							</div>
 						</div>
 					</div>
-
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="/static/assets/img/photo1.png" alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>2019-05-01 19:46:13,538 INFO [com.alibaba.druid.pool.DruidDataSource] -
-									{dataSource-1} inited
-									Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl'
-									adapter.
-									2019-05-01 19:46:14,048 INFO [org.springframework.web.context.ContextLoader] - Root
-									WebAppli</p>
-								<p>
-									<a href="#" class="btn btn-primary -align-right" role="button">查看</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="/static/assets/img/photo1.png" alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>2019-05-01 19:46:13,538 INFO [com.alibaba.druid.pool.DruidDataSource] -
-									{dataSource-1} inited
-									Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl'
-									adapter.
-									2019-05-01 19:46:14,048 INFO [org.springframework.web.context.ContextLoader] - Root
-									WebAppli</p>
-								<p>
-									<a href="#" class="btn btn-primary -align-right" role="button">查看</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="/static/assets/img/photo1.png" alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>2019-05-01 19:46:13,538 INFO [com.alibaba.druid.pool.DruidDataSource] -
-									{dataSource-1} inited
-									Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl'
-									adapter.
-									2019-05-01 19:46:14,048 INFO [org.springframework.web.context.ContextLoader] - Root
-									WebAppli</p>
-								<p>
-									<a href="#" class="btn btn-primary -align-right" role="button">查看</a>
-							</div>
-						</div>
-					</div>
-
 				</div>
 			</section>
 

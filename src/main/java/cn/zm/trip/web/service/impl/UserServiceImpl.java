@@ -20,7 +20,37 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> selectAll() {
-		List<User> users = new ArrayList<>();
-		return users;
+		return userDao.selectAll();
+	}
+
+	@Override
+	public List<User> search(String keyword) {
+		User user = new User();
+		user.setUid(keyword);
+		user.setUname(keyword);
+		user.setUemail(keyword);
+		return userDao.search(user);
+	}
+
+	@Override
+	public void userDelete(String uid) {
+		userDao.userDelete(uid);
+	}
+
+	@Override
+	public User userLogin(User user) {
+		User loginUser = userDao.userLogin(user);
+		return loginUser;
+	}
+
+	@Override
+	public User userGet(String uid) {
+		User user = userDao.userGet(uid);
+		return user;
+	}
+
+	@Override
+	public void updataUserInfo(User user) {
+		userDao.updataUserInfo(user);
 	}
 }

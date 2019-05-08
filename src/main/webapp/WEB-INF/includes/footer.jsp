@@ -40,6 +40,9 @@ ${path}<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media qu
 <script src="${path}/static/assets/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="${path}/static/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
+<%--app--%>
+<script src="${path}/static/assets/app/app.js"></script>
+
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button);

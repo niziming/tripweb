@@ -35,9 +35,9 @@
         </c:if>
         <%--/.alert--%>
 
-        <form action="login" method="post">
+        <form action="/admin/login" method="post">
             <div class="form-group has-feedback">
-                <input type="uemail" class="form-control" placeholder="邮箱" name="aemail"/>
+                <input type="email" class="form-control" placeholder="邮箱" name="aemail"/>
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
 

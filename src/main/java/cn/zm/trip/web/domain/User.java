@@ -7,8 +7,9 @@ public class User implements Serializable {
 	private String uid;
 	private String uname;
 	private String uemail;
-	private String uage;
+	private String age;
 	private String gender;
+	private String phone;
 	private String upwd;
 	private Date regDate;
 	private Date updateTime;
@@ -29,10 +30,8 @@ public class User implements Serializable {
 	}
 
 	public User() {
-
+		this.updateTime = new Date();
 	}
-
-
 
 	public String getUid() {
 		return uid;
@@ -58,12 +57,12 @@ public class User implements Serializable {
 		this.uemail = uemail;
 	}
 
-	public String getUage() {
-		return uage;
+	public String getAge() {
+		return age;
 	}
 
-	public void setUage(String uage) {
-		this.uage = uage;
+	public void setAge(String age) {
+		this.age = age;
 	}
 
 	public String getGender() {
@@ -72,6 +71,14 @@ public class User implements Serializable {
 
 	public void setGender(String gender) {
 		this.gender = gender;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 
 	public String getUpwd() {
@@ -86,12 +93,13 @@ public class User implements Serializable {
 		return regDate;
 	}
 
+
 	public Date getUpdateTime() {
 		return updateTime;
 	}
 
-	public void setUpdateTime() {
-		this.updateTime = new Date();
+	public void setUpdateTime(Date updateTime) {
+		this.updateTime = updateTime;
 	}
 
 	@Override
@@ -100,7 +108,8 @@ public class User implements Serializable {
 				"uid='" + uid + '\'' +
 				", uname='" + uname + '\'' +
 				", uemail='" + uemail + '\'' +
-				", uage='" + uage + '\'' +
+				", age='" + age + '\'' +
+				", phone='" + phone + '\'' +
 				", gender='" + gender + '\'' +
 				", upwd='" + upwd + '\'' +
 				", regDate=" + regDate +

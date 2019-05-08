@@ -14,6 +14,7 @@
 		tp_regdate as regDate,
 		tp_update_time as updateTime
     </sql>
+
 	<!--新建用户-->
 	<insert id="insertUser">
 		insert into tp_user(
@@ -29,9 +30,95 @@
 		)
 	</insert>
 
-	<!--查询Admin-->
+	<!--查询所有用户-->
 	<select id="selectAll" resultType="User">
-		SELECT * FROM tp_user
+		SELECT <include refid="UserColumns"/> FROM tp_user
 	</select>
 
+	<!--用户列表模糊搜索-->
+	<select id="search" resultType="User">
+		SELECT
+		tp_uid as uid,
+		tp_uname as uname,
+		tp_uemail as uemail,
+		tp_upwd as upwd,
+		tp_age as age,
+		tp_gender as gender,
+		tp_phone as phone,
+		tp_regdate as regDate,
+		tp_update_time as updateTime
+		FROM
+		tp_user
+		<where>
+			<if test="uid != null and uid != ''">
+				or tp_uid = #{uid}
+			</if>
+
+			<if test="uname != null and uname != ''">
+				or tp_uname LIKE concat('%', #{uname}, '%')
+			</if>
+
+			<if test="uemail != null and uemail != ''">
+				or tp_uemail  LIKE concat('%', #{uemail}, '%')
+			</if>
+		</where>
+	</select>
+	<!--删除用户-->
+	<delete id="userDelete">
+		delete from
+			tp_user
+		where tp_uid = #{uid};
+	</delete>
+
+	<!--用户登录 新建用户-->
+	<select id="userLogin" resultType="User">
+		select
+			<include refid="UserColumns" />
+		from tp_user
+		where
+			tp_uemail = #{uemail}
+		and
+			tp_upwd = #{upwd}
+	</select>
+
+	<!--用户查询-->
+	<select id="userGet" resultType="User">
+		select
+			<include refid="UserColumns" />
+		from tp_user
+		where
+			tp_uid = #{uid}
+	</select>
+
+	<!--更新用户信息,根据用户id修改用户信息-->
+	<update id="updataUserInfo">
+		update tp_user
+		<set>
+			<if test="uname != null and uname != ''">
+				tp_uname = #{uname},
+			</if>
+			<if test="uemail != null and uemail != ''">
+				tp_uemail = #{uemail},
+			</if>
+			<if test="upwd != null and upwd != ''">
+				tp_upwd = #{upwd},
+			</if>
+			<if test="age != null and age != ''">
+				tp_age = #{age},
+			</if>
+			<if test="gender != null and gender != ''">
+				tp_gender = #{gender},
+			</if>
+			<if test="phone != null and phone != ''">
+				tp_phone = #{phone},
+			</if>
+			<if test="regDate != null and regDate != ''">
+				tp_regdate = #{regDate},
+			</if>
+			<if test="updateTime != null and updateTime != ''">
+				tp_update_time = #{updateTime},
+			</if>
+		</set>
+		where tp_uid = #{uid}
+	</update>
 </mapper>
