@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%--代表HTML5--%>
 <!DOCTYPE html>
@@ -22,11 +23,13 @@
 		<div class="container">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
+				<br>
 				<h1>
-					首页 | show
+					首页 | Show
 					<small>轮播展示</small>
 				</h1>
 				<ol class="breadcrumb">
+					<br>
 					<li><a href="/index"><i class="fa fa-dashboard"></i> 首页</a></li>
 					<li><a href="#">SHOW</a></li>
 				</ol>
@@ -81,62 +84,43 @@
 				<br>
 				<%--自定义内容--%>
 				<div class="row">
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="/static/assets/img/photo1.png" alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>2019-05-01 19:46:13,538 INFO [com.alibaba.druid.pool.DruidDataSource] -
-									{dataSource-1} inited
-									Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl'
-									adapter.
-									2019-05-01 19:46:14,048 INFO [org.springframework.web.context.ContextLoader] - Root
-									WebAppli</p>
-								<p>
-									<a href="#" class="btn btn-primary -align-right" role="button">查看</a>
+					<c:forEach items="${viewPoints}" var="viewPoint">
+						<%--自定义内容--%>
+						<div class="col-sm-6 col-md-4 col-lg-3 viewpages">
+							<div class="thumbnail" style="height: 420px;">
+								<a href="#">
+									<img src="${viewPoint.tpVpic}" href="#" alt="..." class="img-rounded">
+								</a>
+								<div class="caption">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-md-12">
+												<h4>${fn:substring(viewPoint.tpTitle,0,9)}...</h4>
+												<h5>
+													[${viewPoint.tpVname}&nbsp;<small>| ${viewPoint.tpLocation}</small>]
+												</h5>
+												<strong>等级: ${viewPoint.tpLevel}</strong>|<strong>开放时间: ${viewPoint.tpOpentime}</strong>|<strong>类型: ${viewPoint.tpVtype}</strong><br>
+												详细地址:${fn:substring(viewPoint.tpZip,0,7)}...<br/>电话: ${viewPoint.tpVphone}
+												<div class="form-group" style="text-align: right;">
+													<a class="btn" href="#">查看更多 »</a>
+												</div>
+											</div>
+											<div class="form-group" style="text-align: right;">
+												<a href="#" class="btn btn-primary" role="button"><span
+														class="fa fa-star-o"></span> 收藏</a>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="/static/assets/img/photo1.png" alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>2019-05-01 19:46:13,538 INFO [com.alibaba.druid.pool.DruidDataSource] -
-									{dataSource-1} inited
-									Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl'
-									adapter.
-									2019-05-01 19:46:14,048 INFO [org.springframework.web.context.ContextLoader] - Root
-									WebAppli</p>
-								<p>
-									<a href="#" class="btn btn-primary -align-right" role="button">查看</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="/static/assets/img/photo1.png" alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>2019-05-01 19:46:13,538 INFO [com.alibaba.druid.pool.DruidDataSource] -
-									{dataSource-1} inited
-									Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl'
-									adapter.
-									2019-05-01 19:46:14,048 INFO [org.springframework.web.context.ContextLoader] - Root
-									WebAppli</p>
-								<p>
-									<a href="#" class="btn btn-primary -align-right" role="button">查看</a>
-							</div>
-						</div>
-					</div>
+					</c:forEach>
 				</div>
 			</section>
 			<%--酒店--%>
 			<section class="content-header">
 				<h1>
-					酒店 | hotel
+					酒店 | Hotel
 					<small>概略一览</small>
 				</h1>
 				<br>
@@ -204,9 +188,7 @@
 	<jsp:include page="../includes/copyright.jsp"/>
 </div>
 <!-- ./wrapper -->
-
-</body>
 <%--js--%>
 <jsp:include page="../includes/footer.jsp"/>
-
+</body>
 </html>

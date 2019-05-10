@@ -37,7 +37,7 @@ public class GenerateCharacters {
 		return sb;
 	}
 
-	public static List<String>  generatestrings(int number){
+	public static List<String>  generateStrings(int number){
 
 		List<String> strings = new ArrayList<>();
 		while (number > 0){

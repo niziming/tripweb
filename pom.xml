@@ -244,8 +244,8 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.7.0</version>
 					<configuration>
-						<source>${java.version}</source>
-						<target>${java.version}</target>
+						<source>1.8</source>
+						<target>1.8</target>
 						<encoding>${project.build.sourceEncoding}</encoding>
 						<showWarnings>true</showWarnings>
 					</configuration>

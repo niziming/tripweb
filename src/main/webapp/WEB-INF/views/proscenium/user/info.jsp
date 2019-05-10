@@ -22,11 +22,13 @@
 		<div class="container">
 			<!-- Content Header (Page header) -->
 			<section class="content-header">
+				<br>
 				<h1>
 					个人信息 | show
 					<small>个人信息展示</small>
 				</h1>
 				<ol class="breadcrumb">
+					<br>
 					<li><a href="/user/personal"><i class="fa fa-dashboard"></i> 个人信息</a></li>
 					<li><a href="#">SHOW</a></li>
 				</ol>
@@ -48,7 +50,8 @@
 					<div class="box-body">
 						<form class="form-horizontal">
 							<div style="align-items: center;">
-								<img src="${path}/static/assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+								<img src="${path}/static/assets/img/user2-160x160.jpg" class="img-circle"
+								     alt="User Image">
 							</div>
 							<%--uid--%>
 							<div class="form-group">
@@ -148,21 +151,16 @@
 					</div>
 				</div>
 			</section>
-
 			<br>
 		</div>
 		<!-- /.container -->
-
 	</div>
 	<!-- /.content-wrapper -->
-
 	<%--版权--%>
 	<jsp:include page="../../../includes/copyright.jsp"/>
 </div>
 <!-- ./wrapper -->
-
-</body>
 <%--js--%>
 <jsp:include page="../../../includes/footer.jsp"/>
-
+</body>
 </html>

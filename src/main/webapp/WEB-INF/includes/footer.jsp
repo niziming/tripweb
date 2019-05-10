@@ -5,7 +5,7 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-${path}<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9] 让IE8支持媒体查询 -->
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -42,6 +42,9 @@ ${path}<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media qu
 
 <%--app--%>
 <script src="${path}/static/assets/app/app.js"></script>
+
+<%--图片上传组件 dropzone--%>
+<script src="/static/assets/dropzone/min/dropzone.min.js"></script>
 
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>

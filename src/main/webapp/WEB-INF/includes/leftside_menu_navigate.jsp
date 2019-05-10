@@ -30,7 +30,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">管理菜单 | Management</li>
-            <li class="active treeview">
+            <li class="treeview">
                 <a href="#">
                     <i class="fa fa-users"></i> <span>用户管理</span>
                     <span class="pull-right-container">
@@ -42,6 +42,19 @@
                     <li><a href="/admin/userform" target="admin"><i class="fa fa-circle-o"></i>用户新增</a></li>
                 </ul>
             </li>
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-book"></i> <span>景点管理</span>
+                    <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="/admin/viewlist" target="admin"><i class="fa fa-circle-o"></i>景点列表</a></li>
+                    <li><a href="/admin/viewedit" target="admin"><i class="fa fa-circle-o"></i>景点新增</a></li>
+                </ul>
+            </li>
+
         </ul>
     </section>
 </aside>

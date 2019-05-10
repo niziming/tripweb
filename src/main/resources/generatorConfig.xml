@@ -55,7 +55,7 @@
 
 		<!--生成对应表及类名-->
 		<table tableName="tp_viewpoint" mapperName="ViewPointDao" domainObjectName="ViewPoint" enableCountByExample="false"
-		       enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false"
+		       enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
 		       selectByExampleQueryId="false">
 		</table>
 

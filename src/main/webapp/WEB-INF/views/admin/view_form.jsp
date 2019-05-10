@@ -21,11 +21,14 @@
 	<div class="content-wrapper">
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
-			<br>
 			<h1>
-				用户管理 | <small>操作</small>
+				<br>
+				景点管理|
+				<small>操作</small>
 			</h1>
+
 			<ol class="breadcrumb">
+				<br>
 				<li><a href="#"><i class="fa fa-users"></i> Operate </a></li>
 				<li class="active">Users</li>
 			</ol>
@@ -37,77 +40,108 @@
 			<c:if test="${msg.msg != null}" >
 				<div class="alert alert-${msg.status == 200 ? "success" : "danger"} alert-dismissible">
 					<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-					<h4><i class="icon fa fa-ban"></i>${msg.msg}</h4>
+					<h4>${msg.msg}</h4>
 				</div>
 			</c:if>
 			<%--danger alert--%>
 			<div class="box">
 				<%--用户表单--%>
 				<div class="box box-info">
+				<div class="box box-info">
 					<div class="box-header with-border">
-						<h3 class="box-title">用户编辑</h3>
+						<h3 class="box-title">景点编辑</h3>
 					</div>
 					<!-- /.box-header -->
 					<!-- form start -->
-					<form class="form-horizontal" action="/admin/useredithandle" method="post">
+					<form class="form-horizontal" action="/admin/viewinsert" method="post">
 						<div class="box-body">
-							<%--uid--%>
-							<div class="form-group">
-								<label for="inputUid" class="col-sm-2 control-label">用户ID</label>
-								<div class="col-sm-10">
-									<input type="text" readonly name="uid" value="${user.uid}" class="form-control" id="inputUid" placeholder="${user.uid}">
-								</div>
-							</div>
 							<%--uname--%>
 							<div class="form-group">
-								<label for="inputUname" class="col-sm-2 control-label">用户名</label>
+								<label for="tpLocation" class="col-sm-2 control-label">景点归属</label>
 								<div class="col-sm-10">
-									<input type="text" name="uname" class="form-control" id="inputUname" placeholder="${user.uname}">
+									<input type="text" name="tpLocation" class="form-control" id="tpLocation" placeholder="${viewPoint.tpLocation}">
 								</div>
 							</div>
 
 							<%--email--%>
 							<div class="form-group">
-								<label for="inputEmail" class="col-sm-2 control-label">邮&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;箱</label>
+								<label for="tpTitle" class="col-sm-2 control-label">景点标题</label>
 
 								<div class="col-sm-10">
-									<input type="email" name="uemail" class="form-control" id="inputEmail" placeholder="${user.uemail}">
+									<input type="text" name="tpTitle" class="form-control" id="tpTitle" placeholder="${viewPoint.tpTitle}">
+								</div>
+							</div>
+
+							<%--email--%>
+							<div class="form-group">
+								<label for="tpTitle" class="col-sm-2 control-label">景点名称</label>
+
+								<div class="col-sm-10">
+									<input type="text" name="tpVname" class="form-control" id="tpVname" placeholder="${viewPoint.tpVname}">
 								</div>
 							</div>
 
 							<%--pwd--%>
 							<div class="form-group">
-								<label for="inputPwd" class="col-sm-2 control-label">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+								<label for="tpVtype" class="col-sm-2 control-label">景点类型</label>
 
 								<div class="col-sm-10">
-									<input type="password" name="upwd" class="form-control" id="inputPwd" placeholder="${user.upwd}">
+									<input type="text" name="tpVtype" class="form-control" id="tpVtype" placeholder="${viewPoint.tpVtype}">
 								</div>
 							</div>
 
 							<%--age--%>
 							<div class="form-group">
-								<label for="inputAge" class="col-sm-2 control-label">年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄</label>
+								<label for="tpVphone" class="col-sm-2 control-label">联系电话</label>
 
 								<div class="col-sm-10">
-									<input type="text" name="age" class="form-control" id="inputAge" placeholder="${user.age}">
+									<input type="text" name="tpVphone" class="form-control" id="tpVphone" placeholder="${viewPoint.tpVphone}">
 								</div>
 							</div>
 
 							<%--gender--%>
 							<div class="form-group">
-								<label for="inputGender" class="col-sm-2 control-label">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</label>
+								<label for="tpLevel" class="col-sm-2 control-label">景点等级</label>
 
 								<div class="col-sm-10">
-									<input type="text" name="gender" class="form-control" id="inputGender" placeholder="${user.gender}">
+									<input type="text" name="tpLevel" class="form-control" id="tpLevel" placeholder="${viewPoint.tpLevel}">
 								</div>
 							</div>
 
 							<%--PHONE--%>
 							<div class="form-group">
-								<label for="inputPhone" class="col-sm-2 control-label">电&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;话</label>
+								<label for="tpPrice" class="col-sm-2 control-label">景点价格</label>
 
 								<div class="col-sm-10">
-									<input type="text" name="phone" class="form-control" id="inputPhone" placeholder="${user.phone}">
+									<input type="text" name="tpPrice" class="form-control" id="tpPrice" placeholder="${viewPoint.tpPrice}">
+								</div>
+							</div>
+
+							<%--PHONE--%>
+							<div class="form-group">
+								<label for="tpPrice" class="col-sm-2 control-label">景点缩略</label>
+
+								<div class="col-sm-10">
+									<input type="text" name="tpVpic" class="form-control" id="tpVpic" placeholder="${viewPoint.tpVpic}">
+								</div>
+							</div>
+
+							<%--PHONE--%>
+							<div class="form-group">
+								<label for="tpPrice" class="col-sm-2 control-label">详细地址</label>
+
+								<div class="col-sm-10">
+									<input type="text" name="tpZip" class="form-control" id="tpZip" placeholder="${viewPoint.tpZip}">
+								</div>
+							</div>
+
+							<%--PHONE--%>
+							<div class="form-group">
+								<label for="tpPrice" class="col-sm-2 control-label">开放时间</label>
+
+								<div class="col-sm-10">
+									<input type="text" name="tpOpentime" class="form-control" id="tpOpentime"
+									       placeholder="${viewPoint.tpOpentime}">
 								</div>
 							</div>
 
@@ -127,12 +161,10 @@
 	</div>
 	<!-- /.content-wrapper -->
 </div>
-<!-- /.content-wrapper -->
-
 <%--版权--%>
 <jsp:include page="../../includes/copyright.jsp"/>
 <%--css--%>
 <jsp:include page="../../includes/footer.jsp"/>
-
+<!-- page script -->
 </body>
 </html>

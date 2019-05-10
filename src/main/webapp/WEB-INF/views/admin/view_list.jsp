@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%--代表HTML5--%>
 <!DOCTYPE html>
@@ -23,7 +24,7 @@
 		<section class="content-header">
 			<h1>
 				<br>
-				用户管理|
+				景点管理|
 				<small>操作</small>
 			</h1>
 
@@ -48,10 +49,10 @@
 			<%--/.alert--%>
 			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">用户列表</h3>
+					<h3 class="box-title">景点列表</h3>
 					<div class="row" style="padding-left: 12px; padding-top: 10px;">
-						<a href="/admin/userform" type="button" class="btn-primary btn-sm"><i class="fa fa-plus"></i>用户新增</a>&nbsp;&nbsp;
-						<span style="cursor: pointer" type="button" class="btn-primary btn-sm usersectiondelete"><i
+						<a href="/admin/viewform" type="button" class="btn-primary btn-sm"><i class="fa fa-plus"></i>景点新增</a>&nbsp;&nbsp;
+						<span style="cursor: pointer" type="button" class="btn-primary btn-sm viewsectiondelete"><i
 								class="fa fa-trash-o"></i>批量删除</span>&nbsp;&nbsp;
 					</div>
 					<div class="box-tools">
@@ -76,41 +77,47 @@
 									<input type="checkbox" class="minimal icheck_master">
 								</label>
 							</th>
-							<th>用户ID|Uid</th>
-							<th>用户名|Uname</th>
-							<th>邮箱|Email</th>
-							<th>年龄|Age</th>
-							<th>性别|Gender</th>
-							<th>头像|Avatar</th>
-							<th>电话|phone</th>
-							<th>注册时间|RegDate</th>
-							<th>最后更新|UpData</th>
-							<th>编辑|Edit</th>
+							<th>编码|Id</th>
+							<th>归属地|Local</th>
+							<th>标题|Title</th>
+							<th>景点名|Name</th>
+							<th>类型|Type</th>
+							<th>电话|Poh</th>
+							<th>等级|Level</th>
+							<th>票价|Price</th>
+							<th>缩图|Pic</th>
+							<th>地址|Zip</th>
+							<th>开放时间|Open</th>
+							<th>创建时间|Create</th>
+							<th>操作|operate</th>
 						</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${users}" var="user">
+						<c:forEach items="${viewPoints}" var="viewPoint">
 							<tr>
 								<td>
 									<label>
-										<input name="uids" value="${user.uid}" type="checkbox" class="minimal minimal-myminor">
+										<input name="viewPoint" value="${viewPoint.tpVid}" type="checkbox" class="minimal minimal-myminor">
 									</label>
 								</td>
-								<td>${user.uid}</td>
-								<td>${user.uname}</td>
-								<td><span class="label label-primary">${user.uemail}</span></td>
-								<td>${user.age}</td>
-								<td>${user.gender}</td>
-								<td><img src="${user.upic}" /></td>
-								<td>${user.phone}</td>
-								<td><fmt:formatDate value="${user.regDate}" pattern="yyyy-MM-dd"/></td>
-								<td><fmt:formatDate value="${user.updateTime}" pattern="yyyy-MM-dd:HH:mm:dd"/></td>
+								<td>${viewPoint.tpVid}</td>
+								<td><span class="label label-primary">${viewPoint.tpLocation}</span></td>
+								<td>${fn:substring(viewPoint.tpTitle,0,3)}...</td>
+								<td>${fn:substring(viewPoint.tpVname,0,3)}...</td>
+								<td>${viewPoint.tpVtype}</td>
+								<td>${fn:substring(viewPoint.tpVphone,0,8)}...</td>
+								<td><span class="label label-primary">${viewPoint.tpLevel}</span></td>
+								<td>${viewPoint.tpPrice}</td>
+								<td><img style="width: 50px;height: 30px;" src="${viewPoint.tpVpic}" /></td>
+								<td>${fn:substring(viewPoint.tpZip,0,4)}...</td>
+								<td>${viewPoint.tpOpentime}</td>
+								<td><fmt:formatDate value="${viewPoint.tpCreattime}" pattern="yyyy-MM-dd"/></td>
 								<td>
-									<%--<button type="button" class="btn btn-success btn-xs"><i class="fa fa-search"></i>查看--%>
-									<%--</button>--%>
-									<a href="/admin/useredit?uid=${user.uid}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>编辑
+									<a href="/admin/viewcontent?tpVid=${viewPoint.tpVid}" class="btn btn-success btn-xs"><i class="fa fa-search"></i>内容
 									</a>
-									<a href="/admin/userdelete?uid=${user.uid}" class="btn btn-danger  btn-xs"><i
+									<a href="/admin/viewedit?tpVid=${viewPoint.tpVid}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>编辑
+									</a>
+									<a href="/admin/viewdelete?tpVid=${viewPoint.tpVid}" class="btn btn-danger  btn-xs"><i
 											class="fa fa-trash"></i>删除
 									</a>
 								</td>
@@ -135,6 +142,7 @@
 <!-- page script -->
 <script>
     $(function () {
+        // 前端分页
         $('#myuserstable').DataTable({
             'paging': true,
             'lengthChange': true,
@@ -144,29 +152,31 @@
             'autoWidth': true
         });
 
+		// 前端复选框选择器
         var _checkbox = App.getCheckbox();
         console.log(_checkbox.length);
 
-        $(".usersectiondelete").click(function () {
-            var uids = [];
+		// 复选框选择传数组到后台,处理完成后前台接收
+        $(".viewsectiondelete").click(function () {
+            var tpVids = [];
             var seletes = $(".minimal-myminor");
             console.log(seletes);
             for(var i=0;i<seletes.length;i++){
                 if($(seletes[i]).prop("checked")){
-                    uids.push($(seletes[i]).val());
+                    tpVids.push($(seletes[i]).val());
                 }
             }
 
             $.ajax({
-                url: "usersectiondelete",
+                url: "viewsectiondelete",
                 type: "GET",
                 data: {
-                    "uids": uids
+                    "tpVids": tpVids
                 },
                 traditional: true,
                 success: function (message) {
-                    if(message=="1"){
-                        window.location.href = "/admin/userlist";
+                    if(message == "1"){
+                        window.location.href = "/admin/viewlist";
                     }
                 }
             });

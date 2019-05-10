@@ -7,10 +7,11 @@ public class User implements Serializable {
 	private String uid;
 	private String uname;
 	private String uemail;
+	private String upwd;
 	private String age;
 	private String gender;
+	private String upic;
 	private String phone;
-	private String upwd;
 	private Date regDate;
 	private Date updateTime;
 
@@ -30,6 +31,7 @@ public class User implements Serializable {
 	}
 
 	public User() {
+		this.regDate = new Date();
 		this.updateTime = new Date();
 	}
 
@@ -57,6 +59,14 @@ public class User implements Serializable {
 		this.uemail = uemail;
 	}
 
+	public String getUpwd() {
+		return upwd;
+	}
+
+	public void setUpwd(String upwd) {
+		this.upwd = upwd;
+	}
+
 	public String getAge() {
 		return age;
 	}
@@ -73,6 +83,14 @@ public class User implements Serializable {
 		this.gender = gender;
 	}
 
+	public String getUpic() {
+		return upic;
+	}
+
+	public void setUpic(String upic) {
+		this.upic = upic;
+	}
+
 	public String getPhone() {
 		return phone;
 	}
@@ -81,18 +99,13 @@ public class User implements Serializable {
 		this.phone = phone;
 	}
 
-	public String getUpwd() {
-		return upwd;
-	}
-
-	public void setUpwd(String upwd) {
-		this.upwd = upwd;
-	}
-
 	public Date getRegDate() {
 		return regDate;
 	}
 
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
+	}
 
 	public Date getUpdateTime() {
 		return updateTime;
@@ -108,10 +121,11 @@ public class User implements Serializable {
 				"uid='" + uid + '\'' +
 				", uname='" + uname + '\'' +
 				", uemail='" + uemail + '\'' +
-				", age='" + age + '\'' +
-				", phone='" + phone + '\'' +
-				", gender='" + gender + '\'' +
 				", upwd='" + upwd + '\'' +
+				", age='" + age + '\'' +
+				", gender='" + gender + '\'' +
+				", upic='" + upic + '\'' +
+				", phone='" + phone + '\'' +
 				", regDate=" + regDate +
 				", updateTime=" + updateTime +
 				'}';

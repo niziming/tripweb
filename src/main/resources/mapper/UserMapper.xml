@@ -9,7 +9,8 @@
 		tp_uemail as uemail,
 		tp_upwd as upwd,
 		tp_age as age,
-		tp_gender as gender,
+		tp_upic as gender,
+		tp_gender as upic,
 		tp_phone as phone,
 		tp_regdate as regDate,
 		tp_update_time as updateTime
@@ -38,17 +39,9 @@
 	<!--用户列表模糊搜索-->
 	<select id="search" resultType="User">
 		SELECT
-		tp_uid as uid,
-		tp_uname as uname,
-		tp_uemail as uemail,
-		tp_upwd as upwd,
-		tp_age as age,
-		tp_gender as gender,
-		tp_phone as phone,
-		tp_regdate as regDate,
-		tp_update_time as updateTime
+		<include refid="UserColumns" />
 		FROM
-		tp_user
+			tp_user
 		<where>
 			<if test="uid != null and uid != ''">
 				or tp_uid = #{uid}
@@ -63,6 +56,8 @@
 			</if>
 		</where>
 	</select>
+
+
 	<!--删除用户-->
 	<delete id="userDelete">
 		delete from
@@ -92,7 +87,8 @@
 
 	<!--更新用户信息,根据用户id修改用户信息-->
 	<update id="updataUserInfo">
-		update tp_user
+		update
+			tp_user
 		<set>
 			<if test="uname != null and uname != ''">
 				tp_uname = #{uname},
@@ -108,6 +104,9 @@
 			</if>
 			<if test="gender != null and gender != ''">
 				tp_gender = #{gender},
+			</if>
+			<if test="upic != null and upic != ''">
+				tp_upic = #{upic},
 			</if>
 			<if test="phone != null and phone != ''">
 				tp_phone = #{phone},

@@ -127,7 +127,7 @@
 											</div>
 											<!-- /.box-body -->
 											<div class="box-footer">
-												<button type="submit" class="btn btn-default">注册</button>
+												<a href="/user/regst" type="submit" class="btn btn-default">注册</a>
 												<button type="submit" class="btn btn-info pull-right">登陆</button>
 											</div>
 											<!-- /.box-footer -->

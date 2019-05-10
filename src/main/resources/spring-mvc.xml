@@ -31,6 +31,16 @@
     <!-- 静态资源映射 **代表全目录匹配-->
     <mvc:resources mapping="/static/**" location="/static/" cache-period="31536000"/>
 
+    <!-- 上传文件拦截，设置最大上传文件大小 10M = 10*1024*1024(B) = 10485760 bytes -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--最大-->
+        <property name="maxUploadSize" value="${web.maxUploadSize}"/>
+        <!--最小-->
+        <property name="maxInMemorySize" value="1"/>
+        <!--默认字符集-->
+        <property name="defaultEncoding" value="utf-8"/>
+    </bean>
+
     <!--&lt;!&ndash;拦截器配置 执行顺序由下自上&ndash;&gt;-->
     <!--<mvc:interceptors>-->
         <!--&lt;!&ndash;login interceptter&ndash;&gt;-->
