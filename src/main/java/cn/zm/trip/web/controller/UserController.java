@@ -2,6 +2,7 @@ package cn.zm.trip.web.controller;
 
 import cn.zm.trip.web.commons.Msg;
 import cn.zm.trip.web.domain.User;
+import cn.zm.trip.web.domain.ViewPoint;
 import cn.zm.trip.web.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping(value = "user")
@@ -22,17 +24,21 @@ public class UserController {
 	private HttpSession session;
 
 	/**
-	 * 用户登陆
+	 * index页用户登录
 	 */
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String userLogin(String uemail, String upwd, Model model) {
-
+		//index页面登陆成功图片显示路径
+		String prefix = "/static/upload/useravatar/";
+		//index页用户登录验证
 		if (uemail == null || uemail == "" || upwd == null || upwd == "") {
 			session.setAttribute("msg", Msg.fail("邮箱或密码不可为空!"));
 			return "redirect:/index";
 		}
 		User user = userService.userLogin(new User(uemail, upwd));
 		if (user != null) {
+			String suffix = user.getUpic();
+			user.setUpic(prefix+suffix);
 			session.setAttribute("user", user);
 			return "redirect:/index";
 		} else {
@@ -81,7 +87,17 @@ public class UserController {
 	 * 跳转个人信息
 	 */
 	@RequestMapping(value = "info", method = RequestMethod.GET)
-	public String info() {
+	public String info(String uid) {
+		User user = userService.userGet(uid);
+
+		String prefix = "/static/upload/useravatar/";
+		String suffix = user.getUpic();
+
+		user.setUpic(prefix+suffix);
+
+		session.setAttribute("user", user);
+		System.out.println(user);
+
 		return "proscenium/user/info";
 	}
 

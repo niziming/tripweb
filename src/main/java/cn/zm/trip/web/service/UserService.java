@@ -38,11 +38,11 @@ public interface UserService {
 	User userLogin(User user);
 
 	/**
-	 *
 	 * @param uid
 	 * @return
 	 */
 	User userGet(String uid);
+
 	/**
 	 * 用户信息新增
 	 */

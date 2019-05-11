@@ -9,8 +9,8 @@
 		tp_uemail as uemail,
 		tp_upwd as upwd,
 		tp_age as age,
-		tp_upic as gender,
-		tp_gender as upic,
+		tp_gender as gender,
+		tp_upic as upic,
 		tp_phone as phone,
 		tp_regdate as regDate,
 		tp_update_time as updateTime

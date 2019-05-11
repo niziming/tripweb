@@ -22,6 +22,8 @@ public class IndexController {
 	 */
 	@RequestMapping(value = {"","index"}, method = RequestMethod.GET)
 	public String index(ViewPointExample example, Model model) {
+
+		//显示首页的景点
 		String prefix = "/static/upload/viewavatar/";
 		example.setOrderByClause("tp_vid desc");
 		List<ViewPoint> viewPoints = viewPointService.selectByExample(example);
@@ -29,6 +31,7 @@ public class IndexController {
 			String suffix = viewPoint.getTpVpic();
 			viewPoint.setTpVpic(prefix+suffix);
 		}
+		//传送景点
 		model.addAttribute("viewPoints", viewPoints);
 		return "index";
 	}

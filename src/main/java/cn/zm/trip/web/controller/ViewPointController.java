@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -25,16 +26,17 @@ public class ViewPointController {
 	 * 旅游景点跳转
 	 * @return
 	 */
+	@ResponseBody//返回给前端
 	@RequestMapping(value = "point", method = RequestMethod.GET)
 	public String viewPoint(ViewPointExample example, Model model) {
 		String prefix = "/static/upload/viewavatar/";
 		example.setOrderByClause("tp_vid desc");
 		List<ViewPoint> viewPoints = viewPointService.selectByExample(example);
-		model.addAttribute("viewPoints", viewPoints);
 		for (ViewPoint viewPoint : viewPoints){
 			String suffix = viewPoint.getTpVpic();
 			viewPoint.setTpVpic(prefix+suffix);
 		}
+		model.addAttribute("viewPoints", viewPoints);
 		return "proscenium/viewpoint/view";
 	}
 

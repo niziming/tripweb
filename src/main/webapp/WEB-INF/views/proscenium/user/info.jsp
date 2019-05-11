@@ -29,7 +29,7 @@
 				</h1>
 				<ol class="breadcrumb">
 					<br>
-					<li><a href="/user/personal"><i class="fa fa-dashboard"></i> 个人信息</a></li>
+					<li><a href="/user/personal"><i class="fa fa-user"></i> 个人信息</a></li>
 					<li><a href="#">SHOW</a></li>
 				</ol>
 			</section>
@@ -49,10 +49,13 @@
 					<%--<img src="${path}/static/assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">--%>
 					<div class="box-body">
 						<form class="form-horizontal">
-							<div style="align-items: center;">
-								<img src="${path}/static/assets/img/user2-160x160.jpg" class="img-circle"
-								     alt="User Image">
+							<div class="form-group">
+								<div class="col-sm-5"></div>
+								<div class="col-lg-5">
+									<img src="${user.upic}" style="height: 150px;width: 150px;border: rgba(121,121,121,0.52) 5px solid" class="img-circle" alt="User Image">
+								</div>
 							</div>
+
 							<%--uid--%>
 							<div class="form-group">
 								<label for="inputUid" class="col-sm-2 control-label">用户ID</label>

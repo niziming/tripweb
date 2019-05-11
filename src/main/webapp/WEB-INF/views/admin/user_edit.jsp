@@ -51,6 +51,7 @@
 					<!-- form start -->
 					<form class="form-horizontal" action="/admin/useredithandle" method="post">
 						<div class="box-body">
+
 							<%--uid--%>
 							<div class="form-group">
 								<label for="inputUid" class="col-sm-2 control-label">用户ID</label>

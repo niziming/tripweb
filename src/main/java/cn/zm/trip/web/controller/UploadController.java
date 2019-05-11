@@ -34,11 +34,36 @@ public class UploadController {
 	 * @return
 	 */
 	@ResponseBody
+	@RequestMapping(value = "viewavatar", method = RequestMethod.POST)
+	public Map<String, Object> viewAvatar(MultipartFile dropFile, HttpServletRequest request) {
+		Map<String, Object> result = new HashMap<>();
+		//文件存放路径
+		String filePath = "D:\\ideaPro\\tripweb\\src\\main\\webapp\\static\\upload\\viewavatar";
+		//获取文件后缀
+		String fileName = dropFile.getOriginalFilename();
+		String fileSuffix = fileName.substring(fileName.lastIndexOf('.'));
+		File file = new File(filePath);
+		//判断文件是否存在
+		if (!file.exists()){
+			file.mkdir();
+		}
+		file = new File(filePath,UUID.randomUUID() + fileSuffix);
+		try {
+			dropFile.transferTo(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		result.put("fileName",file.getName());
+
+		return result;
+	}
+
+	@ResponseBody
 	@RequestMapping(value = "useravatar", method = RequestMethod.POST)
 	public Map<String, Object> userAvatar(MultipartFile dropFile, HttpServletRequest request) {
 		Map<String, Object> result = new HashMap<>();
 		//文件存放路径
-		String filePath = "D:\\ideaPro\\tripweb\\src\\main\\webapp\\static\\upload\\viewavatar";
+		String filePath = "D:\\ideaPro\\tripweb\\src\\main\\webapp\\static\\upload\\useravatar";
 		//获取文件后缀
 		String fileName = dropFile.getOriginalFilename();
 		String fileSuffix = fileName.substring(fileName.lastIndexOf('.'));

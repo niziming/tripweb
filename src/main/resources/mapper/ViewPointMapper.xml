@@ -246,40 +246,40 @@
     -->
     update tp_viewpoint
     <set>
-      <if test="tpTitle != null">
+      <if test="tpTitle != null and tpTitle != ''">
         tp_title = #{tpTitle,jdbcType=VARCHAR},
       </if>
-      <if test="tpVname != null">
+      <if test="tpVname != null and tpVname != ''">
         tp_vname = #{tpVname,jdbcType=VARCHAR},
       </if>
-      <if test="tpVtype != null">
+      <if test="tpVtype != null and tpVtype != ''">
         tp_vtype = #{tpVtype,jdbcType=VARCHAR},
       </if>
-      <if test="tpVpic != null">
+      <if test="tpVpic != null and tpVpic != ''">
         tp_vpic = #{tpVpic,jdbcType=VARCHAR},
       </if>
-      <if test="tpVphone != null">
+      <if test="tpVphone != null and tpVphone != ''">
         tp_vphone = #{tpVphone,jdbcType=VARCHAR},
       </if>
-      <if test="tpLevel != null">
+      <if test="tpLevel != null and tpLevel != ''">
         tp_level = #{tpLevel,jdbcType=VARCHAR},
       </if>
-      <if test="tpPrice != null">
+      <if test="tpPrice != null and tpPrice != ''">
         tp_price = #{tpPrice,jdbcType=INTEGER},
       </if>
-      <if test="tpLocation != null">
+      <if test="tpLocation != null and tpLocation != ''">
         tp_location = #{tpLocation,jdbcType=VARCHAR},
       </if>
-      <if test="tpZip != null">
+      <if test="tpZip != null and tpZip != ''">
         tp_zip = #{tpZip,jdbcType=VARCHAR},
       </if>
-      <if test="tpOpentime != null">
+      <if test="tpOpentime != null and tpOpentime != ''">
         tp_opentime = #{tpOpentime,jdbcType=VARCHAR},
       </if>
-      <if test="tpCreattime != null">
+      <if test="tpCreattime != null and tpCreattime != ''">
         tp_creatTime = #{tpCreattime,jdbcType=TIMESTAMP},
       </if>
-      <if test="tpVcontent != null">
+      <if test="tpVcontent != null and tpVcontent != ''">
         tp_vcontent = #{tpVcontent,jdbcType=LONGVARCHAR},
       </if>
     </set>
@@ -301,7 +301,7 @@
       tp_location = #{tpLocation,jdbcType=VARCHAR},
       tp_zip = #{tpZip,jdbcType=VARCHAR},
       tp_opentime = #{tpOpentime,jdbcType=VARCHAR},
-      tp_creatTime = #{tpme = #{tpCreattime,jdbcType=TIMESTAMP},
+      tp_creatTime = #{tpCreattime,jdbcType=TIMESTAMP},
       tp_vcontent = #{tpVcontent,jdbcType=LONGVARCHAR}
     where tp_vid = #{tpVid,jdbcType=INTEGER}
   </update>

@@ -98,7 +98,12 @@ public class AdminController {
 	 */
 	@RequestMapping(value = "userlist", method = RequestMethod.GET)
 	public String userList() {
+		String prefix = "/static/upload/useravatar/";
 		List<User> users = userService.selectAll();
+		for (User user : users){
+			String suffix = user.getUpic();
+			user.setUpic(prefix+suffix);
+		}
 		session.setAttribute("users", users);
 		return "admin/user_list";
 	}
@@ -110,6 +115,7 @@ public class AdminController {
 	public String userSearch(String keyword, HttpSession session) {
 		System.out.println(keyword);
 		List<User> users = userService.search(keyword);
+
 		session.setAttribute("users", users);
 		session.setAttribute("msg", Msg.success("用户查询成功!"));
 
@@ -181,6 +187,7 @@ public class AdminController {
 		return "redirect:userlist";
 	}
 	//**********user start***************
+
 
 	/************view start***************
 	 * 跳转内容管理 景点列表

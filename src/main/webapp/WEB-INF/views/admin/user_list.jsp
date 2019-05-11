@@ -101,7 +101,7 @@
 								<td><span class="label label-primary">${user.uemail}</span></td>
 								<td>${user.age}</td>
 								<td>${user.gender}</td>
-								<td><img src="${user.upic}" /></td>
+								<td><img src="${user.upic}" style="width: 50px;height: 30px;" /></td>
 								<td>${user.phone}</td>
 								<td><fmt:formatDate value="${user.regDate}" pattern="yyyy-MM-dd"/></td>
 								<td><fmt:formatDate value="${user.updateTime}" pattern="yyyy-MM-dd:HH:mm:dd"/></td>

@@ -43,7 +43,7 @@
 							<!-- Menu Toggle Button -->
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								<!-- The user image in the navbar-->
-								<img src="${path}/static/assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
+								<img src="${user.upic}" class="user-image" alt="User Image">
 								<!-- hidden-xs hides the username on small devices so only the image appears. -->
 								<span class="hidden-xs">${user.uname}</span>
 							</a>
@@ -52,7 +52,7 @@
 								<!-- The user image in the menu -->
 								<li class="user-header">
 
-									<img src="${path}/static/assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+									<img src="${user.upic}" class="img-circle" alt="User Image">
 
 									<p>
 											${user.uname} - 欢迎登陆
@@ -62,7 +62,7 @@
 								<!-- Menu Footer-->
 								<li class="user-footer">
 									<div class="pull-left">
-										<a href="/user/info" class="btn btn-default btn-flat">个人</a>
+										<a href="/user/info?uid=${user.uid}" class="btn btn-default btn-flat">个人</a>
 									</div>
 									<div class="pull-right">
 										<a href="/user/loginout" class="btn btn-default btn-flat">${user != null ? '注销' : '登陆'}</a>

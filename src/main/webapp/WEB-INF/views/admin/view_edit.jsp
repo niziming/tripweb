@@ -191,7 +191,7 @@
 
 	<script>
 		Dropzone.options.dropz = {
-            url: "/upload/useravatar",
+            url: "/upload/viewavatar",
             method: "post",
             autoQueue: true,
             dictDefaultMessage: '拖动文件至此或者点击上传', // 设置默认的提示语句
