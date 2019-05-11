@@ -38,24 +38,24 @@ public class UploadController {
 	public Map<String, Object> viewAvatar(MultipartFile dropFile, HttpServletRequest request) {
 		Map<String, Object> result = new HashMap<>();
 		//文件存放路径
-		String filePath = "D:\\ideaPro\\tripweb\\src\\main\\webapp\\static\\upload\\viewavatar";
-
+		String filePath = "/static/upload/viewavatar/";
 		//获取文件后缀
 		String fileName = dropFile.getOriginalFilename();
 		String fileSuffix = fileName.substring(fileName.lastIndexOf('.'));
-		File file = new File(filePath);
+		//文件存放路径
+		String realPath = request.getSession().getServletContext().getRealPath(filePath);
+		File file = new File(realPath);
 		//判断文件是否存在
 		if (!file.exists()){
 			file.mkdir();
 		}
-		file = new File(filePath,UUID.randomUUID() + fileSuffix);
+		file = new File(realPath,UUID.randomUUID() + fileSuffix);
 		try {
 			dropFile.transferTo(file);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		result.put("fileName",file.getName());
-
 		return result;
 	}
 
@@ -64,26 +64,33 @@ public class UploadController {
 	public Map<String, Object> userAvatar(MultipartFile dropFile, HttpServletRequest request) {
 		Map<String, Object> result = new HashMap<>();
 		//文件存放路径
-		String filePath = "D:\\ideaPro\\tripweb\\src\\main\\webapp\\static\\upload\\useravatar";
+		String filePath = "/static/upload/useravatar/";
 		//获取文件后缀
 		String fileName = dropFile.getOriginalFilename();
 		String fileSuffix = fileName.substring(fileName.lastIndexOf('.'));
-		File file = new File(filePath);
+		//文件存放路径
+		String realPath = request.getSession().getServletContext().getRealPath(filePath);
+		File file = new File(realPath);
 		//判断文件是否存在
 		if (!file.exists()){
 			file.mkdir();
 		}
-		file = new File(filePath,UUID.randomUUID() + fileSuffix);
+		file = new File(realPath,UUID.randomUUID() + fileSuffix);
 		try {
 			dropFile.transferTo(file);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		result.put("fileName",file.getName());
-
 		return result;
 	}
 
+	/**
+	 * 后台内容图片上传
+	 * @param dropFile
+	 * @param request
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value = "contenimg", method = RequestMethod.POST)
 	public Map<String, Object> contenImg(MultipartFile dropFile, HttpServletRequest request) {
@@ -94,16 +101,12 @@ public class UploadController {
 		//图片显示路径
 		String prefix = "/static/upload/contentFile/";
 
-		//String resourcesPath = server + prefix;
-
-		//文件存放路径
-		//String filePath = "D:\\ideaPro\\tripweb\\src\\main\\webapp\\static\\upload\\contentFile";
 		//获取文件后缀
 		String fileName = dropFile.getOriginalFilename();
 		String fileSuffix = fileName.substring(fileName.lastIndexOf('.'));
 
 		//文件存放路径
-		String realPath = request.getSession().getServletContext().getRealPath("static/upload/contentFile");
+		String realPath = request.getSession().getServletContext().getRealPath(prefix);
 
 		File file = new File(realPath);
 		//判断文件是否存在
@@ -113,12 +116,13 @@ public class UploadController {
 		file = new File(realPath, UUID.randomUUID() + fileSuffix);
 		try {
 			dropFile.transferTo(file);
-			result.put("errno",0);
-			result.put("data",new String[] {prefix + file.getName()});
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		//result.put("fileName",file.getName());
+		//传到前端
+		result.put("errno",0);
+		result.put("data",new String[] {prefix + file.getName()});
 		return result;
 	}
 }

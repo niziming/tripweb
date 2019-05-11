@@ -114,10 +114,14 @@ public class UserController {
 	 */
 	@RequestMapping(value = "useredithandle", method = RequestMethod.POST)
 	public String userEditHandle(User user) {
+		//显示首页的景点
+		String prefix = "/static/upload/useravatar/";
 		userService.updataUserInfo(user);
+		String suffix = user.getUpic();
+		user.setUpic(prefix + suffix);
 		session.setAttribute("user", userService.userGet(user.getUid()));
 		session.setAttribute("msg", Msg.success("用户信息更新成功!"));
-		return "redirect:edit";
+		return "proscenium/user/edit";
 	}
 
 

@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -18,15 +17,11 @@ import java.util.List;
 public class ViewPointController {
 	@Autowired
 	private ViewPointService viewPointService;
-	private HttpSession session;
-	private Model model;
-	private ViewPointExample viewPointExample;
 
 	/**
 	 * 旅游景点跳转
 	 * @return
 	 */
-	@ResponseBody//返回给前端
 	@RequestMapping(value = "point", method = RequestMethod.GET)
 	public String viewPoint(ViewPointExample example, Model model) {
 		String prefix = "/static/upload/viewavatar/";
@@ -41,7 +36,7 @@ public class ViewPointController {
 	}
 
 	/**
-	 * 用户模糊搜索
+	 * 前台用户模糊搜索
 	 *
 	 * @param keyword
 	 * @param session
@@ -54,5 +49,15 @@ public class ViewPointController {
 		//session.setAttribute("users", users);
 
 		return "admin/view/user_list";
+	}
+
+	/**
+	 * 前台景查看更多内容跳转
+	 */
+	@RequestMapping(value = "content", method = RequestMethod.GET)
+	public String content(Integer tpVid, Model model) {
+		ViewPoint viewPoint = viewPointService.selectByPrimaryKey(tpVid);
+		model.addAttribute("viewPoint",viewPoint);
+		return "proscenium/viewpoint/content";
 	}
 }

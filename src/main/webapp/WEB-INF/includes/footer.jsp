@@ -46,6 +46,8 @@
 <%--图片上传组件 dropzone--%>
 <script src="${path}/static/assets/plugins/dropzone/min/dropzone.min.js"></script>
 
+<script src="${path}/static/assets/plugins/layui/layui.js"></script>
+
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button);

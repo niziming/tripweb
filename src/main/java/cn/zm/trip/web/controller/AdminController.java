@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 import java.util.List;
@@ -193,15 +194,16 @@ public class AdminController {
 	 * 跳转内容管理 景点列表
 	 */
 	@RequestMapping(value = "viewlist", method = RequestMethod.GET)
-	public String viewPoint(ViewPointExample example, Model model) {
+	public String viewPoint(ViewPointExample example, Model model, HttpServletRequest request) {
 		example.setOrderByClause("tp_vid desc");
 		String prefix = "/static/upload/viewavatar/";
-		example.setOrderByClause("tp_vid desc");
 		List<ViewPoint> viewPoints = viewPointService.selectByExample(example);
 		for (ViewPoint viewPoint : viewPoints){
 			String suffix = viewPoint.getTpVpic();
+			//前端img标签路径
 			viewPoint.setTpVpic(prefix+suffix);
 		}
+		//存储信息转发
 		model.addAttribute("viewPoints", viewPoints);
 		return "admin/view_list";
 	}

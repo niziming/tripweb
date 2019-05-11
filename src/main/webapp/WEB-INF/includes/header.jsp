@@ -39,6 +39,8 @@ folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet" href="${path}/static/assets/plugins/wangEditor/release/wangEditor.min.css
 ">
 
+<%--回复功能--%>
+<link rel="stylesheet" href="${path}/static/assets/plugins/layui/css/layui.css"/>
 
 <%--谷歌字体--%>
 <link href='https://fonts.font.im/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>

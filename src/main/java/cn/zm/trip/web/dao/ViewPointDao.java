@@ -1,7 +1,10 @@
 package cn.zm.trip.web.dao;
 
+import cn.zm.trip.web.domain.Reply;
 import cn.zm.trip.web.domain.ViewPoint;
 import cn.zm.trip.web.domain.ViewPointExample;
+import cn.zm.trip.web.domain.Words;
+
 import java.util.List;
 
 public interface ViewPointDao {
@@ -76,4 +79,28 @@ public interface ViewPointDao {
      * @mbg.generated
      */
     int updateByPrimaryKey(ViewPoint record);
+
+    /**
+     * 保存回复
+     * @param words
+     * @return
+     */
+    void saveWords(Words words);
+
+    /**
+     * 保存回复信息
+     * @param reply
+     */
+    void saveReply(Reply reply);
+
+    /**
+     * 查询所有留言信息
+     * @return
+     */
+    List<Words> findByWords();
+
+    /**
+     * 	查询所有回复信息
+     */
+    List<Reply> findByReply();
 }
