@@ -28,12 +28,17 @@
 <link rel="stylesheet" href="${path}/static/assets/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
 
 <%--图片上传--%>
-<link rel="stylesheet" href="${path}/static/assets/dropzone/dropzone.css" />
-<link rel="stylesheet" href="${path}/static/assets/dropzone/min/basic.min.css" />
+<link rel="stylesheet" href="${path}/static/assets/plugins/dropzone/dropzone.css" />
+<link rel="stylesheet" href="${path}/static/assets/plugins/dropzone/min/basic.min.css" />
 
 <!-- AdminLTE Skins. Choose a skin from the css/skins
 folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet" href="${path}/static/assets/css/skins/_all-skins.min.css">
+
+<%--wangEdit富文本编辑器--%>
+<link rel="stylesheet" href="${path}/static/assets/plugins/wangEdit/release/wangEditor.min.css
+">
+
 
 <%--谷歌字体--%>
 <link href='https://fonts.font.im/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>
