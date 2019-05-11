@@ -110,9 +110,8 @@
 						</tbody>
 					</table>
 					<br>
-					<%--wangEditor编辑--%>
-					<div id="editor">
-						<p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+					<div class="">
+						${viewPoint.tpVcontent}
 					</div>
 				</div>
 				<!-- /.box-body -->

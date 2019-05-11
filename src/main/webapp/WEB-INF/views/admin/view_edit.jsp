@@ -103,6 +103,7 @@
 									<div class="col-sm-10">
 										<input type="text" name="tpVname" class="form-control" id="tpVname"
 										       placeholder="${viewPoint.tpVname}">
+
 									</div>
 								</div>
 
@@ -165,12 +166,29 @@
 										       placeholder="${viewPoint.tpOpentime}">
 									</div>
 								</div>
+
+								<%--Content Edit--%>
+								<div class="form-group">
+									<label for="tpPrice" class="col-sm-2 control-label">开放时间</label>
+
+									<div class="col-sm-10">
+
+										<input type="text" name="tpVcontent" id="tpVcontent" class="form-control"
+										placeholder="编辑">
+
+										<%--wangEditor编辑--%>
+										<div id="editor">
+											${viewPoint.tpVcontent}
+										</div>
+
+									</div>
+								</div>
 							</div>
 							<!-- /.box-body -->
 
 							<div class="box-footer">
 								<button type="button" class="btn btn-default" onclick="history.go(-1);">返回</button>
-								<button type="submit" class="btn btn-info pull-right">提交</button>
+								<button id="btnSunmit" type="submit" class="btn btn-info pull-right" onclick="">提交</button>
 							</div>
 							<!-- /.box-footer -->
 						</form>
@@ -190,7 +208,49 @@
 	<!-- page script -->
 
 	<script>
-		Dropzone.options.dropz = {
+		$(function () {
+            // wangEditor
+            var E = window.wangEditor;
+            var editor = new E('#editor');
+
+            // 配置服务器端地址
+            editor.customConfig.uploadImgServer = '/upload/contenimg';
+
+            // 将图片大小限制为 3M 默认为5MB
+            editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
+            // 限制一次最多上传 20 张图片
+            editor.customConfig.uploadImgMaxLength = 20;
+            // 自定义 fileName
+            editor.customConfig.uploadFileName = 'dropFile';
+            editor.create();
+
+            editor.customConfig.uploadImgHooks = {
+                before: function (xhr, editor, files) {
+                    // 图片上传之前触发
+                    // xhr 是 XMLHttpRequst 对象，editor 是编辑器对象，files 是选择的图片文件
+
+                    // 如果返回的结果是 {prevent: true, msg: 'xxxx'} 则表示用户放弃上传
+                    // return {
+                    //     prevent: true,
+                    //     msg: '放弃上传'
+                    // }
+                }
+            };
+
+
+            //在编辑器中追加内容
+            // editor.txt.html('<p>用 JS 设置的内容</p>');
+
+            // 按钮绑定事件
+            $("#btnSunmit").bind("click",function () {
+                var contentHtml = editor.txt.html();
+                console.log(contentHtml);//有内容的
+                $("#tpVcontent").val(contentHtml);
+                // return false;
+            });
+        });
+
+        Dropzone.options.dropz = {
             url: "/upload/viewavatar",
             method: "post",
             autoQueue: true,

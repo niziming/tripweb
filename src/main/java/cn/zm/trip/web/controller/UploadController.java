@@ -39,6 +39,7 @@ public class UploadController {
 		Map<String, Object> result = new HashMap<>();
 		//文件存放路径
 		String filePath = "D:\\ideaPro\\tripweb\\src\\main\\webapp\\static\\upload\\viewavatar";
+
 		//获取文件后缀
 		String fileName = dropFile.getOriginalFilename();
 		String fileSuffix = fileName.substring(fileName.lastIndexOf('.'));
@@ -80,6 +81,44 @@ public class UploadController {
 		}
 		result.put("fileName",file.getName());
 
+		return result;
+	}
+
+	@ResponseBody
+	@RequestMapping(value = "contenimg", method = RequestMethod.POST)
+	public Map<String, Object> contenImg(MultipartFile dropFile, HttpServletRequest request) {
+		Map<String, Object> result = new HashMap<>();
+		//前缀路径 Scheme服务端提供的协议 getServerName服务器名称 port 端口
+		//String server = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+
+		//图片显示路径
+		String prefix = "/static/upload/contentFile/";
+
+		//String resourcesPath = server + prefix;
+
+		//文件存放路径
+		//String filePath = "D:\\ideaPro\\tripweb\\src\\main\\webapp\\static\\upload\\contentFile";
+		//获取文件后缀
+		String fileName = dropFile.getOriginalFilename();
+		String fileSuffix = fileName.substring(fileName.lastIndexOf('.'));
+
+		//文件存放路径
+		String realPath = request.getSession().getServletContext().getRealPath("static/upload/contentFile");
+
+		File file = new File(realPath);
+		//判断文件是否存在
+		if (!file.exists()){
+			file.mkdir();
+		}
+		file = new File(realPath, UUID.randomUUID() + fileSuffix);
+		try {
+			dropFile.transferTo(file);
+			result.put("errno",0);
+			result.put("data",new String[] {prefix + file.getName()});
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		//result.put("fileName",file.getName());
 		return result;
 	}
 }
