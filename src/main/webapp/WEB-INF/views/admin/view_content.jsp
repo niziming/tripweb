@@ -110,7 +110,10 @@
 						</tbody>
 					</table>
 					<br>
-
+					<%--wangEditor编辑--%>
+					<div id="editor">
+						<p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+					</div>
 				</div>
 				<!-- /.box-body -->
 			</div>
@@ -129,6 +132,11 @@
 <!-- page script -->
 <script>
     $(function () {
+        // wangEditor
+        var E = window.wangEditor;
+        var editor = new E('#editor');
+        editor.create();
+
         // 前端分页
         $('#myuserstable').DataTable({
             'paging': false,

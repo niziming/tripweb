@@ -36,7 +36,7 @@ folder instead of downloading all of them to reduce the load. -->
 <link rel="stylesheet" href="${path}/static/assets/css/skins/_all-skins.min.css">
 
 <%--wangEdit富文本编辑器--%>
-<link rel="stylesheet" href="${path}/static/assets/plugins/wangEdit/release/wangEditor.min.css
+<link rel="stylesheet" href="${path}/static/assets/plugins/wangEditor/release/wangEditor.min.css
 ">
 
 

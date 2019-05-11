@@ -41,10 +41,10 @@
 <script src="${path}/static/assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 <%--wangEditor--%>
-<script src="${path}/static/assets/plugins/wangEdit/release/wangEditor.min.js"></script>
+<script src="${path}/static/assets/plugins/wangEditor/release/wangEditor.min.js"></script>
 
 <%--图片上传组件 dropzone--%>
-<script src="/static/assets/plugins/dropzone/min/dropzone.min.js"></script>
+<script src="${path}/static/assets/plugins/dropzone/min/dropzone.min.js"></script>
 
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
