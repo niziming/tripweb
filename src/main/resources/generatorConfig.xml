@@ -53,20 +53,20 @@
 			<property name="enableSubPackages" value="true"/>
 		</javaClientGenerator>
 
-		<!--tp_viewpoint-->
-		<table tableName="tp_viewpoint" mapperName="ViewPointDao" domainObjectName="ViewPoint" enableCountByExample="false"
-		       enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
-		       selectByExampleQueryId="false">
-		</table>
+		<!--&lt;!&ndash;tp_viewpoint&ndash;&gt;-->
+		<!--<table tableName="tp_viewpoint" mapperName="ViewPointDao" domainObjectName="ViewPoint" enableCountByExample="false"-->
+		       <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+		       <!--selectByExampleQueryId="false">-->
+		<!--</table>-->
+
+		<!--&lt;!&ndash;生成对应表及类名&ndash;&gt;-->
+		<!--<table tableName="reply" mapperName="reply" domainObjectName="reply" enableCountByExample="false"-->
+		       <!--enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"-->
+		       <!--selectByExampleQueryId="false">-->
+		<!--</table>-->
 
 		<!--生成对应表及类名-->
-		<table tableName="reply" mapperName="reply" domainObjectName="reply" enableCountByExample="false"
-		       enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
-		       selectByExampleQueryId="false">
-		</table>
-
-		<!--生成对应表及类名-->
-		<table tableName="words" mapperName="reply" domainObjectName="reply" enableCountByExample="false"
+		<table tableName="tp_forum" mapperName="Forum" domainObjectName="Forum" enableCountByExample="false"
 		       enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="true"
 		       selectByExampleQueryId="false">
 		</table>

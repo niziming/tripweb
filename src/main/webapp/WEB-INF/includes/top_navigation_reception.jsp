@@ -21,8 +21,7 @@
 					<li><a href="/view/point">景点VIEWS</a></li>
 					<li><a href="#">定制CUSTOMIZE</a></li>
 					<li><a href="#">酒店HOTEL</a></li>
-					<li><a href="#">新闻NEWS</a></li>
-					<li><a href="#">留言COMM</a></li>
+					<li><a href="/view/FORUM">新闻论坛FORUM</a></li>
 				</ul>
 				<form class="navbar-form navbar-right" role="search">
 					<div class="form-group">

@@ -60,4 +60,13 @@ public class ViewPointController {
 		model.addAttribute("viewPoint",viewPoint);
 		return "proscenium/viewpoint/content";
 	}
+
+	/**
+	 * 论坛功能
+	 */
+	@RequestMapping(value = "forum", method = RequestMethod.GET)
+	public String forum() {
+
+		return "proscenium/viewpoint/forum";
+	}
 }

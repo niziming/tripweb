@@ -831,339 +831,392 @@
       <Collation>utf8_general_ci</Collation>
     </table>
     <table id="210" parent="10" name="tp_admin"/>
-    <table id="211" parent="10" name="tp_traffic"/>
-    <table id="212" parent="10" name="tp_user"/>
-    <table id="213" parent="10" name="tp_viewpoint"/>
-    <table id="214" parent="10" name="words">
+    <table id="211" parent="10" name="tp_forum"/>
+    <table id="212" parent="10" name="tp_traffic"/>
+    <table id="213" parent="10" name="tp_user"/>
+    <table id="214" parent="10" name="tp_viewpoint"/>
+    <table id="215" parent="10" name="words">
       <Collation>utf8_general_ci</Collation>
     </table>
-    <column id="215" parent="209" name="lr_id">
+    <column id="216" parent="209" name="lr_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="216" parent="209" name="lr_name">
+    <column id="217" parent="209" name="lr_name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="217" parent="209" name="lr_date">
+    <column id="218" parent="209" name="lr_date">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="218" parent="209" name="lr_content">
+    <column id="219" parent="209" name="lr_content">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="219" parent="209" name="lr_for_name">
+    <column id="220" parent="209" name="lr_for_name">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="220" parent="209" name="lr_for_words">
+    <column id="221" parent="209" name="lr_for_words">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="221" parent="209" name="lr_for_reply">
+    <column id="222" parent="209" name="lr_for_reply">
       <Position>7</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="222" parent="209" name="lr_for_article_id">
+    <column id="223" parent="209" name="lr_for_article_id">
       <Position>8</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="223" parent="209" name="PRIMARY">
+    <key id="224" parent="209" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>lr_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="224" parent="210" name="tp_aid">
+    <column id="225" parent="210" name="tp_aid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="225" parent="210" name="tp_aname">
+    <column id="226" parent="210" name="tp_aname">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="226" parent="210" name="tp_aemail">
+    <column id="227" parent="210" name="tp_aemail">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="227" parent="210" name="tp_apwd">
+    <column id="228" parent="210" name="tp_apwd">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="228" parent="210" name="tp_admin_tp_aid_uindex">
+    <index id="229" parent="210" name="tp_admin_tp_aid_uindex">
       <ColNames>tp_aid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="229" parent="210" name="PRIMARY">
+    <key id="230" parent="210" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>tp_aid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="230" parent="210" name="tp_admin_tp_aid_uindex">
+    <key id="231" parent="210" name="tp_admin_tp_aid_uindex">
       <ColNames>tp_aid</ColNames>
       <UnderlyingIndexName>tp_admin_tp_aid_uindex</UnderlyingIndexName>
     </key>
-    <column id="231" parent="211" name="tp_Tid">
+    <column id="232" parent="211" name="tp_fid">
+      <Position>1</Position>
+      <Comment>新闻论坛ID主键</Comment>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="233" parent="211" name="tp_author_id">
+      <Position>2</Position>
+      <Comment>作者id</Comment>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="234" parent="211" name="tp_author">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <DefaultExpression>&apos;作者&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="235" parent="211" name="tp_title">
+      <Position>4</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <DefaultExpression>&apos;论坛标题&apos;</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="236" parent="211" name="tp_issue_time">
+      <Position>5</Position>
+      <DataType>timestamp|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <column id="237" parent="211" name="tp_tcontent">
+      <Position>6</Position>
+      <DataType>text|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <index id="238" parent="211" name="tp_forum_tp_fid_uindex">
+      <ColNames>tp_fid</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <key id="239" parent="211" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>tp_fid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="240" parent="211" name="tp_forum_tp_fid_uindex">
+      <ColNames>tp_fid</ColNames>
+      <UnderlyingIndexName>tp_forum_tp_fid_uindex</UnderlyingIndexName>
+    </key>
+    <column id="241" parent="212" name="tp_Tid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="232" parent="211" name="tp_type">
+    <column id="242" parent="212" name="tp_type">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <DefaultExpression>&apos;交通类型&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="233" parent="211" name="tp_current">
+    <column id="243" parent="212" name="tp_current">
       <Position>3</Position>
       <DataType>varchar(50)|0s</DataType>
       <DefaultExpression>&apos;当前位置&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="234" parent="211" name="tp_destination">
+    <column id="244" parent="212" name="tp_destination">
       <Position>4</Position>
       <DataType>varchar(50)|0s</DataType>
       <DefaultExpression>&apos;目的地址&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="235" parent="211" name="tp_tprice">
+    <column id="245" parent="212" name="tp_tprice">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>&apos;0&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="236" parent="211" name="tp_traffic_tp_Tid_uindex">
+    <index id="246" parent="212" name="tp_traffic_tp_Tid_uindex">
       <ColNames>tp_Tid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="237" parent="211" name="PRIMARY">
+    <key id="247" parent="212" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>tp_Tid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="238" parent="211" name="tp_traffic_tp_Tid_uindex">
+    <key id="248" parent="212" name="tp_traffic_tp_Tid_uindex">
       <ColNames>tp_Tid</ColNames>
       <UnderlyingIndexName>tp_traffic_tp_Tid_uindex</UnderlyingIndexName>
     </key>
-    <column id="239" parent="212" name="tp_uid">
+    <column id="249" parent="213" name="tp_uid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="240" parent="212" name="tp_uname">
+    <column id="250" parent="213" name="tp_uname">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <DefaultExpression>&apos;username&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="241" parent="212" name="tp_uemail">
+    <column id="251" parent="213" name="tp_uemail">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="242" parent="212" name="tp_upwd">
+    <column id="252" parent="213" name="tp_upwd">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="243" parent="212" name="tp_age">
+    <column id="253" parent="213" name="tp_age">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <DefaultExpression>&apos;18&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="244" parent="212" name="tp_gender">
+    <column id="254" parent="213" name="tp_gender">
       <Position>6</Position>
       <DataType>varchar(4)|0s</DataType>
       <DefaultExpression>&apos;男&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="245" parent="212" name="tp_upic">
+    <column id="255" parent="213" name="tp_upic">
       <Position>7</Position>
       <DataType>varchar(120)|0s</DataType>
       <DefaultExpression>&apos;user2-160x128.jpg&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="246" parent="212" name="tp_phone">
+    <column id="256" parent="213" name="tp_phone">
       <Position>8</Position>
       <DataType>varchar(15)|0s</DataType>
       <DefaultExpression>&apos;15902896040&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="247" parent="212" name="tp_regdate">
+    <column id="257" parent="213" name="tp_regdate">
       <Position>9</Position>
       <DataType>date|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="248" parent="212" name="tp_update_time">
+    <column id="258" parent="213" name="tp_update_time">
       <Position>10</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="249" parent="212" name="tp_user_tp_uid_uindex">
+    <index id="259" parent="213" name="tp_user_tp_uid_uindex">
       <ColNames>tp_uid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="250" parent="212" name="PRIMARY">
+    <key id="260" parent="213" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>tp_uid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="251" parent="212" name="tp_user_tp_uid_uindex">
+    <key id="261" parent="213" name="tp_user_tp_uid_uindex">
       <ColNames>tp_uid</ColNames>
       <UnderlyingIndexName>tp_user_tp_uid_uindex</UnderlyingIndexName>
     </key>
-    <column id="252" parent="213" name="tp_vid">
+    <column id="262" parent="214" name="tp_vid">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="213" name="tp_title">
+    <column id="263" parent="214" name="tp_title">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <DefaultExpression>&apos;一个去了就不想离开的城市&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="213" name="tp_vname">
+    <column id="264" parent="214" name="tp_vname">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;景点名&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="255" parent="213" name="tp_vtype">
+    <column id="265" parent="214" name="tp_vtype">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <DefaultExpression>&apos;自然风光&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="256" parent="213" name="tp_vpic">
+    <column id="266" parent="214" name="tp_vpic">
       <Position>5</Position>
       <DataType>varchar(120)|0s</DataType>
       <DefaultExpression>&apos;封面图&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="257" parent="213" name="tp_vphone">
+    <column id="267" parent="214" name="tp_vphone">
       <Position>6</Position>
       <DataType>varchar(20)|0s</DataType>
       <DefaultExpression>&apos;(028)-88888888&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="258" parent="213" name="tp_level">
+    <column id="268" parent="214" name="tp_level">
       <Position>7</Position>
       <DataType>varchar(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="259" parent="213" name="tp_price">
+    <column id="269" parent="214" name="tp_price">
       <Position>8</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="213" name="tp_location">
+    <column id="270" parent="214" name="tp_location">
       <Position>9</Position>
       <DataType>varchar(20)|0s</DataType>
       <DefaultExpression>&apos;成都市&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="213" name="tp_zip">
+    <column id="271" parent="214" name="tp_zip">
       <Position>10</Position>
       <DataType>varchar(120)|0s</DataType>
       <DefaultExpression>&apos;成都市锦江区...&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="213" name="tp_opentime">
+    <column id="272" parent="214" name="tp_opentime">
       <Position>11</Position>
       <DataType>varchar(120)|0s</DataType>
       <DefaultExpression>&apos;8:00-17:00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="213" name="tp_creatTime">
+    <column id="273" parent="214" name="tp_creatTime">
       <Position>12</Position>
       <DataType>timestamp|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="213" name="tp_vcontent">
+    <column id="274" parent="214" name="tp_vcontent">
       <Position>13</Position>
       <DataType>text|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <index id="265" parent="213" name="tp_viewpoint_tp_vid_uindex">
+    <index id="275" parent="214" name="tp_viewpoint_tp_vid_uindex">
       <ColNames>tp_vid</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="266" parent="213" name="PRIMARY">
+    <key id="276" parent="214" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>tp_vid</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="267" parent="213" name="tp_viewpoint_tp_vid_uindex">
+    <key id="277" parent="214" name="tp_viewpoint_tp_vid_uindex">
       <ColNames>tp_vid</ColNames>
       <UnderlyingIndexName>tp_viewpoint_tp_vid_uindex</UnderlyingIndexName>
     </key>
-    <column id="268" parent="214" name="lw_id">
+    <column id="278" parent="215" name="lw_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="269" parent="214" name="lw_name">
+    <column id="279" parent="215" name="lw_name">
       <Position>2</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="270" parent="214" name="lw_date">
+    <column id="280" parent="215" name="lw_date">
       <Position>3</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="271" parent="214" name="lw_content">
+    <column id="281" parent="215" name="lw_content">
       <Position>4</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="272" parent="214" name="lw_for_name">
+    <column id="282" parent="215" name="lw_for_name">
       <Position>5</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="273" parent="214" name="lw_for_article_id">
+    <column id="283" parent="215" name="lw_for_article_id">
       <Position>6</Position>
       <DataType>varchar(100)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="274" parent="214" name="PRIMARY">
+    <key id="284" parent="215" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>lw_id</ColNames>
       <Primary>1</Primary>
