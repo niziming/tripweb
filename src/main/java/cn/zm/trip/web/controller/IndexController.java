@@ -1,5 +1,8 @@
 package cn.zm.trip.web.controller;
 
+import cn.zm.trip.web.dao.HotelDao;
+import cn.zm.trip.web.domain.Hotel;
+import cn.zm.trip.web.domain.HotelExample;
 import cn.zm.trip.web.domain.ViewPoint;
 import cn.zm.trip.web.domain.ViewPointExample;
 import cn.zm.trip.web.service.ViewPointService;
@@ -16,13 +19,15 @@ import java.util.List;
 public class IndexController {
 	@Autowired
 	private ViewPointService viewPointService;
+	@Autowired
+	private HotelDao hotelDao;
 
 	/**
 	 * 跳转首页
 	 */
 	@RequestMapping(value = {"", "index"}, method = RequestMethod.GET)
 	public String index(ViewPointExample example, Model model) {
-
+		HotelExample hotelExample = new HotelExample();
 		//显示首页的景点
 		String prefix = "/static/upload/viewavatar/";
 		example.setOrderByClause("tp_vid desc");
@@ -31,8 +36,18 @@ public class IndexController {
 			String suffix = viewPoint.getTpVpic();
 			viewPoint.setTpVpic(prefix + suffix);
 		}
+
+		//酒店
+		hotelExample.setOrderByClause("hid desc");
+		List<Hotel> hotels = hotelDao.selectByExample(hotelExample);
+		for (Hotel hotel : hotels) {
+			String suffix = hotel.getImgUrl();
+			hotel.setImgUrl(prefix + suffix);
+		}
+
 		//传送景点
 		model.addAttribute("viewPoints", viewPoints);
+		model.addAttribute("hotels", hotels);
 		return "index";
 	}
 

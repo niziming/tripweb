@@ -274,24 +274,16 @@ public class AdminController {
 		return "redirect:viewlist";
 	}
 
-	/**
-	 * 跳转景点内容页面
+	//**********view end***************
+
+	/*************hotel ************
+	 *
 	 */
-	@RequestMapping(value = "viewcontent", method = RequestMethod.GET)
-	public String viewContent(Integer tpVid, Model model) {
-		String prefix = "/static/upload/viewavatar/";
-		ViewPoint viewPoint = viewPointService.selectByPrimaryKey(tpVid);
-
-		model.addAttribute("viewPoint", viewPoint);
-		String suffix = viewPoint.getTpVpic();
-
-		viewPoint.setTpVpic(prefix+suffix);
-
-		return "admin/view_content";
+	@RequestMapping(value = "viewedithandle", method = RequestMethod.POST)
+	public String viewEditHandle(ViewPoint viewPoint) {
+		viewPointService.updateByPrimaryKeySelective(viewPoint);
+		session.setAttribute("msg",Msg.success("景点信息保存成功!"));
+		return "redirect:viewlist";
 	}
 
-
-
-
-	//**********view end***************
 }

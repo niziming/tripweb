@@ -1,11 +1,14 @@
 package cn.zm.trip.web.domain;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
 /**
  * @author TyCoding
  * @date 2018/5/15 下午4:44
  */
+@Component
 public class Reply implements Serializable {
 
     //回复信息编号
@@ -24,6 +27,10 @@ public class Reply implements Serializable {
     private String lr_for_reply;
     //在哪篇文章下的回复
     private String lr_for_article_id;
+    //在哪篇文章留言(id)
+    private String lr_forumId;
+    //在哪篇文章留言(id)
+    private String lr_hotel_id;
 
     public int getLr_id() {
         return lr_id;
@@ -87,5 +94,20 @@ public class Reply implements Serializable {
 
     public void setLr_for_article_id(String lr_for_article_id) {
         this.lr_for_article_id = lr_for_article_id;
+    }
+    public String getLr_forumId() {
+        return lr_forumId;
+    }
+
+    public void setLr_forumId(String lr_forumId) {
+        this.lr_forumId = lr_forumId;
+    }
+
+    public String getLr_hotel_id() {
+        return lr_hotel_id;
+    }
+
+    public void setLr_hotel_id(String lr_hotel_id) {
+        this.lr_hotel_id = lr_hotel_id;
     }
 }

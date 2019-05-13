@@ -1,7 +1,9 @@
 package cn.zm.trip.web.domain;
 
-import java.io.Serializable;
+import org.springframework.stereotype.Component;
 
+import java.io.Serializable;
+@Component
 public class Admin implements Serializable {
 	private Long aid;
 	private String aname;

@@ -6,7 +6,7 @@
     <div class="pull-right hidden-xs">
         <b>Version</b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2019 <a href="/admin/login">SWUST Jermaine 管理员登陆? </a>.</strong> All rights
+    <strong>Copyright &copy; 2019 <a href="/admin/login" style="color: #0b97c4">SWUST Jermaine 管理员登陆? </a>.</strong> All rights
     reserved.
 </footer>
 <%--/.main-footer--%>

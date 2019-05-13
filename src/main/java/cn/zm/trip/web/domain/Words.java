@@ -1,5 +1,7 @@
 package cn.zm.trip.web.domain;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
 /**
@@ -7,6 +9,7 @@ import java.io.Serializable;
  * @author TyCoding
  * @date 2018/5/6 上午10:56
  */
+@Component
 public class Words implements Serializable {
 
     //编号
@@ -21,6 +24,11 @@ public class Words implements Serializable {
     private String lw_for_name;
     //在哪篇文章留言(id)
     private String lw_for_article_id;
+    //在哪篇文章留言(id)
+    private String lw_forumId;
+    //在哪篇文章留言(id)
+    private String lw_hotel_id;
+
 
     public int getLw_id() {
         return lw_id;
@@ -68,5 +76,21 @@ public class Words implements Serializable {
 
     public void setLw_for_article_id(String lw_for_article_id) {
         this.lw_for_article_id = lw_for_article_id;
+    }
+
+    public String getLw_forumId() {
+        return lw_forumId;
+    }
+
+    public void setLw_forumId(String lw_forumId) {
+        this.lw_forumId = lw_forumId;
+    }
+
+    public String getLw_hotel_id() {
+        return lw_hotel_id;
+    }
+
+    public void setLw_hotel_id(String lw_hotel_id) {
+        this.lw_hotel_id = lw_hotel_id;
     }
 }

@@ -1,7 +1,9 @@
 package cn.zm.trip.web.controller;
 
+import cn.zm.trip.web.domain.Reply;
 import cn.zm.trip.web.domain.ViewPoint;
 import cn.zm.trip.web.domain.ViewPointExample;
+import cn.zm.trip.web.domain.Words;
 import cn.zm.trip.web.service.ViewPointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,9 @@ import java.util.List;
 public class ViewPointController {
 	@Autowired
 	private ViewPointService viewPointService;
+	private HttpSession session;
+	private Model model;
+	private ViewPointExample viewPointExample;
 
 	/**
 	 * 旅游景点跳转
@@ -24,11 +29,13 @@ public class ViewPointController {
 	 */
 	@RequestMapping(value = "point", method = RequestMethod.GET)
 	public String viewPoint(ViewPointExample example, Model model) {
-		String prefix = "/static/upload/viewavatar/";
 		example.setOrderByClause("tp_vid desc");
+		String prefix = "/static/upload/viewavatar/";
+
 		List<ViewPoint> viewPoints = viewPointService.selectByExample(example);
 		for (ViewPoint viewPoint : viewPoints){
 			String suffix = viewPoint.getTpVpic();
+			//前端img标签路径
 			viewPoint.setTpVpic(prefix+suffix);
 		}
 		model.addAttribute("viewPoints", viewPoints);
@@ -36,7 +43,9 @@ public class ViewPointController {
 	}
 
 	/**
-	 * 前台用户模糊搜索
+	 * 前台景点模糊搜索
+	 *
+	 * 待完成
 	 *
 	 * @param keyword
 	 * @param session
@@ -52,21 +61,21 @@ public class ViewPointController {
 	}
 
 	/**
-	 * 前台景查看更多内容跳转
+	 * 景点内容 跳转
 	 */
 	@RequestMapping(value = "content", method = RequestMethod.GET)
-	public String content(Integer tpVid, Model model) {
+	public String viewContent(Integer tpVid, Model model) {
+		//封装留言信息
+		List<Words> lw_list = viewPointService.findByWords();
+		model.addAttribute("lw_list",lw_list);
+
+		//封装回复信息
+		List<Reply> lr_list = viewPointService.findByReply();
+		model.addAttribute("lr_list",lr_list);
+
 		ViewPoint viewPoint = viewPointService.selectByPrimaryKey(tpVid);
-		model.addAttribute("viewPoint",viewPoint);
+		model.addAttribute("viewPoint", viewPoint);
+
 		return "proscenium/viewpoint/content";
-	}
-
-	/**
-	 * 论坛功能
-	 */
-	@RequestMapping(value = "forum", method = RequestMethod.GET)
-	public String forum() {
-
-		return "proscenium/viewpoint/forum";
 	}
 }

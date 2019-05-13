@@ -50,7 +50,7 @@
 				<div class="box box-info">
 					<div class="box box-info">
 						<div class="box-header with-border">
-							<h3 class="box-title">景点编辑</h3>
+							<h3 class="box-title">景点新增</h3>
 						</div>
 						<!-- /.box-header -->
 						<!-- form start -->

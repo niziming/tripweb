@@ -1,8 +1,11 @@
 package cn.zm.trip.web.domain;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 import java.util.Date;
 
+@Component
 public class User implements Serializable {
 	private String uid;
 	private String uname;
@@ -101,10 +104,6 @@ public class User implements Serializable {
 
 	public Date getRegDate() {
 		return regDate;
-	}
-
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
 	}
 
 	public Date getUpdateTime() {

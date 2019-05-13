@@ -1,7 +1,9 @@
 package cn.zm.trip.web.domain;
 
-import java.util.Date;
+import org.springframework.stereotype.Component;
 
+import java.util.Date;
+@Component
 public class ViewPoint {
     /**
      *

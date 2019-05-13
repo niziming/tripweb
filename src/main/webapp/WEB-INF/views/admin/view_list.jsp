@@ -52,8 +52,8 @@
 					<h3 class="box-title">景点列表</h3>
 					<div class="row" style="padding-left: 12px; padding-top: 10px;">
 						<a href="/admin/viewform" type="button" class="btn-primary btn-sm"><i class="fa fa-plus"></i>景点新增</a>&nbsp;&nbsp;
-						<span style="cursor: pointer" type="button" class="btn-primary btn-sm viewsectiondelete"><i
-								class="fa fa-trash-o"></i>批量删除</span>&nbsp;&nbsp;
+						<span style="cursor: pointer" type="button" class="btn-primary btn-sm viewsectiondelete">
+							<i class="fa fa-trash-o"></i>批量删除</span>&nbsp;&nbsp;
 					</div>
 					<div class="box-tools">
 						<form action="/admin/usersearch" method="get">

@@ -25,6 +25,8 @@
 		<result column="lw_content" property="lw_content" jdbcType="VARCHAR"/>
 		<result column="lw_for_name" property="lw_for_name" jdbcType="VARCHAR"/>
 		<result column="lw_for_article_id" property="lw_for_article_id" jdbcType="VARCHAR"/>
+		<result column="lw_forumId" property="lw_forumId" jdbcType="VARCHAR"/>
+		<result column="lw_hotel_id" property="lw_hotel_id" jdbcType="VARCHAR"/>
 	</resultMap>
 
 	<!--Reply-->
@@ -36,6 +38,8 @@
 		<result column="lr_for_name" property="lr_for_name" jdbcType="VARCHAR"/>
 		<result column="lr_for_words" property="lr_for_words" jdbcType="VARCHAR"/>
 		<result column="lr_for_article_id" property="lr_for_article_id" jdbcType="VARCHAR"/>
+		<result column="lr_forumId" property="lr_forumId" jdbcType="VARCHAR"/>
+		<result column="lr_hotel_id" property="lr_hotel_id" jdbcType="VARCHAR"/>
 	</resultMap>
 
 	<resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="cn.zm.trip.web.domain.ViewPoint">
@@ -353,14 +357,18 @@
           lw_date,
           lw_content,
           lw_for_name,
-          lw_for_article_id
+          lw_for_article_id,
+          lw_forumId,
+          lw_hotel_id
         )
         values(
           #{lw_name},
           #{lw_date},
           #{lw_content},
           #{lw_for_name},
-          #{lw_for_article_id}
+          #{lw_for_article_id},
+          #{lw_forumId},
+          #{lw_hotel_id}
         )
     </insert>
 
@@ -373,7 +381,9 @@
           lr_for_name,
           lr_for_words,
           lr_for_reply,
-          lr_for_article_id
+          lr_for_article_id,
+          lr_forumId,
+          lr_hotel_id
         )
         values(
           #{lr_name},
@@ -382,7 +392,9 @@
           #{lr_for_name},
           #{lr_for_words},
           #{lr_for_reply},
-          #{lr_for_article_id}
+          #{lr_for_article_id},
+          #{lr_forumId},
+          #{lr_hotel_id}
         )
     </insert>
 

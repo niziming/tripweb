@@ -59,14 +59,14 @@
 									<div class="container-fluid">
 										<div class="row">
 											<div class="col-md-12">
-												<h4>${fn:substring(viewPoint.tpTitle,0,10)}...</h4>
+												<h3>${fn:substring(viewPoint.tpTitle,0,7)}...</h3>
 												<h5>
 													[${viewPoint.tpVname}&nbsp;<small>| ${viewPoint.tpLocation}</small>]
 												</h5>
 												<strong>等级: ${viewPoint.tpLevel}</strong>|<strong>开放时间: ${viewPoint.tpOpentime}</strong>|<strong>类型: ${viewPoint.tpVtype}</strong><br>
 												详细地址:${fn:substring(viewPoint.tpZip,0,7)}...<br/>电话: ${viewPoint.tpVphone}
 												<div class="form-group" style="text-align: right;">
-													<a class="btn" href="/view/content?tpVid=${viewPoint.tpVid}">查看更多 »</a>
+													<a class="btn" style="color: #0b97c4" href="/view/content?tpVid=${viewPoint.tpVid}">查看更多 »</a>
 												</div>
 											</div>
 											<div class="form-group" style="text-align: right;">

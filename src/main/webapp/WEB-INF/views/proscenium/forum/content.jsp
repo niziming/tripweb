@@ -57,33 +57,33 @@
 							<div class="container-fluid">
 								<div class="row">
 									<br>
+
 									<div class="col-md-12 col-lg-12">
 										<div class="right" style="float: right;">
-											<small>发布日期:<fmt:formatDate value="${viewPoint.tpCreattime}"
+											<small>发布日期:<fmt:formatDate value="${forum.tpIssueTime}"
 											                            pattern="yyyy-MM-dd:HH:mm:ss"/></small>
+
 										</div>
-										<h3>${viewPoint.tpTitle}</h3>
-										<h4>
-											[${viewPoint.tpVname}&nbsp;<small>| ${viewPoint.tpLocation}</small>
-											]
+										<h3>${forum.tpTitle}</h3>
+										<h4 class="post-subtitle" style="font-style: italic">
+											${forum.tpSubTitle}
 										</h4>
 										<strong>等级: ${viewPoint.tpLevel}</strong>|<strong>开放时间: ${viewPoint.tpOpentime}</strong>|<strong>类型: ${viewPoint.tpVtype}</strong><br>
 										详细地址:${viewPoint.tpZip}<br/>联系电话: ${viewPoint.tpVphone}
-
+										${forum.tpTcontent}
 									</div>
 								</div>
 								<hr>
-								${viewPoint.tpVcontent}
 							</div>
 						</div>
 						<%--留言功能--%>
 						<div style="margin:0 2% 0 2%;">
 							<br/>
 							<!-- 留言的表单 -->
-							<form class="layui-form" action="/article/saveWords" method="post">
+							<form class="layui-form" action="/article/saveforumWords" method="post">
 								<input name="lw_name" value="${user.uname}" hidden="hidden"/>
 								<input name="lw_date" value="<%=nowDate%>" hidden="hidden"/>
-								<input name="lw_for_article_id" value="${viewPoint.tpVid}" hidden="hidden"/>
+								<input name="lw_forumId" value="${forum.tpFid}" hidden="hidden"/>
 								<div class="layui-input-block" style="margin-left: 0;">
 								<textarea id="lw_content" name="lw_content" placeholder="请输入你的留言" class="layui-textarea"
 								          style="height: 150px;"></textarea>
@@ -101,7 +101,7 @@
 									<!-- 先遍历留言信息（一条留言信息，下面的全是回复信息） -->
 									<c:forEach items="${lw_list}" var="words">
 										<!-- 如果留言信息是在本文章下的才显示 -->
-										<c:if test="${words.lw_for_article_id eq viewPoint.tpVid}">
+										<c:if test="${words.lw_forumId eq forum.tpFid}">
 											<li style="border-top: 1px dotted #01AAED">
 												<br/>
 												<div style="text-align: left;color:#444">
@@ -120,12 +120,13 @@
 															   onclick="btnReplyClick(this)">回复</a>
 														</p>
 													</div>
-													<!-- 回复表单默认隐藏 -->
+
+													<%--<!-- 回复表单默认隐藏 -->--%>
 													<div class="replycontainer layui-hide" style="margin-left: 61px;">
-														<form action="/article/saveReply" method="post"
+														<form action="/article/saveForumReply" method="post"
 														      class="layui-form">
-															<input name="lr_for_article_id" id="lr_for_article_id"
-															       value="${viewPoint.tpVid}" hidden="hidden"/>
+															<input name="lr_forumId" id="lr_forumId"
+															       value="${forum.tpFid}" hidden="hidden"/>
 															<input name="lr_name" id="lr_name"
 															       value="${user.uname}"
 															       hidden="hidden"/>
@@ -144,7 +145,7 @@
 															          style="min-height:80px;"></textarea>
 															</div>
 															<div class="layui-form-item">
-																<button id="replyBtn" class="layui-btn layui-btn-mini"
+																<button id="replyBtn" class="btn btn-primary"
 																        lay-submit="formReply" lay-filter="formReply">提交
 																</button>
 															</div>
@@ -155,7 +156,7 @@
 												<!-- 以下是回复信息 -->
 												<c:forEach items="${lr_list}" var="reply">
 													<!-- 每次遍历出来的留言下存在回复信息才展示（本条回复信息是本条留言下的就显示在当前留言下） -->
-													<c:if test="${reply.lr_for_article_id eq viewPoint.tpVid && reply.lr_for_words eq words.lw_id}">
+													<c:if test="${reply.lr_forumId eq forum.tpFid && reply.lr_for_words eq words.lw_id}">
 														<div style="text-align: left;margin-left:61px;color: #444">
 															<div>
 																<span style="color:#5FB878">${reply.lr_name}&nbsp;&nbsp;</span>
@@ -178,11 +179,11 @@
 															<!-- 回复表单默认隐藏 -->
 															<div class="replycontainer layui-hide"
 															     style="margin-left: 61px;">
-																<form action="/article/saveReply"
+																<form action="/article/saveForumReply"
 																      method="post" class="layui-form">
-																	<input name="lr_for_article_id"
-																	       id="lr_for_article_id"
-																	       value="${viewPoint.tpVid}" hidden="hidden"/>
+																	<input name="lr_forumId"
+																	       id="lr_forumId"
+																	       value="${forum.tpFid}" hidden="hidden"/>
 																	<input name="lr_name" id="lr_name"
 																	       value="${user.uname}"
 																	       hidden="hidden"/>
@@ -236,6 +237,7 @@
 	<!-- ./wrapper -->
 	<%--js--%>
 	<jsp:include page="../../../includes/footer.jsp"/>
+
 	<%--回复--%>
 	<script>
         function btnReplyClick(elem) {
@@ -252,17 +254,17 @@
         }
 
         $("#replyBtn").click(function () {
-            var lr_for_article_id = $("#lr_for_article_id").val();
+            var lr_forumId = $("#lr_forumId").val();
             var lr_name = $("#lr_name").val();
             var lr_date = $("#lr_date").val();
             var lr_for_name = $("#lr_for_name").val();
             var lr_content = $("#lr_content").val();
             var lr_for_words = $("#lr_for_words").val();
             $.ajax({
-                url: '/article/saveReply',
+                url: '/article/saveForumReply',
                 type: 'POST',
                 data: [{
-                    lr_for_article_id: lr_for_article_id,
+                    lr_forumId: lr_forumId,
                     lr_name: lr_name,
                     lr_date: lr_date,
                     lr_for_name: lr_for_name,

@@ -52,15 +52,21 @@
 					<div class="carousel-inner">
 						<div class="item active">
 							<img src="/static/assets/img/test/city.png" alt="First slide">
-							<div class="carousel-caption"> <h1>来一场说走就走的旅行</h1>Closing WebApplicationContext for namespace 'springServlet-servlet': startup date [Thu May 02 10:23:29  </div>
+							<div class="carousel-caption"><h1>来一场说走就走的旅行</h1>Closing WebApplicationContext for namespace
+								'springServlet-servlet': startup date [Thu May 02 10:23:29
+							</div>
 						</div>
 						<div class="item">
 							<img src="/static/assets/img/test/grass.png" alt="Second slide">
-							<div class="carousel-caption"> <h1>来一场说走就走的旅行</h1>Closing WebApplicationContext for namespace 'springServlet-servlet': startup date [Thu May 02 10:23:29  </div>
+							<div class="carousel-caption"><h1>来一场说走就走的旅行</h1>Closing WebApplicationContext for namespace
+								'springServlet-servlet': startup date [Thu May 02 10:23:29
+							</div>
 						</div>
 						<div class="item">
 							<img src="/static/assets/img/test/sea.png" alt="Third slide">
-							<div class="carousel-caption"> <h1>来一场说走就走的旅行</h1>Closing WebApplicationContext for namespace 'springServlet-servlet': startup date [Thu May 02 10:23:29  </div>
+							<div class="carousel-caption"><h1>来一场说走就走的旅行</h1>Closing WebApplicationContext for namespace
+								'springServlet-servlet': startup date [Thu May 02 10:23:29
+							</div>
 						</div>
 					</div>
 					<!-- 轮播（Carousel）导航 -->
@@ -95,14 +101,16 @@
 									<div class="container-fluid">
 										<div class="row">
 											<div class="col-md-12">
-												<h4>${fn:substring(viewPoint.tpTitle,0,9)}...</h4>
+												<h3>${fn:substring(viewPoint.tpTitle,0,7)}...</h3>
 												<h5>
-													[${viewPoint.tpVname}&nbsp;<small>| ${viewPoint.tpLocation}</small>]
+													[${viewPoint.tpVname}&nbsp;<small>| ${viewPoint.tpLocation}</small>
+													]
 												</h5>
 												<strong>等级: ${viewPoint.tpLevel}</strong>|<strong>开放时间: ${viewPoint.tpOpentime}</strong>|<strong>类型: ${viewPoint.tpVtype}</strong><br>
 												详细地址:${fn:substring(viewPoint.tpZip,0,7)}...<br/>电话: ${viewPoint.tpVphone}
 												<div class="form-group" style="text-align: right;">
-													<a class="btn" href="/view/content?tpVid=${viewPoint.tpVid}">查看更多 »</a>
+													<a class="btn" style="color: #0b93d5"
+													   href="/view/content?tpVid=${viewPoint.tpVid}">查看更多 »</a>
 												</div>
 											</div>
 											<div class="form-group" style="text-align: right;">
@@ -126,59 +134,32 @@
 				<br>
 				<%--自定义内容--%>
 				<div class="row">
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="/static/assets/img/photo1.png" alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>2019-05-01 19:46:13,538 INFO [com.alibaba.druid.pool.DruidDataSource] -
-									{dataSource-1} inited
-									Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl'
-									adapter.
-									2019-05-01 19:46:14,048 INFO [org.springframework.web.context.ContextLoader] - Root
-									WebAppli</p>
-								<p>
-									<a href="#" class="btn btn-primary -align-right" role="button">查看</a>
+					<c:forEach items="${hotels}" var="hotel">
+						<!-- ITEM -->
+						<div class="col-lg-1"></div>
+						<div class="col-sm-6 col-md-4 col-lg-5">
+							<div class="thumbnail">
+								<a href="/hotel/content?hid=${hotel.hid}">
+										<%--<img src="${viewPoint.tpVpic}" alt="..." class="img-rounded">--%>
+									<img src="/static/assets/img/photo1.png" alt="...">
+								</a>
+								<div class="caption">
+									<h3>${hotel.houseType}</h3>
+									<ol>
+										<li>你好</li>
+									</ol>
+								</div>
+								<div class="form-group" style="text-align: right;">
+									<a class="btn" style="color: #0b97c4"
+									   href="/hotel/content?hid=${hotel.hid}">查看详情»</a><br>
+									<a class="btn btn-primary">收藏</a>
+								</div>
 							</div>
 						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="/static/assets/img/photo1.png" alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>2019-05-01 19:46:13,538 INFO [com.alibaba.druid.pool.DruidDataSource] -
-									{dataSource-1} inited
-									Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl'
-									adapter.
-									2019-05-01 19:46:14,048 INFO [org.springframework.web.context.ContextLoader] - Root
-									WebAppli</p>
-								<p>
-									<a href="#" class="btn btn-primary -align-right" role="button">查看</a>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-sm-6 col-md-4">
-						<div class="thumbnail">
-							<img src="/static/assets/img/photo1.png" alt="...">
-							<div class="caption">
-								<h3>Thumbnail label</h3>
-								<p>2019-05-01 19:46:13,538 INFO [com.alibaba.druid.pool.DruidDataSource] -
-									{dataSource-1} inited
-									Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl'
-									adapter.
-									2019-05-01 19:46:14,048 INFO [org.springframework.web.context.ContextLoader] - Root
-									WebAppli</p>
-								<p>
-									<a href="#" class="btn btn-primary -align-right" role="button">查看</a>
-							</div>
-						</div>
-					</div>
+						<!-- END / ITEM -->
+					</c:forEach>
 				</div>
 			</section>
-
 		</div>
 		<!-- /.container -->
 	</div>
