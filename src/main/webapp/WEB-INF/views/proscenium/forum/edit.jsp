@@ -180,7 +180,7 @@
             var editor = new E('#editor');
 
             // 配置服务器端地址
-            editor.customConfig.uploadImgServer = '/upload/contenimg';
+            editor.customConfig.uploadImgServer = '/upload/fourmContentUpload';
 
             // 将图片大小限制为 3M 默认为5MB
             editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;

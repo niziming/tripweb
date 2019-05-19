@@ -34,6 +34,8 @@ public class ForumController {
 	Reply reply;
 	@Autowired
 	ViewPointService viewPointService;
+
+	private Model model;
 	/**
 	 * 倒序查询帖子 跳转forum页面
 	 */
@@ -100,6 +102,9 @@ public class ForumController {
 
 		return "redirect:index";
 	}
+
+	/*############后台开始##############*/
+
 
 
 }

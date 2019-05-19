@@ -14,7 +14,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
 	<div class="register-logo">
-		<b>Admin</b>用户注册
+		<b>Register</b>用户注册
 	</div>
 
 	<div class="register-box-body">

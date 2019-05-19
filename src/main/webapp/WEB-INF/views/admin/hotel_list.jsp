@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>用户管理 | UserInfo</title>
+	<title>酒店管理|Hotel</title>
 	<jsp:include page="../../includes/header.jsp"/>
 
 </head>
@@ -24,19 +24,20 @@
 		<section class="content-header">
 			<h1>
 				<br>
-				景点管理|
+				酒店管理|
 				<small>操作</small>
 			</h1>
 
 			<ol class="breadcrumb">
 				<br>
 				<li><a href="#"><i class="fa fa-users"></i> Operate </a></li>
-				<li class="active">Users</li>
+				<li class="active">Hotel</li>
 			</ol>
 		</section>
 
 		<br/><br/>
 		<div class="col-xs-12">
+
 			<%--Denger alert--%>
 			<c:if test="${msg.msg != null}">
 				<div class="alert alert-${msg.status == 200 ? "success" : "danger"} alert-dismissible">
@@ -48,9 +49,9 @@
 			<%--/.alert--%>
 			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">景点列表</h3>
+					<h3 class="box-title">酒店列表</h3>
 					<div class="row" style="padding-left: 12px; padding-top: 10px;">
-						<a href="/admin/viewform" type="button" class="btn-primary btn-sm"><i class="fa fa-plus"></i>景点新增</a>&nbsp;&nbsp;
+						<a href="/admin/hotelInsertForm" type="button" class="btn-primary btn-sm"><i class="fa fa-plus"></i>酒店新增</a>&nbsp;&nbsp;
 						<span style="cursor: pointer" type="button" class="btn-primary btn-sm viewsectiondelete">
 							<i class="fa fa-trash-o"></i>批量删除</span>&nbsp;&nbsp;
 					</div>
@@ -76,47 +77,43 @@
 									<input type="checkbox" class="minimal icheck_master">
 								</label>
 							</th>
-							<th>编码|Id</th>
-							<th>归属地|Local</th>
+							<th>编号|Id</th>
+							<th>户型|House</th>
 							<th>标题|Title</th>
-							<th>景点名|Name</th>
-							<th>类型|Type</th>
+							<th>床型|Bed</th>
 							<th>电话|Poh</th>
-							<th>等级|Level</th>
-							<th>票价|Price</th>
-							<th>缩图|Pic</th>
+							<th>人数|Num</th>
 							<th>地址|Zip</th>
-							<th>开放时间|Open</th>
-							<th>创建时间|Create</th>
-							<th>操作|operate</th>
+							<th>大小|Size</th>
+							<th>价格|Pic</th>
+							<th>缩图|Img</th>
+							<th>操作|Oper</th>
 						</tr>
 						</thead>
 						<tbody>
-						<c:forEach items="${viewPoints}" var="viewPoint">
+						<c:forEach items="${hotels}" var="hotel">
 							<tr>
 								<td>
 									<label>
-										<input name="viewPoint" value="${viewPoint.tpVid}" type="checkbox" class="minimal minimal-myminor">
+										<input name="hotel" value="${hotel.hid}" type="checkbox" class="minimal minimal-myminor">
 									</label>
 								</td>
-								<td>${viewPoint.tpVid}</td>
-								<td><span class="label label-primary">${viewPoint.tpLocation}</span></td>
-								<td>${fn:substring(viewPoint.tpTitle,0,3)}...</td>
-								<td>${fn:substring(viewPoint.tpVname,0,3)}...</td>
-								<td>${viewPoint.tpVtype}</td>
-								<td>${fn:substring(viewPoint.tpVphone,0,8)}...</td>
-								<td><span class="label label-primary">${viewPoint.tpLevel}</span></td>
-								<td>${viewPoint.tpPrice}</td>
-								<td><img style="width: 50px;height: 30px;" src="${viewPoint.tpVpic}" /></td>
-								<td>${fn:substring(viewPoint.tpZip,0,4)}...</td>
-								<td>${viewPoint.tpOpentime}</td>
-								<td><fmt:formatDate value="${viewPoint.tpCreattime}" pattern="yyyy-MM-dd"/></td>
+								<td>${hotel.hid}</td>
+								<td><span class="label label-primary">${hotel.houseType}</span></td>
+								<td>${fn:substring(hotel.title,0,3)}...</td>
+								<td><span class="label label-primary">${hotel.bedType}</span></td>
+								<td>${hotel.phone}</td>
+								<td><span class="label label-primary">${hotel.peopleNum}</span></td>
+								<td>${fn:substring(hotel.zip,0,8)}...</td>
+								<td><span class="label label-primary">${hotel.houseSize}</span></td>
+								<td><span class="label label-primary">${hotel.price}</span></td>
+								<td><img style="width: 50px;height: 30px;" src="${hotel.imgUrl}" /></td>
 								<td>
-									<a href="/admin/viewcontent?tpVid=${viewPoint.tpVid}" class="btn btn-success btn-xs"><i class="fa fa-search"></i>内容
+									<a href="/admin/hotelcontent?hid=${hotel.hid}" class="btn btn-success btn-xs"><i class="fa fa-search"></i>内容
 									</a>
-									<a href="/admin/viewedit?tpVid=${viewPoint.tpVid}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>编辑
+									<a href="/admin/hoteledit?hid=${hotel.hid}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i>编辑
 									</a>
-									<a href="/admin/viewdelete?tpVid=${viewPoint.tpVid}" class="btn btn-danger  btn-xs"><i
+									<a href="/admin/hoteldelete?hid=${hotel.hid}" class="btn btn-danger  btn-xs"><i
 											class="fa fa-trash"></i>删除
 									</a>
 								</td>
@@ -151,31 +148,31 @@
             'autoWidth': true
         });
 
-		// 前端复选框选择器
+        // 前端复选框选择器
         var _checkbox = App.getCheckbox();
         console.log(_checkbox.length);
 
-		// 复选框选择传数组到后台,处理完成后前台接收
+        // 复选框选择传数组到后台,处理完成后前台接收
         $(".viewsectiondelete").click(function () {
-            var tpVids = [];
+            var hids = [];
             var seletes = $(".minimal-myminor");
             console.log(seletes);
             for(var i=0;i<seletes.length;i++){
                 if($(seletes[i]).prop("checked")){
-                    tpVids.push($(seletes[i]).val());
+                    hids.push($(seletes[i]).val());
                 }
             }
 
             $.ajax({
-                url: "viewsectiondelete",
+                url: "hotelMutiDelete",
                 type: "GET",
                 data: {
-                    "tpVids": tpVids
+                    "hids": hids
                 },
                 traditional: true,
                 success: function (message) {
                     if(message == "1"){
-                        window.location.href = "/admin/viewlist";
+                        window.location.href = "/admin/hotellist";
                     }
                 }
             });

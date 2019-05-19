@@ -27,7 +27,7 @@ public class HotelController {
 		//实例化hotel examle
 		HotelExample example = new HotelExample();
 		example.setOrderByClause("hid desc");
-		String prefix = "/static/upload/hotel/";
+		String prefix = "/static/upload/hotelAvatar/";
 		List<Hotel> hotels = hotelDao.selectByExample(example);
 		for (Hotel hotel : hotels) {
 			//图片名

@@ -13,6 +13,9 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet" href="${path}/static/assets/bower_components/bootstrap/dist/css/bootstrap.min.css">
+<%--bootstrap-4.3.1-dist--%>
+<%--<link rel="stylesheet" href="${path}/static/assets/plugins/bootstrap-4.3.1-dist/css/bootstrap.min.css"/>--%>
+
 <!-- Font Awesome -->
 <link rel="stylesheet" href="${path}/static/assets/bower_components/font-awesome/css/font-awesome.min.css">
 <!-- Ionicons -->
@@ -41,6 +44,13 @@ folder instead of downloading all of them to reduce the load. -->
 
 <%--回复功能--%>
 <link rel="stylesheet" href="${path}/static/assets/plugins/layui/css/layui.css"/>
+
+<%--日期时间组件--%>
+<link rel="stylesheet" href="${path}/static/assets/plugins/my/bootstrap-datetimepicker.min.css"/>
+
+<%--省市联动--%>
+<%--<link rel="stylesheet" href="${path}/static/assets/app/demo.css"/>--%>
+
 
 <%--谷歌字体--%>
 <link href='https://fonts.font.im/css?family=Roboto:400,500' rel='stylesheet' type='text/css'>

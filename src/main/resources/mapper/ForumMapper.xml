@@ -147,28 +147,28 @@
     -->
     insert into tp_forum
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="tpFid != null">
+      <if test="tpFid != null and tpFid != '' ">
         tp_fid,
       </if>
-      <if test="tpAuthorId != null">
+      <if test="tpAuthorId != null and tpAuthorId != '' ">
         tp_author_id,
       </if>
-      <if test="tpAuthor != null">
+      <if test="tpAuthor != null and tpAuthor != '' ">
         tp_author,
       </if>
-      <if test="tpTitle != null">
+      <if test="tpTitle != null and tpTitle != '' ">
         tp_title,
       </if>
-      <if test="tpSubTitle != null">
+      <if test="tpSubTitle != null and v != '' ">
         tp_sub_title,
       </if>
-      <if test="tpIssueTime != null">
+      <if test="tpIssueTime != null and tpIssueTime != '' ">
         tp_issue_time,
       </if>
-      <if test="tpTag != null">
+      <if test="tpTag != null and tpTag != '' ">
         tp_tag,
       </if>
-      <if test="tpTcontent != null">
+      <if test="tpTcontent != null and tpTcontent != '' ">
         tp_tcontent,
       </if>
     </trim>

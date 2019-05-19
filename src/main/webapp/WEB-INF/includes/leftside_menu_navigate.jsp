@@ -57,53 +57,53 @@
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-book"></i> <span>酒店管理</span>
+                    <i class="fa fa-hotel"></i> <span>酒店管理</span>
                     <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/admin/viewlist" target="admin"><i class="fa fa-circle-o"></i>酒店列表</a></li>
-                    <li><a href="/admin/viewedit" target="admin"><i class="fa fa-circle-o"></i>酒店新增</a></li>
+                    <li><a href="/admin/hotellist" target="admin"><i class="fa fa-circle-o"></i>酒店列表</a></li>
+                    <li><a href="/admin/hotelInsertForm" target="admin"><i class="fa fa-circle-o"></i>酒店新增</a></li>
                 </ul>
             </li>
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-book"></i> <span>论坛管理</span>
+                    <i class="fa fa-forumbee"></i> <span>论坛管理</span>
                     <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/admin/viewlist" target="admin"><i class="fa fa-circle-o"></i>论坛列表</a></li>
-                    <li><a href="/admin/viewedit" target="admin"><i class="fa fa-circle-o"></i>论坛新增</a></li>
+                    <li><a href="/admin/forumList" target="admin"><i class="fa fa-circle-o"></i>帖子列表</a></li>
+                    <li><a href="/admin/forumInsertForm" target="admin"><i class="fa fa-circle-o"></i>帖子新增</a></li>
                 </ul>
             </li>
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-book"></i> <span>交通管理</span>
+                    <i class="fa fa-sticky-note"></i> <span>评论管理</span>
                     <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/admin/viewlist" target="admin"><i class="fa fa-circle-o"></i>交通列表</a></li>
-                    <li><a href="/admin/viewedit" target="admin"><i class="fa fa-circle-o"></i>交通新增</a></li>
+                    <li><a href="/admin/wordsList" target="admin"><i class="fa fa-circle-o"></i>评论列表</a></li>
+                    <li><a href="/admin/replyList" target="admin"><i class="fa fa-circle-o"></i>回复列表</a></li>
                 </ul>
             </li>
 
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-book"></i> <span>评论管理</span>
+                    <i class="fa fa-car"></i> <span>交通管理</span>
                     <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/admin/viewlist" target="admin"><i class="fa fa-circle-o"></i>留言管理</a></li>
-                    <li><a href="/admin/viewedit" target="admin"><i class="fa fa-circle-o"></i>回复管理</a></li>
+                    <li><a href="/admin/trafficList" target="admin"><i class="fa fa-circle-o"></i>交通列表</a></li>
+                    <li><a href="/admin/trafficInsert" target="admin"><i class="fa fa-circle-o"></i>交通新增</a></li>
                 </ul>
             </li>
 

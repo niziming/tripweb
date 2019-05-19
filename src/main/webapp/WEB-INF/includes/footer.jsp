@@ -46,7 +46,15 @@
 <%--图片上传组件 dropzone--%>
 <script src="${path}/static/assets/plugins/dropzone/min/dropzone.min.js"></script>
 
-<script src="${path}/static/assets/plugins/layui/layui.js"></script>
+<%--图片上传组件 dropzone--%>
+<script src="${path}/static/assets/plugins/dropzone/min/dropzone.min.js"></script>
+
+<%--日期时间组件 dropzone--%>
+<script src="${path}/static/assets/plugins/my/bootstrap-datetimepicker.min.js"></script>
+
+<%--省市联动--%>
+<script src="${path}/static/assets/app/distpicker.data.js"></script>
+<script src="${path}/static/assets/app/pace.min.js"></script>
 
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>

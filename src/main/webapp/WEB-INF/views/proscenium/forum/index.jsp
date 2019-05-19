@@ -81,11 +81,8 @@
 														<h4 class="post-subtitle" style="font-style: italic">
 																${fn:substring(forum.tpSubTitle,0,20)}...
 														</h4>
-														<div class="post-content-preview" style="font-style: normal">
-															${fn:substring(forum.tpTcontent,0,200)}...
-														</div>
-													</a>
 
+													</a>
 													<p class="post-meta" style="margin: 10px 0;">
 														作者:${forum.tpAuthor} Create By
 														2019-04-30

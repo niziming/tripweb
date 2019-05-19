@@ -19,9 +19,9 @@
 			<div class="collapse navbar-collapse pull-left" id="navbar-collapse">
 				<ul class="nav navbar-nav">
 					<li><a href="/view/point">景点VIEWS</a></li>
-					<li><a href="#">定制CUST</a></li>
 					<li><a href="/hotel/index">酒店HOTEL</a></li>
 					<li><a href="/forum/index">论坛FORUM</a></li>
+					<li><a href="/cust/index">定制CUST</a></li>
 					<li><a href="/about/index">我们US</a></li>
 				</ul>
 				<form class="navbar-form navbar-right" role="search">

@@ -45,14 +45,14 @@
 					</div>
 				</ol>
 			</section>
-			<br>
+			<br><br><hr>
 			<section class="content">
 				<div class="row">
 					<c:forEach items="${viewPoints}" var="viewPoint">
 						<%--自定义内容--%>
 						<div class="col-sm-6 col-md-4 col-lg-3 viewpages">
 							<div class="thumbnail" style="height: 420px;">
-								<a href="/view/content?tpVid=${viewPoint.tpVid}" >
+								<a href="/view/content?tpVid=${viewPoint.tpVid}">
 									<img src="${viewPoint.tpVpic}" alt="..." class="img-rounded">
 								</a>
 								<div class="caption">
@@ -61,12 +61,14 @@
 											<div class="col-md-12">
 												<h3>${fn:substring(viewPoint.tpTitle,0,7)}...</h3>
 												<h5>
-													[${viewPoint.tpVname}&nbsp;<small>| ${viewPoint.tpLocation}</small>]
+													[${viewPoint.tpVname}&nbsp;<small>| ${viewPoint.tpLocation}</small>
+													]
 												</h5>
 												<strong>等级: ${viewPoint.tpLevel}</strong>|<strong>开放时间: ${viewPoint.tpOpentime}</strong>|<strong>类型: ${viewPoint.tpVtype}</strong><br>
 												详细地址:${fn:substring(viewPoint.tpZip,0,7)}...<br/>电话: ${viewPoint.tpVphone}
 												<div class="form-group" style="text-align: right;">
-													<a class="btn" style="color: #0b97c4" href="/view/content?tpVid=${viewPoint.tpVid}">查看更多 »</a>
+													<a class="btn" style="color: #0b97c4"
+													   href="/view/content?tpVid=${viewPoint.tpVid}">查看更多 »</a>
 												</div>
 											</div>
 											<div class="form-group" style="text-align: right;">
@@ -85,14 +87,14 @@
 			<!-- /.container -->
 		</div>
 		<!-- /.content-wrapper -->
-		<%--版权--%>
-		<jsp:include page="../../../includes/copyright.jsp"/>
 	</div>
+	<%--版权--%>
+	<jsp:include page="../../../includes/copyright.jsp"/>
 	<!-- ./wrapper -->
-<%--js--%>
-<jsp:include page="../../../includes/footer.jsp"/>
-<script>
-</script>
+	<%--js--%>
+	<jsp:include page="../../../includes/footer.jsp"/>
+	<script>
+	</script>
 
 </body>
 </html>

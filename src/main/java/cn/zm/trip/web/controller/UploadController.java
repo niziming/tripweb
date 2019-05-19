@@ -34,7 +34,7 @@ public class UploadController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "viewavatar", method = RequestMethod.POST)
+	@RequestMapping(value = "viewAvatar", method = RequestMethod.POST)
 	public Map<String, Object> viewAvatar(MultipartFile dropFile, HttpServletRequest request) {
 		Map<String, Object> result = new HashMap<>();
 		//文件存放路径
@@ -92,8 +92,8 @@ public class UploadController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value = "contenimg", method = RequestMethod.POST)
-	public Map<String, Object> contenImg(MultipartFile dropFile, HttpServletRequest request) {
+	@RequestMapping(value = "viewContentUpload", method = RequestMethod.POST)
+	public Map<String, Object> viewContentUpload(MultipartFile dropFile, HttpServletRequest request) {
 		Map<String, Object> result = new HashMap<>();
 		//前缀路径 Scheme服务端提供的协议 getServerName服务器名称 port 端口
 		//String server = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
@@ -125,4 +125,119 @@ public class UploadController {
 		result.put("data",new String[] {prefix + file.getName()});
 		return result;
 	}
+
+	/**
+	 * 文件上传
+	 * @param dropFile
+	 * @param request
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "hotelAvatar", method = RequestMethod.POST)
+	public Map<String, Object> hotelAvatar(MultipartFile dropFile, HttpServletRequest request) {
+		Map<String, Object> result = new HashMap<>();
+		//文件存放路径
+		String filePath = "/static/upload/hotelAvatar/";
+		//获取文件后缀
+		String fileName = dropFile.getOriginalFilename();
+		String fileSuffix = fileName.substring(fileName.lastIndexOf('.'));
+		//文件存放路径
+		String realPath = request.getSession().getServletContext().getRealPath(filePath);
+		File file = new File(realPath);
+		//判断文件是否存在
+		if (!file.exists()){
+			file.mkdir();
+		}
+		file = new File(realPath,UUID.randomUUID() + fileSuffix);
+		try {
+			dropFile.transferTo(file);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		result.put("fileName",file.getName());
+		return result;
+	}
+
+	/**
+	 * 后台内容图片上传
+	 * @param dropFile
+	 * @param request
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "hotelContentUpload", method = RequestMethod.POST)
+	public Map<String, Object> hotelContentUpload(MultipartFile dropFile, HttpServletRequest request) {
+		Map<String, Object> result = new HashMap<>();
+		//前缀路径 Scheme服务端提供的协议 getServerName服务器名称 port 端口
+		//String server = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+
+		//图片显示路径
+		String prefix = "/static/upload/hotelFile/";
+
+		//获取文件后缀
+		String fileName = dropFile.getOriginalFilename();
+		String fileSuffix = fileName.substring(fileName.lastIndexOf('.'));
+
+		//文件存放路径
+		String realPath = request.getSession().getServletContext().getRealPath(prefix);
+
+		File file = new File(realPath);
+		//判断文件是否存在
+		if (!file.exists()){
+			file.mkdir();
+		}
+		file = new File(realPath, UUID.randomUUID() + fileSuffix);
+		try {
+			dropFile.transferTo(file);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		//传到前端
+		result.put("errno",0);
+		result.put("data",new String[] {prefix + file.getName()});
+		return result;
+	}
+
+	/**
+	 * 后台内容图片上传
+	 * @param dropFile
+	 * @param request
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "fourmContentUpload", method = RequestMethod.POST)
+	public Map<String, Object> fourmContentUpload(MultipartFile dropFile, HttpServletRequest request) {
+		Map<String, Object> result = new HashMap<>();
+		//前缀路径 Scheme服务端提供的协议 getServerName服务器名称 port 端口
+		//String server = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort();
+
+		//图片显示路径
+		String prefix = "/static/upload/forumFile/";
+
+		//获取文件后缀
+		String fileName = dropFile.getOriginalFilename();
+		String fileSuffix = fileName.substring(fileName.lastIndexOf('.'));
+
+		//文件存放路径
+		String realPath = request.getSession().getServletContext().getRealPath(prefix);
+
+		File file = new File(realPath);
+		//判断文件是否存在
+		if (!file.exists()){
+			file.mkdir();
+		}
+		file = new File(realPath, UUID.randomUUID() + fileSuffix);
+		try {
+			dropFile.transferTo(file);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		//传到前端
+		result.put("errno",0);
+		result.put("data",new String[] {prefix + file.getName()});
+		return result;
+	}
+
 }

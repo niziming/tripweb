@@ -64,20 +64,21 @@
 						<!-- ITEM -->
 						<div class="col-lg-1"></div>
 						<div class="col-sm-6 col-md-4 col-lg-5">
-							<div class="thumbnail">
+							<div class="thumbnail"  style="height: 450px;">
 								<a href="/hotel/content?hid=${hotel.hid}">
 										<%--<img src="${viewPoint.tpVpic}" alt="..." class="img-rounded">--%>
-									<img src="/static/assets/img/photo1.png" alt="...">
+									<img src="${hotel.imgUrl}" alt="...">
 								</a>
 								<div class="caption">
-									<h3>${hotel.houseType}</h3>
+									<h3>${hotel.title}</h3>
 									<ol>
-										<li>你好</li>
+										<li><p style="color: #ffa309">城市：${hotel.local}|房屋类型：${hotel.houseType}|床类型：${hotel.bedType}</p> </li>
+										<li><p style="color: #0b93d5">价格：￥${hotel.price} | 详细地址：${hotel.zip}</p></li>
 									</ol>
 								</div>
 								<div class="form-group" style="text-align: right;">
-									<a class="btn" style="color: #0b97c4" href="/hotel/content?hid=${hotel.hid}">查看详情»</a><br>
-									<a class="btn btn-primary">收藏</a>
+									<a class="btn" style="color: #0b97c4"
+									   href="/hotel/content?hid=${hotel.hid}">查看详情»</a>
 								</div>
 							</div>
 						</div>

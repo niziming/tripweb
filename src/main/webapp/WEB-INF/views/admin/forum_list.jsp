@@ -1,12 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <%--代表HTML5--%>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>用户管理 | UserInfo</title>
+	<title>论坛管理|Forum</title>
 	<jsp:include page="../../includes/header.jsp"/>
 
 </head>
@@ -23,14 +24,14 @@
 		<section class="content-header">
 			<h1>
 				<br>
-				用户管理|
+				论坛管理|
 				<small>操作</small>
 			</h1>
 
 			<ol class="breadcrumb">
 				<br>
 				<li><a href="#"><i class="fa fa-users"></i> Operate </a></li>
-				<li class="active">Users</li>
+				<li class="active">Hotel</li>
 			</ol>
 		</section>
 
@@ -47,11 +48,12 @@
 			<%--/.alert--%>
 			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">用户列表</h3>
+					<h3 class="box-title">帖子列表</h3>
 					<div class="row" style="padding-left: 12px; padding-top: 10px;">
-						<a href="/admin/userform" type="button" class="btn-primary btn-sm"><i class="fa fa-plus"></i>用户新增</a>&nbsp;&nbsp;
-						<span style="cursor: pointer" type="button" class="btn-primary btn-sm usersectiondelete"><i
-								class="fa fa-trash-o"></i>批量删除</span>&nbsp;&nbsp;
+						<a href="/admin/forumInsertForm" type="button" class="btn-primary btn-sm"><i
+								class="fa fa-plus"></i>帖子新增</a>&nbsp;&nbsp;
+						<span style="cursor: pointer" type="button" class="btn-primary btn-sm forumMutiDelete">
+							<i class="fa fa-trash-o"></i>批量删除</span>&nbsp;&nbsp;
 					</div>
 					<div class="box-tools">
 						<form action="/admin/usersearch" method="get">
@@ -66,74 +68,69 @@
 					</div>
 				</div>
 
-				<table id="myuserstable" class="table table-bordered table-striped">
-					<thead>
-					<tr>
-						<th>
-							<label>
-								<input type="checkbox" class="minimal icheck_master">
-							</label>
-						</th>
-						<th>用户ID|Uid</th>
-						<th>用户名|Uname</th>
-						<th>邮箱|Email</th>
-						<th>年龄|Age</th>
-						<th>性别|Gender</th>
-						<th>头像|Avatar</th>
-						<th>电话|phone</th>
-						<th>注册时间|RegDate</th>
-						<th>最后更新|UpData</th>
-						<th>编辑|Edit</th>
-					</tr>
-					</thead>
-					<tbody>
-					<c:forEach items="${users}" var="user">
+				<div class="box-body table-responsive">
+					<table id="myuserstable" class="table table-bordered table-striped">
+						<thead>
 						<tr>
-							<td>
+							<th>
 								<label>
-									<input name="uids" value="${user.uid}" type="checkbox"
-									       class="minimal minimal-myminor">
+									<input type="checkbox" class="minimal icheck_master">
 								</label>
-							</td>
-							<td>${user.uid}</td>
-							<td>${user.uname}</td>
-							<td><span class="label label-primary">${user.uemail}</span></td>
-							<td>${user.age}</td>
-							<td>${user.gender}</td>
-							<td><img src="${user.upic}" style="width: 50px;height: 30px;"/></td>
-							<td>${user.phone}</td>
-							<td><fmt:formatDate value="${user.regDate}" pattern="yyyy-MM-dd"/></td>
-							<td><fmt:formatDate value="${user.updateTime}" pattern="yyyy-MM-dd:HH:mm:dd"/></td>
-							<td>
-									<%--<button type="button" class="btn btn-success btn-xs"><i class="fa fa-search"></i>查看--%>
-									<%--</button>--%>
-								<a href="/admin/useredit?uid=${user.uid}" class="btn btn-primary btn-xs"><i
-										class="fa fa-edit"></i>编辑
-								</a>
-								<a href="/admin/userdelete?uid=${user.uid}" class="btn btn-danger  btn-xs"><i
-										class="fa fa-trash"></i>删除
-								</a>
-							</td>
+							</th>
+							<th>编号|Id</th>
+							<th>作者|Author</th>
+							<th>标题|Title</th>
+							<th>副标题|Sub</th>
+							<th>发布日期|Date</th>
+							<th>标签|Tag</th>
+							<th>操作|Oper</th>
 						</tr>
-					</c:forEach>
-					</tbody>
-				</table>
-				<br>
-				<!-- /.box-body -->
+						</thead>
+						<tbody>
+						<c:forEach items="${forums}" var="forum">
+							<tr>
+								<td>
+									<label>
+										<input name="hotel" value="${forum.tpFid}" type="checkbox"
+										       class="minimal minimal-myminor">
+									</label>
+								</td>
+								<td>${forum.tpFid}</td>
+								<td><span class="label label-primary">${forum.tpAuthor}</span></td>
+								<td>${fn:substring(forum.tpTitle,0,3)}...</td>
+								<td>${forum.tpSubTitle}</td>
+								<td><fmt:formatDate value="${forum.tpIssueTime}" pattern="yyyy-MM-dd:HH:mm:dd"/></td>
+								<td>${forum.tpTag}</td>
+								<td>
+									<a href="/admin/forumEditForm?tpFid=${forum.tpFid}" class="btn btn-primary btn-xs"><i
+											class="fa fa-edit"></i>编辑
+									</a>
+									<a href="/admin/forumDelete?tpFid=${forum.tpFid}" class="btn btn-danger  btn-xs"><i
+											class="fa fa-trash"></i>删除
+									</a>
+								</td>
+							</tr>
+						</c:forEach>
+						</tbody>
+					</table>
+					<br>
+				</div>
 				<!-- /.box-body -->
 			</div>
 			<!-- /.box -->
 		</div>
 	</div>
 	<!-- /.content-wrapper -->
+	<%--版权--%>
+	<jsp:include page="../../includes/copyright.jsp"/>
+
 </div>
-<%--版权--%>
-<jsp:include page="../../includes/copyright.jsp"/>
 <%--css--%>
 <jsp:include page="../../includes/footer.jsp"/>
 <!-- page script -->
 <script>
     $(function () {
+        // 前端分页
         $('#myuserstable').DataTable({
             'paging': true,
             'lengthChange': true,
@@ -143,29 +140,31 @@
             'autoWidth': true
         });
 
+        // 前端复选框选择器
         var _checkbox = App.getCheckbox();
         console.log(_checkbox.length);
 
-        $(".usersectiondelete").click(function () {
-            var uids = [];
+        // 复选框选择传数组到后台,处理完成后前台接收
+        $(".forumMutiDelete").click(function () {
+            var tpFids = [];
             var seletes = $(".minimal-myminor");
             console.log(seletes);
             for (var i = 0; i < seletes.length; i++) {
                 if ($(seletes[i]).prop("checked")) {
-                    uids.push($(seletes[i]).val());
+                    tpFids.push($(seletes[i]).val());
                 }
             }
 
             $.ajax({
-                url: "usersectiondelete",
+                url: "forumMutiDelete",
                 type: "GET",
                 data: {
-                    "uids": uids
+                    "tpFids": tpFids
                 },
                 traditional: true,
                 success: function (message) {
                     if (message == "1") {
-                        window.location.href = "/admin/userlist";
+                        window.location.href = "/admin/forumList";
                     }
                 }
             });

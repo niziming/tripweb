@@ -169,7 +169,7 @@
 
 								<%--Content Edit--%>
 								<div class="form-group">
-									<label for="tpPrice" class="col-sm-2 control-label">开放时间</label>
+									<label for="tpPrice" class="col-sm-2 control-label">内容编辑</label>
 
 									<div class="col-sm-10">
 
@@ -214,7 +214,7 @@
             var editor = new E('#editor');
 
             // 配置服务器端地址
-            editor.customConfig.uploadImgServer = '/upload/contenimg';
+            editor.customConfig.uploadImgServer = '/upload/viewContentUpload';
 
             // 将图片大小限制为 3M 默认为5MB
             editor.customConfig.uploadImgMaxSize = 3 * 1024 * 1024;
@@ -251,7 +251,7 @@
         });
 
         Dropzone.options.dropz = {
-            url: "/upload/viewavatar",
+            url: "/upload/viewAvatar",
             method: "post",
             autoQueue: true,
             dictDefaultMessage: '拖动文件至此或者点击上传', // 设置默认的提示语句

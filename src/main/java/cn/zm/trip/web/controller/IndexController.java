@@ -30,6 +30,8 @@ public class IndexController {
 		HotelExample hotelExample = new HotelExample();
 		//显示首页的景点
 		String prefix = "/static/upload/viewavatar/";
+		//酒店
+		String prefixHotel = "/static/upload/hotelAvatar/";
 		example.setOrderByClause("tp_vid desc");
 		List<ViewPoint> viewPoints = viewPointService.selectByExample(example);
 		for (ViewPoint viewPoint : viewPoints) {
@@ -42,7 +44,7 @@ public class IndexController {
 		List<Hotel> hotels = hotelDao.selectByExample(hotelExample);
 		for (Hotel hotel : hotels) {
 			String suffix = hotel.getImgUrl();
-			hotel.setImgUrl(prefix + suffix);
+			hotel.setImgUrl(prefixHotel + suffix);
 		}
 
 		//传送景点
