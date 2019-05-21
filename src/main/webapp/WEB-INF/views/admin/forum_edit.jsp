@@ -72,7 +72,7 @@
 									<div class="col-sm-10">
 										<input type="text" name="tpAuthor" class="form-control"
 										       id="tpAuthor"
-										       placeholder="${user.tpAuthor}">
+										       placeholder="${forum.tpAuthor}">
 									</div>
 								</div>
 

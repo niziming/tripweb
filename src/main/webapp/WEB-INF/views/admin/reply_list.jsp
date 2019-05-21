@@ -7,7 +7,7 @@
 <html>
 
 <head>
-	<title>评论信息 | Comment</title>
+	<title>回复信息 | Reply</title>
 	<jsp:include page="../../includes/header.jsp"/>
 </head>
 
@@ -24,13 +24,13 @@
 		<section class="content-header">
 			<h1>
 				<br>
-				评论信息|
+				回复信息|
 				<small>操作</small>
 			</h1>
 
 			<ol class="breadcrumb">
 				<br>
-				<li><a href="#"><i class="fa fa-users"></i> Comment </a></li>
+				<li><a href="#"><i class="fa fa-users"></i> Reply </a></li>
 				<li class="active">列表</li>
 			</ol>
 		</section>
@@ -50,7 +50,7 @@
 
 			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">评论列表</h3>
+					<h3 class="box-title">回复列表</h3>
 					<div class="row" style="padding-left: 12px; padding-top: 10px;">
 						<span style="cursor: pointer" type="button" class="btn-primary btn-sm usersectiondelete"><i
 								class="fa fa-trash-o"></i>批量删除</span>&nbsp;&nbsp;
@@ -78,37 +78,42 @@
 								<input type="checkbox" class="minimal icheck_master">
 							</label>
 						</th>
-						<th>编码|Wid</th>
-						<th>留言人|User</th>
-						<th>日期|Date</th>
-						<th>内容|Content</th>
-						<th>给谁留言|User</th>
-						<th>留言景点|View</th>
-						<th>留言论坛|Forum</th>
-						<th>留言酒店|Hotel</th>
+						<th>回复编号|Rid</th>
+						<th>回复人|User</th>
+						<th>回复时间|Date</th>
+						<th>回复内容|Content</th>
+						<th>给谁回复|User</th>
+						<th>回复留言实体|Words</th>
+						<%--给哪条回复信息回复的--%>
+						<th>回复回复实体|Reply</th>
+						<th>回复景点|View</th>
+						<th>回复酒店|Hotel</th>
+						<th>回复论坛|Forum</th>
 						<th>操作|Edit</th>
 					</tr>
 					</thead>
 					<tbody>
 
-					<c:forEach items="${byWords}" var="byWord">
+					<c:forEach items="${replys}" var="reply">
 						<tr>
 							<td>
 								<label>
-									<input name="lw_id" value="${byWord.lw_id}" type="checkbox"
+									<input name="lr_id" value="${reply.lr_id}" type="checkbox"
 									       class="minimal minimal-myminor">
 								</label>
 							</td>
-							<td>${byWord.lw_id}</td>
-							<td><span class="label label-primary">${byWord.lw_name}</span></td>
-							<td>${byWord.lw_date}</td>
-							<td>${byWord.lw_content}</td>
-							<td>${byWord.lw_for_name}</td>
-							<td>${byWord.lw_for_article_id}</td>
-							<td>${byWord.lw_forumId}</td>
-							<td>${byWord.lw_hotel_id}</td>
+							<td>${reply.lr_id}</td>
+							<td><span class="label label-primary">${reply.lr_name}</span></td>
+							<td>${reply.lr_date}</td>
+							<td>${reply.lr_content}</td>
+							<td>${reply.lr_for_name}</td>
+							<td>${reply.lr_for_words}</td>
+							<td>${reply.lr_for_reply}</td>
+							<td>${reply.lr_for_article_id}</td>
+							<td>${reply.lr_hotel_id}</td>
+							<td>${reply.lr_forumId}</td>
 							<td>
-								<a href="/admin/wordsDelete?lw_id=${byWord.lw_id}" class="btn btn-danger  btn-xs"><i
+								<a href="/admin/replyDelete?lr_id=${reply.lr_id}" class="btn btn-danger  btn-xs"><i
 										class="fa fa-trash"></i>删除
 								</a>
 							</td>
@@ -145,25 +150,25 @@
         console.log(_checkbox.length);
 
         $(".usersectiondelete").click(function () {
-            var lw_ids = [];
+            var lr_ids = [];
             var seletes = $(".minimal-myminor");
             console.log(seletes);
             for (var i = 0; i < seletes.length; i++) {
                 if ($(seletes[i]).prop("checked")) {
-                    lw_ids.push($(seletes[i]).val());
+                    lr_ids.push($(seletes[i]).val());
                 }
             }
 
             $.ajax({
-                url: "wordsMutiDelete",
+                url: "replyMutiDelete",
                 type: "GET",
                 data: {
-                    "lw_ids": lw_ids
+                    "lr_ids": lr_ids
                 },
                 traditional: true,
                 success: function (message) {
                     if (message == "1") {
-                        window.location.href = "/admin/wordsList";
+                        window.location.href = "/admin/replyList";
                     }
                 }
             });

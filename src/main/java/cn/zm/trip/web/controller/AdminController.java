@@ -2,9 +2,7 @@ package cn.zm.trip.web.controller;
 
 import cn.zm.trip.web.commons.Msg;
 import cn.zm.trip.web.commons.TimeStampUtil;
-import cn.zm.trip.web.dao.ForumDao;
-import cn.zm.trip.web.dao.HotelDao;
-import cn.zm.trip.web.dao.TrafficDao;
+import cn.zm.trip.web.dao.*;
 import cn.zm.trip.web.domain.*;
 import cn.zm.trip.web.service.AdminService;
 import cn.zm.trip.web.service.UserService;
@@ -39,6 +37,11 @@ public class AdminController {
 	private ForumDao forumDao;
 	@Autowired
 	private TrafficDao trafficDao;
+	@Autowired
+	private WordsDao wordsDao;
+	@Autowired
+	private ReplyDao replyDao;
+
 
 	/**
 	 * **********login start***************
@@ -125,8 +128,12 @@ public class AdminController {
 	@RequestMapping(value = "usersearch", method = RequestMethod.GET)
 	public String userSearch(String keyword, HttpSession session) {
 		System.out.println(keyword);
+		String prefix = "/static/upload/useravatar/";
 		List<User> users = userService.search(keyword);
-
+		for (User user : users){
+			String imgUrl = user.getUpic();
+			user.setUpic(prefix + imgUrl);
+		}
 		session.setAttribute("users", users);
 		session.setAttribute("msg", Msg.success("用户查询成功!"));
 
@@ -359,7 +366,7 @@ public class AdminController {
 	@RequestMapping(value = "hoteledithandle", method = RequestMethod.POST)
 	public String hotelEditHandle(Hotel hotel) {
 		hotelDao.updateByPrimaryKeySelective(hotel);
-		session.setAttribute("msg", Msg.success("景点信息保存成功!"));
+		session.setAttribute("msg", Msg.success("酒店信息保存成功!"));
 		return "redirect:hotellist";
 	}
 
@@ -464,7 +471,7 @@ public class AdminController {
 	@RequestMapping(value = "forumInsert", method = RequestMethod.POST)
 	public String forumInsert(Forum forum, Model model) {
 		if (forum.getTpFid() == null) {
-			forumDao.insertSelective(forum);
+			forumDao.insert(forum);
 			model.addAttribute("msg", Msg.success("新帖子成功!"));
 			return "redirect:forumList";
 		}
@@ -590,6 +597,81 @@ public class AdminController {
 		trafficDao.updateByPrimaryKeySelective(traffic);
 		model.addAttribute("msg",Msg.success("更新成功！"));
 		return "redirect:trafficList";
+	}
+
+	/**
+	 * 跳转评论列表
+	 * @return
+	 */
+	@RequestMapping(value = "wordsList", method = RequestMethod.GET)
+	public String wordsList(Model model) {
+		List<Words> byWords = viewPointService.findByWords();
+		model.addAttribute("byWords", byWords);
+		return "admin/words_list";
+	}
+
+	/**
+	 * 留言批量删除
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "wordsMutiDelete", method = RequestMethod.GET)
+	public String wordsMutiDelete(Integer[] lw_ids, Model model) {
+
+		for (Integer lw_id : lw_ids){
+			wordsDao.deleteByPrimaryKey(lw_id);
+
+		}
+		model.addAttribute("msg", Msg.success(Arrays.toString(lw_ids) + "号删除成功！"));
+		return "1";
+	}
+
+	/**
+	 * 单击删除
+	 * @return
+	 */
+	@RequestMapping(value = "wordsDelete", method = RequestMethod.GET)
+	public String wordsDelete(Integer lw_id, Model model) {
+		wordsDao.deleteByPrimaryKey(lw_id);
+		model.addAttribute("msg", Msg.success(lw_id + "号删除成功！"));
+		return "redirect:wordsList";
+	}
+
+	/**
+	 * 跳转回复列表
+	 * @return
+	 */
+	@RequestMapping(value = "replyList", method = RequestMethod.GET)
+	public String ReplyList(Model model) {
+		List<Reply> replys = viewPointService.findByReply();
+		model.addAttribute("replys", replys);
+		return "admin/reply_list";
+	}
+
+	/**
+	 * 回复批量删除
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping(value = "replyMutiDelete", method = RequestMethod.GET)
+	public String replyMutiDelete(Integer[] lr_ids, Model model) {
+		for (Integer lr_id : lr_ids){
+			replyDao.deleteByPrimaryKey(lr_id);
+
+		}
+		model.addAttribute("msg", Msg.success(Arrays.toString(lr_ids) + "号删除成功！"));
+		return "1";
+	}
+
+	/**
+	 * 单击删除
+	 * @return
+	 */
+	@RequestMapping(value = "replyDelete", method = RequestMethod.GET)
+	public String replyDelete(Integer lr_id, Model model) {
+		replyDao.deleteByPrimaryKey(lr_id);
+		model.addAttribute("msg", Msg.success(lr_id + "号删除成功！"));
+		return "redirect:replyList";
 	}
 
 }

@@ -80,7 +80,7 @@
 								<div class="form-group">
 									<label for="local" class="col-sm-2 control-label">城市</label>
 									<div class="col-sm-10">
-										<input type="text" name="local" class="form-control" id="local"
+										<input type="text" name="local" value="${hotel.local}" class="form-control" id="local"
 										       placeholder="${hotel.local}">
 									</div>
 								</div>
@@ -90,7 +90,7 @@
 									<label for="title" class="col-sm-2 control-label">标题</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="title" class="form-control" id="title"
+										<input type="text" name="title" value="${hotel.title}" class="form-control" id="title"
 										       placeholder="${hotel.title}">
 									</div>
 								</div>
@@ -100,7 +100,7 @@
 									<label for="houseType" class="col-sm-2 control-label">房屋类型</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="houseType" class="form-control" id="houseType"
+										<input type="text" name="houseType" value="${hotel.houseType}" class="form-control" id="houseType"
 										       placeholder="${hotel.houseType}">
 
 									</div>
@@ -111,7 +111,7 @@
 									<label for="bedType" class="col-sm-2 control-label">床类型</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="bedType" class="form-control" id="bedType"
+										<input type="text" name="bedType" value="${hotel.bedType}" class="form-control" id="bedType"
 										       placeholder="${hotel.bedType}">
 									</div>
 								</div>
@@ -121,8 +121,18 @@
 									<label for="phone" class="col-sm-2 control-label">联系电话</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="phone" class="form-control" id="phone"
+										<input type="text" name="phone" value="${hotel.phone}" class="form-control" id="phone"
 										       placeholder="${hotel.phone}">
+									</div>
+								</div>
+
+								<%--people--%>
+								<div class="form-group">
+									<label for="peopleNum" class="col-sm-2 control-label">入住人数</label>
+
+									<div class="col-sm-10">
+										<input type="text" name="peopleNum" value="${hotel.peopleNum}" class="form-control" id="peopleNum"
+										       placeholder="${hotel.peopleNum}">
 									</div>
 								</div>
 
@@ -132,7 +142,7 @@
 									<label for="zip" class="col-sm-2 control-label">详细地址</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="zip" class="form-control" id="zip"
+										<input type="text" name="zip" value="${hotel.zip}" class="form-control" id="zip"
 										       placeholder="${hotel.zip}">
 									</div>
 								</div>
@@ -142,7 +152,7 @@
 									<label for="houseSize" class="col-sm-2 control-label">房屋大小</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="houseSize" class="form-control" id="houseSize"
+										<input type="text" name="houseSize" value="${hotel.houseSize}" class="form-control" id="houseSize"
 										       placeholder="${hotel.houseSize}">
 									</div>
 								</div>
@@ -152,7 +162,7 @@
 									<label for="price" class="col-sm-2 control-label">价格</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="price" class="form-control" id="price"
+										<input type="text" name="price" value="${hotel.price}" class="form-control" id="price"
 										       placeholder="${hotel.price}">
 									</div>
 								</div>

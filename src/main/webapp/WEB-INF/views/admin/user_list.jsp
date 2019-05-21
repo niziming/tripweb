@@ -134,6 +134,7 @@
 <!-- page script -->
 <script>
     $(function () {
+
         $('#myuserstable').DataTable({
             'paging': true,
             'lengthChange': true,

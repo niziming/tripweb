@@ -8,6 +8,7 @@ import cn.zm.trip.web.domain.Reply;
 import cn.zm.trip.web.domain.Words;
 import cn.zm.trip.web.service.ForumService;
 import cn.zm.trip.web.service.ViewPointService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -97,9 +98,9 @@ public class ForumController {
 	 * content
 	 */
 	@RequestMapping(value = "savecontent", method = RequestMethod.POST)
-	public String saveContent(Forum forum){
+	public String saveContent(Forum forum, Model model){
 		forumDao.insert(forum);
-
+		model.addAttribute("msg", Msg.success("发帖成功"));
 		return "redirect:index";
 	}
 

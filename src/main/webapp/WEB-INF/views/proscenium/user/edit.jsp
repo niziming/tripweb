@@ -50,7 +50,7 @@
 						<%--<img src="${path}/static/assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">--%>
 						<div class="box-body">
 
-							<%--uid--%>
+							<%--upic--%>
 							<div class="form-group">
 								<label for="upic" class="col-sm-2 control-label">头像上传</label>
 

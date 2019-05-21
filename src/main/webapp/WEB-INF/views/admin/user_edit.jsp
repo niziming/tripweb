@@ -52,6 +52,17 @@
 					<form class="form-horizontal" action="/admin/useredithandle" method="post">
 						<div class="box-body">
 
+							<%--upic--%>
+							<div class="form-group">
+								<label for="upic" class="col-sm-2 control-label">头像上传</label>
+
+								<div class="col-sm-10">
+									<input type="text" readonly name="upic"
+									       class="form-control" id="upic" placeholder="Url...">
+									<div id="dropz" class="dropzone"></div>
+								</div>
+							</div>
+
 							<%--uid--%>
 							<div class="form-group">
 								<label for="inputUid" class="col-sm-2 control-label">用户ID</label>
@@ -134,6 +145,20 @@
 <jsp:include page="../../includes/copyright.jsp"/>
 <%--css--%>
 <jsp:include page="../../includes/footer.jsp"/>
-
+<script>
+    Dropzone.options.dropz = {
+        url: "/upload/useravatar",
+        method: "post",
+        autoQueue: true,
+        dictDefaultMessage: '拖动文件至此或者点击上传', // 设置默认的提示语句
+        paramName: "dropFile",// 传到后台的参数名称
+        init: function () {
+            this.on("success", function (file, data) {
+                $("#upic").val(data.fileName);
+                // 上传成功触发的事件
+            });
+        }
+    };
+</script>
 </body>
 </html>

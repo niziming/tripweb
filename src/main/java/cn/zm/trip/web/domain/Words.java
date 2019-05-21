@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Words implements Serializable {
 
     //编号
-    private int lw_id;
+    private Integer lw_id;
     //留言人
     private String lw_name;
     //留言时间
