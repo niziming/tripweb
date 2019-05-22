@@ -19,10 +19,16 @@ public class TrafficController {
 	@Autowired
 	TrafficDao trafficDao;
 
+	/**
+	 *
+	 * @param currentCity
+	 * @param desCity
+	 * @param model
+	 * @return
+	 */
 	@ResponseBody
 	@RequestMapping(value = "selectByCurrentAndDestination", method = RequestMethod.GET)
 	public List<Traffic> traffic(String currentCity, String desCity, Model model) {
-
 		TrafficExample example = new TrafficExample();
 		List<Traffic> traffics = trafficDao.selectByExample(example);
 

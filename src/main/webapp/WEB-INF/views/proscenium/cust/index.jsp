@@ -54,7 +54,7 @@
 										<label class="sr-only">Province</label>
 										<select class="form-control" id="current_city">
 											<option value="" data-code="">—— 出发地点 ——</option>
-											<option value="绵阳" selected>绵阳</option>
+											<option value="绵阳市" selected>绵阳市</option>
 											<option value="北京市" data-code="110000">北京市</option>
 											<option value="天津市" data-code="120000">天津市</option>
 											<option value="河北省" data-code="130000">河北省</option>
@@ -108,7 +108,7 @@
 					<br>
 					<%--交通查询表单--%>
 					<div class="container col-lg-12">
-						<table id="myuserstable" class="table table-bordered table-striped">
+						<table id="traffic_table" class="table table-bordered table-striped">
 							<thead>
 							<tr>
 								<th>类型</th>
@@ -133,9 +133,9 @@
 					<div class="container">
 						<p class="btn bg-orange btn-flat margin" style="cursor: default">景点选择</p>
 					</div>
-					<!-- /.box-body -->
-					<%--酒店选择--%>
-					<div class="container" id="hotel_cust"></div>
+					<%--景点选择--%>
+
+					<div class="container" id="view_cust"></div>
 
 					<%--酒店选择--%>
 					<div class="container">
@@ -176,6 +176,7 @@
             ajax_city(currentCity, desCity);
         });
 
+        // 交通表异步加载
         function ajax_city(currentCity, desCity) {
             if (currentCity != "" && desCity != "") {
                 // console.log(currentCity);
@@ -195,7 +196,7 @@
                             var tpArriveTime = new Date(data[i].tpArriveTime).Format("yyyy-MM-dd");
                             console.log(data[i].tpArriveTime - data[i].tpCurrentTime);
                             var tpSpendTime = new Date(data[i].tpArriveTime - data[i].tpCurrentTime).Format("hh:mm:ss");
-                            $("#myuserstable tbody").append(
+                            $("#traffic_table tbody").append(
                                 '<tr>'
                                 + '<td><span class="label label-primary">' + data[i].tpType + '</span></td>'
                                 + '<td>' + data[i].tpCurrent + '</td>'
@@ -229,7 +230,7 @@
                     for (var i = 0; i < data.length; i++) {
                         var title = data[i].tpTitle.substring(1, 9);
 
-                        $("#hotel_cust").append(
+                        $("#view_cust").append(
                             '<div class="col-sm-6 col-md-4 col-lg-3 viewpages">'
                             + '<input value=" ' + data[i].tpVid + ' " type="checkbox" class="minimal minimal-myminor" style="position: absolute; top:2px; left: 15px;">'
                             + '<div class="thumbnail" style="height: 400px;">'

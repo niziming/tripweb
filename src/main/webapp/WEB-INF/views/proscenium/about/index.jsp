@@ -20,7 +20,7 @@
 
 	<%--banner--%>
 	<div class="col-lg-12" style="padding: 0;">
-		<img src="/static/assets/img/test/grass.png" class="img-responsive">
+		<img src="/static/assets/img/test/grass.png" style="width: 100%" class="img-responsive">
 		<br>
 	</div>
 

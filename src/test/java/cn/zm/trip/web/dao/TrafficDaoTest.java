@@ -20,4 +20,10 @@ TrafficDao trafficDao;
 		TrafficExample example = new TrafficExample();
 		trafficDao.selectByExample(example);
 	}
+
+	@Test
+	public void selectByExample1() {
+		TrafficExample example = new TrafficExample();
+		trafficDao.selectByExample(example);
+	}
 }
