@@ -78,6 +78,7 @@
 								</label>
 							</th>
 							<th>编号|Id</th>
+							<th>作者ID|Aid</th>
 							<th>作者|Author</th>
 							<th>标题|Title</th>
 							<th>副标题|Sub</th>
@@ -96,6 +97,7 @@
 									</label>
 								</td>
 								<td>${forum.tpFid}</td>
+								<td>${forum.tpAuthorId}</td>
 								<td><span class="label label-primary">${forum.tpAuthor}</span></td>
 								<td>${fn:substring(forum.tpTitle,0,3)}...</td>
 								<td>${forum.tpSubTitle}</td>

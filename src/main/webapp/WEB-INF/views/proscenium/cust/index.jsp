@@ -49,63 +49,33 @@
 						<%--出发地--%>
 						<div class="docs-methods">
 							<form class="form-inline">
-								<div id="distpicker">
-									<div class="form-group">
-										<label class="sr-only">Province</label>
-										<select class="form-control" id="current_city">
-											<option value="" data-code="">—— 出发地点 ——</option>
-											<option value="绵阳市" selected>绵阳市</option>
-											<option value="北京市" data-code="110000">北京市</option>
-											<option value="天津市" data-code="120000">天津市</option>
-											<option value="河北省" data-code="130000">河北省</option>
-											<option value="山西省" data-code="140000">山西省</option>
-											<option value="内蒙古自治区" data-code="150000">内蒙古自治区</option>
-											<option value="辽宁省" data-code="210000">辽宁省</option>
-											<option value="吉林省" data-code="220000">吉林省</option>
-											<option value="黑龙江省" data-code="230000">黑龙江省</option>
-											<option value="上海市" data-code="310000">上海市</option>
-											<option value="江苏省" data-code="320000">江苏省</option>
-											<option value="浙江省" data-code="330000">浙江省</option>
-											<option value="安徽省" data-code="340000">安徽省</option>
-											<option value="福建省" data-code="350000">福建省</option>
-											<option value="江西省" data-code="360000">江西省</option>
-											<option value="山东省" data-code="370000">山东省</option>
-											<option value="河南省" data-code="410000">河南省</option>
-											<option value="湖北省" data-code="420000">湖北省</option>
-											<option value="湖南省" data-code="430000">湖南省</option>
-											<option value="广东省" data-code="440000">广东省</option>
-											<option value="广西壮族自治区" data-code="450000">广西壮族自治区</option>
-											<option value="海南省" data-code="460000">海南省</option>
-											<option value="重庆市" data-code="500000">重庆市</option>
-											<option value="四川省" data-code="510000">四川省</option>
-											<option value="贵州省" data-code="520000">贵州省</option>
-											<option value="云南省" data-code="530000">云南省</option>
-											<option value="西藏自治区" data-code="540000">西藏自治区</option>
-											<option value="陕西省" data-code="610000">陕西省</option>
-											<option value="甘肃省" data-code="620000">甘肃省</option>
-											<option value="青海省" data-code="630000">青海省</option>
-											<option value="宁夏回族自治区" data-code="640000">宁夏回族自治区</option>
-											<option value="新疆维吾尔自治区" data-code="650000">新疆维吾尔自治区</option>
-											<option value="台湾省" data-code="710000">台湾省</option>
-											<option value="香港特别行政区" data-code="810000">香港特别行政区</option>
-											<option value="澳门特别行政区" data-code="820000">澳门特别行政区</option>
-										</select>
+								<div>
+									<%--出发地--%>
+									<div class="form-group" data-toggle="distpicker" id="current_city">
+										出发地：
+											<select class="form-control" data-province="-- 选择省 --"></select>
+											<select class="form-control" data-city="-- 选择市 --"></select>
+											<select class="form-control" data-district="-- 选择区 --"></select>
+										<div class="form-group">
+											<button class="btn btn-primary" id="reset" type="button">重置</button>
+										</div>
 									</div>
-									<div class="form-group">
-										<label class="sr-only">City</label>
-										<select class="form-control" id="des_city">
-											<option value="" data-code="">—— 到达地点 ——</option>
-											<option value="成都市" selected>成都市</option>
-										</select>
-									</div>
-									<div class="form-group">
-										<button class="btn btn-primary" id="reset" type="button">重置</button>
+									<%--目的地--%>
+									<div class="form-group" data-toggle="distpicker" id="des_city">
+										目的地：
+										<select class="form-control" data-province="-- 选择省 --"></select>
+										<select class="form-control" data-city="-- 选择市 --"></select>
+										<select class="form-control" data-district="-- 选择区 --"></select>
+										<div class="form-group">
+											<button class="btn btn-primary" id="reset" type="button">重置</button>
+										</div>
 									</div>
 								</div>
 							</form>
 						</div>
 					</div>
 					<br>
+
 					<%--交通查询表单--%>
 					<div class="container col-lg-12">
 						<table id="traffic_table" class="table table-bordered table-striped">
@@ -125,30 +95,23 @@
 							</tbody>
 						</table>
 					</div>
-					<br>
 
-					<br>
-					<hr>
-
-					<div class="container">
-						<p class="btn bg-orange btn-flat margin" style="cursor: default">景点选择</p>
-					</div>
 					<%--景点选择--%>
-
+					<div class="container">
+						<p class="btn bg-orange btn-flat margin" style="cursor: default">目的景点</p>
+					</div>
 					<div class="container" id="view_cust"></div>
+
+						<br>
+						<br>
+						<hr>
 
 					<%--酒店选择--%>
 					<div class="container">
-						<p class="btn bg-orange btn-flat margin" style="cursor: default">酒店选择</p>
-						<%--出发地--%>
-						<div class="hotel-group">
-
-						</div>
+						<p class="btn bg-orange btn-flat margin" style="cursor: default">目的酒店</p>
 					</div>
 					<%--结果--%>
-					<div class="box-body table-responsive">
-
-					</div>
+					<div class="container" id="hotel_cust"></div>
 				</div>
 
 			</section>
@@ -162,22 +125,51 @@
 	<!-- ./wrapper -->
 	<%--js--%>
 	<jsp:include page="../../../includes/footer.jsp"/>
+
+		<%--省市区联动插件--%>
+		<script src="/static/assets/plugins/jQueryDistpicker20160621/js/distpicker.data.js"></script>
+		<script src="/static/assets/plugins/jQueryDistpicker20160621/js/distpicker.js"></script>
+
 	<script>
 
-        $("#current_city").on("change", function () {
-            var currentCity = $("#current_city option:selected").val();
-            var desCity = $("#des_city option:selected").val();
+        $.fn.distpicker.setDefaults({
+            autoSelect:false
+        });
+
+
+        var currentCity= "";
+        var desCity="";
+        $("#current_city select").on("change", function () {
+            $this = $(this);
+            currentCity = $this.children("option:selected").val();
+            if(currentCity==""){
+                currentCity = $this.prev().children("option:selected").val();
+                if(typeof currentCity == "undefined"){
+                    currentCity = "";
+                }
+            }
+            console.log(currentCity,desCity);
             ajax_city(currentCity, desCity);
         });
 
-        $("#des_city").on("change", function () {
-            var currentCity = $("#current_city option:selected").val();
-            var desCity = $("#des_city option:selected").val();
+        $("#des_city select").on("change", function () {
+            $this = $(this);
+            desCity = $this.children("option:selected").val();
+            if(desCity==""){
+                desCity = $this.prev().children("option:selected").val();
+                if(typeof desCity == "undefined"){
+                    desCity = "";
+                }
+            }
+            console.log(currentCity,desCity);
             ajax_city(currentCity, desCity);
         });
 
         // 交通表异步加载
         function ajax_city(currentCity, desCity) {
+            $("#traffic_table tbody").empty();
+            $("#view_cust").empty();
+            $("#hotel_cust").empty();
             if (currentCity != "" && desCity != "") {
                 // console.log(currentCity);
                 // console.log(desCity);
@@ -192,8 +184,8 @@
                         console.log(data);
                         var tpDestination;
                         for (var i = 0; i < data.length; i++) {
-                            var tpCurrentTime = new Date(data[i].tpCurrentTime).Format("yyyy-MM-dd");
-                            var tpArriveTime = new Date(data[i].tpArriveTime).Format("yyyy-MM-dd");
+                            var tpCurrentTime = new Date(data[i].tpCurrentTime).Format("yyyy-MM-dd:hh:mm:ss");
+                            var tpArriveTime = new Date(data[i].tpArriveTime).Format("yyyy-MM-dd:hh:mm:ss");
                             console.log(data[i].tpArriveTime - data[i].tpCurrentTime);
                             var tpSpendTime = new Date(data[i].tpArriveTime - data[i].tpCurrentTime).Format("hh:mm:ss");
                             $("#traffic_table tbody").append(
@@ -207,9 +199,10 @@
                                 + '<td><span class="label label-primary">￥' + data[i].tpTprice + '</span></td>'
                                 + '</tr>'
                             );
-                            tpDestination = data[i].tpDestination
+                            tpDestination = data[i].tpDestination;
                         }
-                        ajax_viewPoint_cust(tpDestination);
+                        ajax_viewPoint_cust(desCity);
+                        ajax_hotel_cust(desCity);
                     }
                 });
             }
@@ -254,6 +247,48 @@
             });
         }
 
+        // 酒店ajax
+        function ajax_hotel_cust(tpDestination) {
+            var _checkbox = App.getCheckbox();
+            console.log(_checkbox.length);
+            $.ajax({
+                url: '/cust/hotel',
+                type: 'GET',
+                data: {
+                    local: tpDestination
+                },
+
+                success: function (data) {
+                     console.log(data);
+                    for (var i = 0; i < data.length; i++) {
+                        var title = data[i].title.substring(1, 9);
+
+                        $("#hotel_cust").append(
+
+                            '<div class="col-sm-6 col-md-4 col-lg-5">'
+	                        + '<div class="thumbnail"  style="height: 450px;">'
+                            + '<a href="/hotel/content?hid=' + data[i].hid + '">'
+                            + '<img src="' + data[i].imgUrl + '">'
+                            + '</a>'
+                            + '<div class="caption">'
+                            + '<h3>' + data[i].title + '</h3>'
+                            + '<ol>'
+                            + '<li><p style="color: #ffa309">城市：' + data[i].local + '|房屋类型：' + data[i].houseType + '|床类型：' + data[i].bedType + '</p> </li>'
+                            + '<li><p style="color: #0b93d5">价格：￥' + data[i].price + '| 详细地址：' + data[i].zip + '</p></li>'
+                            + '</ol>'
+                            + '</div>'
+                            + '<div class="form-group" style="text-align: right;">'
+                            + '<a class="btn" style="color: #0b97c4" href="/hotel/content?hid=' + data[i].hid + '">查看详情»</a>'
+                            + '</div>'
+                            + '</div>'
+                            + '</div>'
+	                        + '<div class="col-lg-1"></div>'
+                        );
+                    }
+                }
+            });
+        }
+
         Date.prototype.Format = function (fmt) { //author: meizz
             var o = {
                 "M+": this.getMonth() + 1,                  //月份
@@ -271,7 +306,6 @@
                     fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
             return fmt;
         }
-
 	</script>
 </body>
 </html>

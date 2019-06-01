@@ -120,6 +120,32 @@
 			order by ${orderByClause}
 		</if>
 	</select>
+
+	<!--景点列表模糊搜索-->
+	<select id="viewPointSearch" resultMap="BaseResultMap">
+		SELECT
+		<include refid="Base_Column_List" />
+		FROM
+		tp_viewpoint
+		<where>
+			<if test="tpVid != null and tpVid != ''">
+				or tp_vid = #{tpVid}
+			</if>
+
+			<if test="tpVname != null and tpVname != ''">
+				or tp_vname LIKE concat('%', #{tpVname}, '%')
+			</if>
+
+			<if test="tpVtype != null and tpVtype != ''">
+				or tp_vtype  LIKE concat('%', #{tpVtype}, '%')
+			</if>
+
+			<if test="tpLocation != null and tpLocation != ''">
+				or tp_Location  LIKE concat('%', #{tpLocation}, '%')
+			</if>
+		</where>
+	</select>
+
 	<select id="selectByExample" parameterType="cn.zm.trip.web.domain.ViewPointExample" resultMap="BaseResultMap">
 		<!--
 		  WARNING - @mbg.generated

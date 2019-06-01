@@ -62,13 +62,12 @@
 										<div class="right" style="float: right;">
 											<small>发布日期:<fmt:formatDate value="${forum.tpIssueTime}"
 											                            pattern="yyyy-MM-dd:HH:mm:ss"/></small>
-
 										</div>
 										<h3>${forum.tpTitle}</h3>
 										<h4 class="post-subtitle" style="font-style: italic">
 											${forum.tpSubTitle}
 										</h4>
-										<strong>等级: ${viewPoint.tpLevel}</strong>|<strong>开放时间: ${viewPoint.tpOpentime}</strong>|<strong>类型: ${viewPoint.tpVtype}</strong><br>
+										<strong>编码:${viewPoint.tpFid}</strong>|<strong>等级: ${viewPoint.tpLevel}</strong>|<strong>开放时间: ${viewPoint.tpOpentime}</strong>|<strong>类型: ${viewPoint.tpVtype}</strong><br>
 										详细地址:${viewPoint.tpZip}<br/>联系电话: ${viewPoint.tpVphone}
 										${forum.tpTcontent}
 									</div>

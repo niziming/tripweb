@@ -1,6 +1,9 @@
 package cn.zm.trip.web.controller;
 
 import cn.zm.trip.web.commons.Msg;
+import cn.zm.trip.web.dao.ForumDao;
+import cn.zm.trip.web.domain.Forum;
+import cn.zm.trip.web.domain.ForumExample;
 import cn.zm.trip.web.domain.User;
 import cn.zm.trip.web.domain.ViewPoint;
 import cn.zm.trip.web.service.UserService;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -19,9 +23,12 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
-
 	@Autowired
 	private HttpSession session;
+	@Autowired
+	private ForumDao forumDao;
+	@Autowired
+	private ForumExample example;
 
 	/**
 	 * index页用户登录
@@ -124,5 +131,50 @@ public class UserController {
 		return "proscenium/user/edit";
 	}
 
+	/**
+	 * 跳转用户发表管理
+	 */
+	@RequestMapping(value = "forum", method = RequestMethod.GET)
+	public String forum(Integer uid, Model model) {
+		ForumExample example = new ForumExample();
+		example.setOrderByClause("tp_fid desc");
+		List<Forum> forums = forumDao.selectByExample(example);
+		List<Forum> queryForums = new ArrayList<>();
+		for(Forum forum : forums){
+			if (uid.equals(forum.getTpAuthorId())){
+				queryForums.add(forum);
+			}
+		}
+		model.addAttribute("forums", queryForums);
+		return "proscenium/user/forum";
+	}
 
+	/**
+	 * 用户发表管理单击删除
+	 */
+	@RequestMapping(value = "forumDelete", method = RequestMethod.GET)
+	public String forumDelete(Integer tpFid, Integer uid, Model model) {
+		forumDao.deleteByPrimaryKey(tpFid);
+		ForumExample example = new ForumExample();
+		example.setOrderByClause("tp_fid desc");
+		List<Forum> forums = forumDao.selectByExample(example);
+		List<Forum> queryForums = new ArrayList<>();
+		for(Forum forum : forums){
+			if (uid.equals(forum.getTpAuthorId())){
+				queryForums.add(forum);
+			}
+		}
+		model.addAttribute("forums", queryForums);
+		return "proscenium/user/forum";
+	}
+
+	///**
+	// * 用户发表论坛编辑
+	// */
+	//@RequestMapping(value = "forumEdit", method = RequestMethod.GET)
+	//public String forumEdit(Integer tpFid, Model model) {
+	//	Forum forum = forumDao.selectByPrimaryKey(tpFid);
+	//	model.addAttribute("forum", forum);
+	//	return "proscenium/user/forum_edit";
+	//}
 }

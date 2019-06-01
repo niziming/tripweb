@@ -34,6 +34,8 @@ public class AdminController {
 	@Autowired
 	private HotelDao hotelDao;
 	@Autowired
+	private ViewPointDao viewPointDao;
+	@Autowired
 	private ForumDao forumDao;
 	@Autowired
 	private TrafficDao trafficDao;
@@ -41,7 +43,6 @@ public class AdminController {
 	private WordsDao wordsDao;
 	@Autowired
 	private ReplyDao replyDao;
-
 
 	/**
 	 * **********login start***************
@@ -138,6 +139,31 @@ public class AdminController {
 		session.setAttribute("msg", Msg.success("用户查询成功!"));
 
 		return "admin/user_list";
+	}
+
+	/**
+	 * 景点模糊搜索
+	 */
+	@RequestMapping(value = "viewPointSearch", method = RequestMethod.GET)
+	public String viewPointSearch(String keyword, Model model) {
+		String prefix = "/static/upload/viewavatar/";
+
+		ViewPoint viewPoint = new ViewPoint();
+
+		viewPoint.setTpVname(keyword);
+		viewPoint.setTpVtype(keyword);
+		viewPoint.setTpLocation(keyword);
+		List<ViewPoint> viewPoints = viewPointDao.viewPointSearch(viewPoint);
+
+		for (ViewPoint vp : viewPoints){
+			String imgUrl = vp.getTpVpic();
+			vp.setTpVpic(prefix + imgUrl);
+		}
+
+		model.addAttribute("viewPoints", viewPoints);
+		model.addAttribute("msg", Msg.success("景点查询成功!"));
+
+		return "admin/view_list";
 	}
 
 	/**

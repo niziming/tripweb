@@ -1,9 +1,8 @@
 package cn.zm.trip.web.controller;
 
-import cn.zm.trip.web.domain.Reply;
-import cn.zm.trip.web.domain.ViewPoint;
-import cn.zm.trip.web.domain.ViewPointExample;
-import cn.zm.trip.web.domain.Words;
+import cn.zm.trip.web.commons.Msg;
+import cn.zm.trip.web.dao.ViewPointDao;
+import cn.zm.trip.web.domain.*;
 import cn.zm.trip.web.service.ViewPointService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,9 +18,12 @@ import java.util.List;
 public class ViewPointController {
 	@Autowired
 	private ViewPointService viewPointService;
+
 	private HttpSession session;
-	private Model model;
+	@Autowired
 	private ViewPointExample viewPointExample;
+	@Autowired
+	private ViewPointDao viewPointDao;
 
 	/**
 	 * 旅游景点跳转
@@ -78,4 +80,30 @@ public class ViewPointController {
 
 		return "proscenium/viewpoint/content";
 	}
+
+	/**
+	 * 前台景点模糊搜索
+	 */
+	@RequestMapping(value = "viewPointSearch", method = RequestMethod.GET)
+	public String viewPointSearch(String keyword, Model model) {
+		String prefix = "/static/upload/viewavatar/";
+
+		ViewPoint viewPoint = new ViewPoint();
+		viewPoint.setTpVname(keyword);
+		viewPoint.setTpVtype(keyword);
+		viewPoint.setTpLocation(keyword);
+		List<ViewPoint> viewPoints = viewPointDao.viewPointSearch(viewPoint);
+
+		for (ViewPoint vp : viewPoints){
+			String imgUrl = vp.getTpVpic();
+			vp.setTpVpic(prefix + imgUrl);
+		}
+
+		model.addAttribute("viewPoints", viewPoints);
+		model.addAttribute("msg", Msg.success("景点查询成功!"));
+
+		return "proscenium/viewpoint/view";
+	}
+
+
 }

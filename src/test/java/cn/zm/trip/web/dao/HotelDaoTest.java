@@ -27,4 +27,14 @@ public class HotelDaoTest {
 			System.out.println(hotel);
 		}
 	}
+
+	@Test
+	public void selectByExample1() {
+		HotelExample example = new HotelExample();
+		example.createCriteria().andLocalEqualTo("成都市");
+		example.setOrderByClause("hid desc");
+		System.out.println(example);
+		List<Hotel> hotels = hotelDao.selectByExample(example);
+		System.out.println(hotels);
+	}
 }

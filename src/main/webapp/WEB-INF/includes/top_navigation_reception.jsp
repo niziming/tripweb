@@ -24,11 +24,6 @@
 					<li><a href="/cust/index">定制CUST</a></li>
 					<li><a href="/about/index">我们US</a></li>
 				</ul>
-				<form class="navbar-form navbar-right" role="search">
-					<div class="form-group">
-						<input type="text" class="form-control" id="navbar-search-input" placeholder="搜索...">
-					</div>
-				</form>
 			</div>
 			<!-- /.navbar-collapse -->
 			<!-- 登陆后navigate -->

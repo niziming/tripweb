@@ -33,7 +33,7 @@
 					<li><a href="/view/point"><i class="fa fa-dashboard"></i>旅游景点</a></li>
 					<li><a href="#">SHOW</a></li>
 					<div class="box-tools">
-						<form action="/view/viewsearch" method="get">
+						<form action="/view/viewPointSearch" method="get">
 							<div class="input-group input-group-sm" style="width: 150px;">
 								<input type="text" name="keyword" class="form-control pull-right" placeholder="景点搜索...">
 
@@ -70,10 +70,6 @@
 													<a class="btn" style="color: #0b97c4"
 													   href="/view/content?tpVid=${viewPoint.tpVid}">查看更多 »</a>
 												</div>
-											</div>
-											<div class="form-group" style="text-align: right;">
-												<a href="#" class="btn btn-primary" role="button"><span
-														class="fa fa-star-o"></span> 收藏</a>
 											</div>
 										</div>
 									</div>

@@ -122,7 +122,9 @@
 								<label for="tpPrice" class="col-sm-2 control-label">景点缩略</label>
 
 								<div class="col-sm-10">
-									<input type="text" name="tpVpic" class="form-control" id="tpVpic" placeholder="${viewPoint.tpVpic}">
+									<input type="text" readonly name="tpVpic" value="${viewPoint.tpVpic}"
+									       class="form-control" id="tpVpic" placeholder="${viewPoint.tpVpic}">
+									<div id="dropz" class="dropzone"></div>
 								</div>
 							</div>
 
@@ -166,5 +168,20 @@
 <%--css--%>
 <jsp:include page="../../includes/footer.jsp"/>
 <!-- page script -->
+	<script>
+        Dropzone.options.dropz = {
+            url: "/upload/viewAvatar",
+            method: "post",
+            autoQueue: true,
+            dictDefaultMessage: '拖动文件至此或者点击上传', // 设置默认的提示语句
+            paramName: "dropFile",// 传到后台的参数名称
+            init: function () {
+                this.on("success", function (file, data) {
+                    $("#tpVpic").val(data.fileName);
+                    // 上传成功触发的事件
+                });
+            }
+        };
+	</script>
 </body>
 </html>

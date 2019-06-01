@@ -1,5 +1,6 @@
 package cn.zm.trip.web.dao;
 
+import cn.zm.trip.web.domain.ViewPoint;
 import cn.zm.trip.web.domain.Words;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,5 +24,13 @@ public class ViewPointDaoTest {
 		for (Words word : byWords){
 			System.out.println(word.getLw_hotel_id());
 		}
+	}
+
+	@Test
+	public void viewPointSearch() {
+		String keyword = "锦里";
+		ViewPoint viewPoint = new ViewPoint();
+		viewPoint.setTpVname(keyword);
+		List<ViewPoint> viewPoints = viewPointDao.viewPointSearch(viewPoint);
 	}
 }

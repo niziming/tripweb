@@ -64,10 +64,11 @@
 											[${hotel.houseType}&nbsp;<small>| ${hotel.zip}</small>]
 										</h4>
 										详细地址:${hotel.zip}<br/>联系电话: ${hotel.phone}
-
 									</div>
 								</div>
+								<br>
 								<hr>
+								<br>
 								${hotel.content}
 							</div>
 						</div>

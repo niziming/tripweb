@@ -6,7 +6,6 @@
 	<div>
 		<a href="/user/info?uid=${user.uid}" class="list-group-item">个人信息</a>
 		<a href="/user/edit" class="list-group-item">编辑信息</a>
-		<a href="#" class="list-group-item" >我的发表</a>
-		<a href="#" class="list-group-item" >我的收藏</a>
+		<a href="/user/forum?uid=${user.uid}" class="list-group-item" >我的发表</a>
 	</div>
 </section>

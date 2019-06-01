@@ -59,7 +59,9 @@
 										<%--danger alert--%>
 										<c:if test="${msg.msg != null}">
 											<div class="alert alert-${msg.status == 200 ? "success" : "danger"} alert-dismissible">
-												<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+												<button type="button" class="close" data-dismiss="alert"
+												        aria-hidden="true">×
+												</button>
 												<h4>${msg.msg}</h4>
 											</div>
 										</c:if>
@@ -68,7 +70,8 @@
 										<%--发点什么?--%>
 										<div class="box-header">
 											<div class="col-lg-2" style="padding-left: 12px; padding-top: 10px;">
-													<a href="/forum/issue?uid=${user.uid}" type="button" class="btn btn-block btn-primary btn-lg"><i class="fa fa-plus"></i>发点什么?</a>
+												<a href="/forum/issue?uid=${user.uid}" type="button"
+												   class="btn btn-block btn-primary btn-lg"><i class="fa fa-plus"></i>发点什么?</a>
 											</div>
 										</div>
 										<%--遍历帖子--%>
@@ -83,9 +86,9 @@
 														</h4>
 
 													</a>
-													<p class="post-meta" style="margin: 10px 0;">
+													<p class="post-meta" style="margin: 10px 0; color: #0b93d5;">
 														作者:${forum.tpAuthor} Create By
-														2019-04-30
+														<fmt:formatDate value="${forum.tpIssueTime}" pattern="yyyy-MM-dd:HH:mm:dd"/>
 													</p>
 													<div class="tags">
 															${forum.tpTag}
