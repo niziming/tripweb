@@ -167,6 +167,53 @@ public class AdminController {
 	}
 
 	/**
+	 * 后台酒店模糊搜索
+	 */
+	@RequestMapping(value = "hotelPointSearch", method = RequestMethod.GET)
+	public String hotelPointSearch(String keyword, Model model) {
+		String prefix = "/static/upload/hotelAvatar/";
+
+		Hotel hotel = new Hotel();
+
+		hotel.setLocal(keyword);
+		hotel.setHouseType(keyword);
+		hotel.setBedType(keyword);
+
+		List<Hotel> hotels = hotelDao.hotelPointSearch(hotel);
+
+		for (Hotel hotelForEach : hotels){
+			String imgUrl = hotelForEach.getImgUrl();
+			hotelForEach.setImgUrl(prefix + imgUrl);
+		}
+
+		model.addAttribute("hotels", hotels);
+		model.addAttribute("msg", Msg.success("酒店查询成功!"));
+
+		return "admin/hotel_list";
+	}
+
+	/**
+	 * 后台论坛模糊搜索
+	 */
+	@RequestMapping(value = "forumPointSearch", method = RequestMethod.GET)
+	public String forumPointSearch(String keyword, Model model) {
+
+		Forum forum = new Forum();
+
+		forum.setTpTag(keyword);
+		forum.setTpTitle(keyword);
+		forum.setTpSubTitle(keyword);
+		forum.setTpAuthor(keyword);
+
+		List<Forum> forums = forumDao.forumPointSearch(forum);
+
+		model.addAttribute("forums", forums);
+		model.addAttribute("msg", Msg.success("论坛查询成功!"));
+
+		return "admin/forum_list";
+	}
+
+	/**
 	 * 用户单个单击删除
 	 */
 	@RequestMapping(value = "userdelete", method = RequestMethod.GET)

@@ -41,7 +41,7 @@
 				<div class="container">
 					<div class="col-lg-10"></div>
 					<div class="box-tools col-lg-2">
-						<form action="/view/viewsearch" method="get">
+						<form action="/hotel/hotelPointSearch" method="get">
 							<div class="input-group input-group-sm" style="width: 150px;">
 
 								<input type="text" name="keyword" class="form-control pull-right" placeholder="酒店搜索...">

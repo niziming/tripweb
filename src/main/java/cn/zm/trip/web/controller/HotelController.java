@@ -1,5 +1,6 @@
 package cn.zm.trip.web.controller;
 
+import cn.zm.trip.web.commons.Msg;
 import cn.zm.trip.web.dao.HotelDao;
 import cn.zm.trip.web.domain.*;
 import cn.zm.trip.web.service.ViewPointService;
@@ -59,5 +60,32 @@ public class HotelController {
 
 		return "proscenium/hotel/content";
 	}
+
+	/**
+	 * 钱台酒店模糊搜索
+	 */
+	@RequestMapping(value = "hotelPointSearch", method = RequestMethod.GET)
+	public String hotelPointSearch(String keyword, Model model) {
+		String prefix = "/static/upload/hotelAvatar/";
+
+		Hotel hotel = new Hotel();
+
+		hotel.setLocal(keyword);
+		hotel.setHouseType(keyword);
+		hotel.setBedType(keyword);
+
+		List<Hotel> hotels = hotelDao.hotelPointSearch(hotel);
+
+		for (Hotel hotelForEach : hotels){
+			String imgUrl = hotelForEach.getImgUrl();
+			hotelForEach.setImgUrl(prefix + imgUrl);
+		}
+
+		model.addAttribute("hotels", hotels);
+		model.addAttribute("msg", Msg.success("酒店查询成功!"));
+
+		return "proscenium/hotel/index";
+	}
+
 
 }

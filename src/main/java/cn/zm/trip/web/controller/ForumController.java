@@ -68,6 +68,27 @@ public class ForumController {
 	}
 
 	/**
+	 * 后台论坛模糊搜索
+	 */
+	@RequestMapping(value = "forumPointSearch", method = RequestMethod.GET)
+	public String forumPointSearch(String keyword, Model model) {
+
+		Forum forum = new Forum();
+
+		forum.setTpTag(keyword);
+		forum.setTpTitle(keyword);
+		forum.setTpSubTitle(keyword);
+		forum.setTpAuthor(keyword);
+
+		List<Forum> forums = forumDao.forumPointSearch(forum);
+
+		model.addAttribute("forums", forums);
+		model.addAttribute("msg", Msg.success("论坛查询成功!"));
+
+		return "proscenium/forum/index";
+	}
+
+	/**
 	 * 发帖功能 跳转编辑页面
 	 */
 	@RequestMapping(value = "issue", method = RequestMethod.GET)

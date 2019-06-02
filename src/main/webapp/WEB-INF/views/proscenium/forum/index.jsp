@@ -33,7 +33,7 @@
 					<li><a href="/forum/index"><i class="fa fa-dashboard"></i>新闻论坛</a></li>
 					<li><a href="#">FORUM</a></li>
 					<div class="box-tools">
-						<form action="/view/viewsearch" method="get">
+						<form action="/forum/forumPointSearch" method="get">
 							<div class="input-group input-group-sm" style="width: 150px;">
 								<input type="text" name="keyword" class="form-control pull-right" placeholder="帖子搜索...">
 
@@ -71,7 +71,7 @@
 										<div class="box-header">
 											<div class="col-lg-2" style="padding-left: 12px; padding-top: 10px;">
 												<a href="/forum/issue?uid=${user.uid}" type="button"
-												   class="btn btn-block btn-primary btn-lg"><i class="fa fa-plus"></i>发点什么?</a>
+												   class="btn btn-block btn-primary btn-lg">发点什么?</a>
 											</div>
 										</div>
 										<%--遍历帖子--%>

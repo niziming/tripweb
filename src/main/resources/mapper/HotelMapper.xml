@@ -94,6 +94,31 @@
       order by ${orderByClause}
     </if>
   </select>
+
+  <!--酒店列表模糊搜索-->
+  <select id="hotelPointSearch" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    tp_hotel
+    <where>
+
+      <if test="local != null and local != ''">
+        or local LIKE concat('%', #{local}, '%')
+      </if>
+
+      <if test="houseType != null and houseType != ''">
+        or house_type  LIKE concat('%', #{houseType}, '%')
+      </if>
+
+      <if test="bedType != null and bedType != ''">
+        or bed_type  LIKE concat('%', #{bedType}, '%')
+      </if>
+    </where>
+  </select>
+
+
+
   <select id="selectByExample" parameterType="cn.zm.trip.web.domain.HotelExample" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated

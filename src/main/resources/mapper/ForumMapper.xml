@@ -89,6 +89,33 @@
       order by ${orderByClause}
     </if>
   </select>
+
+  <!--论坛列表模糊搜索-->
+  <select id="forumPointSearch" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    tp_forum
+    <where>
+      <if test="tpTag != null and tpTag != ''">
+        or tp_tag LIKE concat('%', #{tpTag}, '%')
+      </if>
+
+      <if test="tpTitle != null and tpTitle != ''">
+        or tp_title  LIKE concat('%', #{tpTitle}, '%')
+      </if>
+
+      <if test="tpSubTitle != null and tpSubTitle != ''">
+        or tp_sub_title  LIKE concat('%', #{tpSubTitle}, '%')
+      </if>
+
+      <if test="tpAuthor != null and tpAuthor != ''">
+        or tp_author  LIKE concat('%', #{tpAuthor}, '%')
+      </if>
+    </where>
+  </select>
+
+
   <select id="selectByExample" parameterType="cn.zm.trip.web.domain.ForumExample" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated

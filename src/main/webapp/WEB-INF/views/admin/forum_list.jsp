@@ -56,7 +56,7 @@
 							<i class="fa fa-trash-o"></i>批量删除</span>&nbsp;&nbsp;
 					</div>
 					<div class="box-tools">
-						<form action="/admin/usersearch" method="get">
+						<form action="/admin/forumPointSearch" method="get">
 							<div class="input-group input-group-sm" style="width: 150px;">
 								<input type="text" name="keyword" class="form-control pull-right" placeholder="搜索...">
 
