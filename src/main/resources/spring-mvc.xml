@@ -47,7 +47,7 @@
         <!--<mvc:interceptor>-->
             <!--&lt;!&ndash;拦截所有路径请求&ndash;&gt;-->
             <!--<mvc:mapping path="/**"/>-->
-            <!--&lt;!&ndash;除了登陆页面&ndash;&gt;-->
+            <!--&lt;!&ndash;除了登录页面&ndash;&gt;-->
             <!--<mvc:exclude-mapping path="/login" />-->
             <!--&lt;!&ndash;除开静态资源路径&ndash;&gt;-->
             <!--<mvc:exclude-mapping path="/static/**" />-->

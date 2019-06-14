@@ -26,7 +26,7 @@
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
-			<!-- 登陆后navigate -->
+			<!-- 登录后navigate -->
 			<div class="navbar-custom-menu">
 
 				<c:if test="${user != null}">
@@ -50,7 +50,7 @@
 									<img src="${user.upic}" class="img-circle" alt="User Image">
 
 									<p>
-											${user.uname} - 欢迎登陆
+											${user.uname} - 欢迎登录
 										<small>登录时间:<fmt:formatDate value="${nowDate}" pattern="yyyy-MM-dd:HH:mm:ss"/></small>
 									</p>
 								</li>
@@ -60,7 +60,7 @@
 										<a href="/user/info?uid=${user.uid}" class="btn btn-default btn-flat">个人</a>
 									</div>
 									<div class="pull-right">
-										<a href="/user/loginout" class="btn btn-default btn-flat">${user != null ? '注销' : '登陆'}</a>
+										<a href="/user/loginout" class="btn btn-default btn-flat">${user != null ? '注销' : '登录'}</a>
 									</div>
 								</li>
 							</ul>
@@ -76,7 +76,7 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								<!-- The user image in the navbar-->
 								<!-- hidden-xs hides the username on small devices so only the image appears. -->
-								<span class="hidden-xs glyphicon glyphicon-user">欢迎登陆</span>
+								<span class="hidden-xs glyphicon glyphicon-user">欢迎登录</span>
 							</a>
 							<ul class="dropdown-menu">
 								<li>
@@ -94,7 +94,7 @@
 												</div>
 											</c:if>
 												<%--/.alert--%>
-											<h3 class="box-title">欢迎登陆</h3>
+											<h3 class="box-title">欢迎登录</h3>
 										</div>
 
 										<!-- /.box-header -->
@@ -123,7 +123,7 @@
 											<!-- /.box-body -->
 											<div class="box-footer">
 												<a href="/user/regst" type="submit" class="btn btn-default">注册</a>
-												<button type="submit" class="btn btn-info pull-right">登陆</button>
+												<button type="submit" class="btn btn-info pull-right">登录</button>
 											</div>
 											<!-- /.box-footer -->
 										</form>

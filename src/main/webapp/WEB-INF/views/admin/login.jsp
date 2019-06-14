@@ -11,7 +11,7 @@
 <html>
 <%--Header Begin--%>
 <head>
-    <title>MyShop | 登陆</title>
+    <title>MyShop | 登录</title>
     <jsp:include page="../../includes/header.jsp" />
 </head>
 <%--Header End--%>
@@ -20,11 +20,11 @@
 
 <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>Admin</b>登陆</a>
+        <a href="#"><b>Admin</b>登录</a>
     </div>
     <%--/.UserService.-logo--%>
     <div class="login-box-body">
-        <p class="login-box-msg">欢迎管理员登陆</p>
+        <p class="login-box-msg">欢迎管理员登录</p>
 
         <%--Denger alert--%>
         <c:if test="${msg != null}">
@@ -56,7 +56,7 @@
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">登陆</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
                 </div>
                 <!-- /.col -->
             </div>

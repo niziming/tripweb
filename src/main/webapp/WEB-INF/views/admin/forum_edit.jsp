@@ -54,14 +54,23 @@
 						</div>
 						<!-- /.box-header -->
 						<!-- form start -->
-						<form class="form-horizontal" action="/admin/forumEdit" method="post">
+						<form class="form-horizontal" action="/admin/forumEdit?tpFid=${forum.tpFid}" method="post">
 							<div class="box-body">
+
+								<%--uid--%>
+								<div class="form-group">
+									<label for="tpFid" class="col-sm-2 control-label">ID</label>
+									<div class="col-sm-10">
+										<input type="text" readonly name="tpFid" class="form-control" id="tpFid" value="${forum.tpFid}"
+										       placeholder="${forum.tpFid}">
+									</div>
+								</div>
 
 								<%--uid--%>
 								<div class="form-group">
 									<label for="tpAuthorId" class="col-sm-2 control-label">作者ID</label>
 									<div class="col-sm-10">
-										<input type="text" readonly name="tpAuthorId" class="form-control" id="tpAuthorId"
+										<input type="text" readonly name="tpAuthorId" value="${forum.tpAuthorId}" class="form-control" id="tpAuthorId"
 										       placeholder="${forum.tpAuthorId}">
 									</div>
 								</div>
@@ -70,7 +79,7 @@
 								<div class="form-group">
 									<label for="tpAuthor" class="col-sm-2 control-label">作者名称</label>
 									<div class="col-sm-10">
-										<input type="text" name="tpAuthor" class="form-control"
+										<input type="text" name="tpAuthor" value="${forum.tpAuthor}" class="form-control"
 										       id="tpAuthor"
 										       placeholder="${forum.tpAuthor}">
 									</div>
@@ -81,7 +90,7 @@
 									<label for="tpTitle" class="col-sm-2 control-label">帖子标题</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="tpTitle" class="form-control"
+										<input type="text" name="tpTitle" value="${forum.tpTitle}" class="form-control"
 										       id="tpTitle"
 										       placeholder="${forum.tpTitle}">
 									</div>
@@ -92,7 +101,7 @@
 									<label for="tpSubTitle" class="col-sm-2 control-label">副标题</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="tpSubTitle" class="form-control"
+										<input type="text" name="tpSubTitle" value="${forum.tpSubTitle}" class="form-control"
 										       id="tpSubTitle"
 										       placeholder="${forum.tpSubTitle}">
 									</div>
@@ -104,7 +113,7 @@
 									<label for="tpTag" class="col-sm-2 control-label">标签</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="tpTag" class="form-control"
+										<input type="text" name="tpTag" value="${forum.tpTag}" class="form-control"
 										       id="tpTag"
 										       placeholder="${forum.tpTag}">
 									</div>

@@ -35,7 +35,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "login", method = RequestMethod.POST)
 	public String userLogin(String uemail, String upwd, Model model) {
-		//index页面登陆成功图片显示路径
+		//index页面登录成功图片显示路径
 		String prefix = "/static/upload/useravatar/";
 		//index页用户登录验证
 		if (uemail == null || uemail == "" || upwd == null || upwd == "") {

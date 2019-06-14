@@ -1278,7 +1278,7 @@
     </column>
     <column id="294" parent="216" name="tp_title">
       <Position>2</Position>
-      <DataType>varchar(20)|0s</DataType>
+      <DataType>varchar(100)|0s</DataType>
       <DefaultExpression>&apos;一个去了就不想离开的城市&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>

@@ -99,7 +99,7 @@ public class ForumController {
 		example.setOrderByClause("tp_fid desc");
 		List<Forum> forums = forumDao.selectByExampleWithBLOBs(example);
 		model.addAttribute("forums",forums);
-		model.addAttribute("msg", Msg.fail("您还未登陆!"));
+		model.addAttribute("msg", Msg.fail("您还未登录!"));
 		return "proscenium/forum/index";
 	}
 
@@ -111,7 +111,7 @@ public class ForumController {
 		if (uid != null){
 			return "proscenium/forum/edit";
 		}
-		model.addAttribute("msg", Msg.fail("您还未登陆!"));
+		model.addAttribute("msg", Msg.fail("您还未登录!"));
 		return "redirect:index";
 	}
 

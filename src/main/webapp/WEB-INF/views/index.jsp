@@ -8,7 +8,7 @@
 <html>
 <%--Header Begin--%>
 <head>
-	<title>MyShop | 登陆</title>
+	<title>MyShop | 登录</title>
 	<jsp:include page="../includes/header.jsp"/>
 </head>
 
@@ -101,7 +101,7 @@
 									<div class="container-fluid">
 										<div class="row">
 											<div class="col-md-12">
-												<h3>${fn:substring(viewPoint.tpTitle,0,7)}...</h3>
+												<h3>${fn:substring(viewPoint.tpTitle,0,30)}</h3>
 												<h5>
 													[${viewPoint.tpVname}&nbsp;<small>| ${viewPoint.tpLocation}</small>
 													]

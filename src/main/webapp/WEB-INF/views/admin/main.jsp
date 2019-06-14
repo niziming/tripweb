@@ -24,7 +24,7 @@
         <section class="content-header">
             <br>
             <h1>
-                欢迎登陆管理员|
+                欢迎登录管理员|
                 <small>Welcome to management page.</small>
             </h1>
             <ol class="breadcrumb">
@@ -44,7 +44,7 @@
                     <table class="table table-hover">
                         <tbody>
                         <tr>
-                            <th>登陆时间|Time</th>
+                            <th>登录时间|Time</th>
                             <th>用户ID|Uid</th>
                             <th>用户名|Uname</th>
                             <th>邮箱|Email</th>

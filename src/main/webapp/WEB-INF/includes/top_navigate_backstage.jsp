@@ -32,7 +32,7 @@
                             <p>
                                 ${admin.aemail}
                                   <br>
-                                <small>登陆时间 - ${timestamp}</small>
+                                <small>登录时间 - ${timestamp}</small>
                             </p>
                         </li>
 

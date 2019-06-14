@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>用户管理 | UserInfo</title>
+	<title>景点管理 | View</title>
 	<jsp:include page="../../includes/header.jsp"/>
 
 </head>

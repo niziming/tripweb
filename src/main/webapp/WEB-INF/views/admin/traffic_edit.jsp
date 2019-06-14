@@ -71,7 +71,7 @@
 								<div class="form-group">
 									<label for="tpType" class="col-sm-2 control-label">交通类型</label>
 									<div class="col-sm-10">
-										<input type="text" name="tpType" class="form-control" id="tpType"
+										<input type="text" name="tpType" value="${traffic.tpType}" class="form-control" id="tpType"
 										       placeholder="${traffic.tpType}">
 									</div>
 								</div>
@@ -81,7 +81,7 @@
 									<label for="tpCurrent" class="col-sm-2 control-label">出发地</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="tpCurrent" class="form-control" id="tpCurrent"
+										<input type="text" name="tpCurrent" value="${traffic.tpCurrent}" class="form-control" id="tpCurrent"
 										       placeholder="${traffic.tpCurrent}">
 									</div>
 								</div>
@@ -91,7 +91,7 @@
 									<label for="tpDestination" class="col-sm-2 control-label">终点站</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="tpDestination" class="form-control" id="tpDestination"
+										<input type="text" name="tpDestination" value="${traffic.tpDestination}" class="form-control" id="tpDestination"
 										       placeholder="${traffic.tpDestination}">
 
 									</div>
@@ -102,7 +102,7 @@
 									<label for="currentTime" class="col-sm-2 control-label">出发时间</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="currentTime" class="form-control" id="currentTime"
+										<input type="text" name="currentTime" value="<fmt:formatDate value="${traffic.tpCurrentTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" class="form-control" id="currentTime"
 										       placeholder="<fmt:formatDate value="${traffic.tpCurrentTime}" pattern="yyyy-MM-dd HH:mm:ss"/>">
 									</div>
 								</div>
@@ -112,7 +112,7 @@
 									<label for="arriveTime" class="col-sm-2 control-label">到达时间</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="arriveTime" class="form-control" id="arriveTime"
+										<input type="text" name="arriveTime" value="<fmt:formatDate value="${traffic.tpArriveTime}" pattern="yyyy-MM-dd HH:mm:ss"/>" class="form-control" id="arriveTime"
 										       placeholder="<fmt:formatDate value="${traffic.tpArriveTime}" pattern="yyyy-MM-dd HH:mm:ss"/>">
 									</div>
 								</div>
@@ -123,7 +123,7 @@
 									<label for="tpTprice" class="col-sm-2 control-label">价格</label>
 
 									<div class="col-sm-10">
-										<input type="text" name="tpTprice" class="form-control" id="tpTprice"
+										<input type="text" name="tpTprice" value="${traffic.tpTprice}" class="form-control" id="tpTprice"
 										       placeholder="${traffic.tpTprice}">
 									</div>
 								</div>

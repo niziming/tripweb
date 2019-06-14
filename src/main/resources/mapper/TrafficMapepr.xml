@@ -75,6 +75,28 @@
     </if>
   </select>
 
+
+  <!--交通列表模糊搜索-->
+  <select id="trafficPointSearch" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    tp_traffic
+    <where>
+      <if test="tpType != null and tpType != ''">
+        or tp_type LIKE concat('%', #{tpType}, '%')
+      </if>
+
+      <if test="tpCurrent != null and tpCurrent != ''">
+        or tp_current  LIKE concat('%', #{tpCurrent}, '%')
+      </if>
+
+      <if test="tpDestination != null and tpDestination != ''">
+        or tp_destination  LIKE concat('%', #{tpDestination}, '%')
+      </if>
+    </where>
+  </select>
+
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated

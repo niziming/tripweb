@@ -225,7 +225,6 @@
 
                         $("#view_cust").append(
                             '<div class="col-sm-6 col-md-4 col-lg-3 viewpages">'
-                            + '<input value=" ' + data[i].tpVid + ' " type="checkbox" class="minimal minimal-myminor" style="position: absolute; top:2px; left: 15px;">'
                             + '<div class="thumbnail" style="height: 400px;">'
                             + '<a href="/view/content?tpVid= ' + data[i].tpVid + ' ">'
                             + '<img src="/static/upload/viewavatar/' + data[i].tpVpic + ' " alt="..." class="img-rounded">'

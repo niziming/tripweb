@@ -33,7 +33,7 @@ public interface UserDao {
 	void userDelete(String uid);
 
 	/**
-	 * 用户登陆
+	 * 用户登录
 	 *
 	 */
 	User userLogin(User user);

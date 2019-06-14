@@ -46,7 +46,7 @@ public class AdminController {
 
 	/**
 	 * **********login start***************
-	 * 从前端跳转到后台登陆
+	 * 从前端跳转到后台登录
 	 */
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String login() {
@@ -54,7 +54,7 @@ public class AdminController {
 	}
 
 	/**
-	 * 登陆逻辑
+	 * 登录逻辑
 	 * handle
 	 *
 	 * @param aemail 用户邮箱
@@ -72,7 +72,7 @@ public class AdminController {
 			session.setAttribute("msg", Msg.fail("邮箱或者密码错误!"));
 			return login();
 		}
-		//登陆成功
+		//登录成功
 		else {
 
 			// 将登录信息放入session
@@ -214,13 +214,39 @@ public class AdminController {
 	}
 
 	/**
+	 * 后台交通列表模糊搜索
+	 */
+	@RequestMapping(value = "trafficPointSearch", method = RequestMethod.GET)
+	public String trafficPointSearch(String keyword, Model model) {
+
+		Traffic traffic = new Traffic();
+
+		traffic.setTpType(keyword);
+		traffic.setTpCurrent(keyword);
+		traffic.setTpDestination(keyword);
+
+		List<Traffic> traffics = trafficDao.trafficPointSearch(traffic);
+
+		model.addAttribute("traffics", traffics);
+		model.addAttribute("msg", Msg.success("交通查询成功!"));
+
+		return "admin/traffic_list";
+	}
+
+	/**
 	 * 用户单个单击删除
 	 */
 	@RequestMapping(value = "userdelete", method = RequestMethod.GET)
 	public String userDelete(String uid) {
 		System.out.println(uid);
+		String prefix = "/static/upload/useravatar/";
 		userService.userDelete(uid);
-		session.setAttribute("users", userService.selectAll());
+		List<User> users = userService.selectAll();
+		for (User user : users){
+			String imgUrl = user.getUpic();
+			user.setUpic(prefix + imgUrl);
+		}
+		session.setAttribute("users", users);
 		session.setAttribute("msg", Msg.success(uid + "号用户删除成功!"));
 		return "admin/user_list";
 	}
@@ -563,11 +589,11 @@ public class AdminController {
 	}
 
 	/**
-	 * 酒店新增
+	 * 景点新增
 	 */
 	@RequestMapping(value = "forumEdit", method = RequestMethod.POST)
 	public String forumEdit(Forum forum, Model model) {
-		forumDao.insert(forum);
+		forumDao.updateByPrimaryKeySelective(forum);
 		model.addAttribute("msg", Msg.success("更新成功!"));
 		return "redirect:forumList";
 	}
