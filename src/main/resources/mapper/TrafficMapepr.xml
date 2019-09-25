@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zm.trip.web.dao.TrafficDao">
+<mapper namespace="cn.zm.trip.web.dao.TrafficMapepr">
   <resultMap id="BaseResultMap" type="cn.zm.trip.web.domain.Traffic">
     <!--
       WARNING - @mbg.generated
@@ -10,9 +10,9 @@
     <result column="tp_type" jdbcType="VARCHAR" property="tpType" />
     <result column="tp_current" jdbcType="VARCHAR" property="tpCurrent" />
     <result column="tp_destination" jdbcType="VARCHAR" property="tpDestination" />
-    <result column="tp_current_time" jdbcType="TIMESTAMP" property="tpCurrentTime" />
-    <result column="tp_arrive_time" jdbcType="TIMESTAMP" property="tpArriveTime" />
-    <result column="tp_tprice" jdbcType="DOUBLE" property="tpTprice" />
+    <result column="tp_current_time" jdbcType="VARCHAR" property="tpCurrentTime" />
+    <result column="tp_arrive_time" jdbcType="VARCHAR" property="tpArriveTime" />
+    <result column="tp_tprice" jdbcType="VARCHAR" property="tpTprice" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <!--
@@ -47,7 +47,6 @@
       </foreach>
     </where>
   </sql>
-
   <sql id="Base_Column_List">
     <!--
       WARNING - @mbg.generated
@@ -74,29 +73,6 @@
       order by ${orderByClause}
     </if>
   </select>
-
-
-  <!--交通列表模糊搜索-->
-  <select id="trafficPointSearch" resultMap="BaseResultMap">
-    SELECT
-    <include refid="Base_Column_List" />
-    FROM
-    tp_traffic
-    <where>
-      <if test="tpType != null and tpType != ''">
-        or tp_type LIKE concat('%', #{tpType}, '%')
-      </if>
-
-      <if test="tpCurrent != null and tpCurrent != ''">
-        or tp_current  LIKE concat('%', #{tpCurrent}, '%')
-      </if>
-
-      <if test="tpDestination != null and tpDestination != ''">
-        or tp_destination  LIKE concat('%', #{tpDestination}, '%')
-      </if>
-    </where>
-  </select>
-
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated
@@ -124,8 +100,8 @@
       tp_destination, tp_current_time, tp_arrive_time, 
       tp_tprice)
     values (#{tpTid,jdbcType=INTEGER}, #{tpType,jdbcType=VARCHAR}, #{tpCurrent,jdbcType=VARCHAR}, 
-      #{tpDestination,jdbcType=VARCHAR}, #{tpCurrentTime,jdbcType=TIMESTAMP}, #{tpArriveTime,jdbcType=TIMESTAMP}, 
-      #{tpTprice,jdbcType=DOUBLE})
+      #{tpDestination,jdbcType=VARCHAR}, #{tpCurrentTime,jdbcType=VARCHAR}, #{tpArriveTime,jdbcType=VARCHAR}, 
+      #{tpTprice,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="cn.zm.trip.web.domain.Traffic">
     <!--
@@ -170,13 +146,13 @@
         #{tpDestination,jdbcType=VARCHAR},
       </if>
       <if test="tpCurrentTime != null">
-        #{tpCurrentTime,jdbcType=TIMESTAMP},
+        #{tpCurrentTime,jdbcType=VARCHAR},
       </if>
       <if test="tpArriveTime != null">
-        #{tpArriveTime,jdbcType=TIMESTAMP},
+        #{tpArriveTime,jdbcType=VARCHAR},
       </if>
       <if test="tpTprice != null">
-        #{tpTprice,jdbcType=DOUBLE},
+        #{tpTprice,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -197,13 +173,13 @@
         tp_destination = #{tpDestination,jdbcType=VARCHAR},
       </if>
       <if test="tpCurrentTime != null">
-        tp_current_time = #{tpCurrentTime,jdbcType=TIMESTAMP},
+        tp_current_time = #{tpCurrentTime,jdbcType=VARCHAR},
       </if>
       <if test="tpArriveTime != null">
-        tp_arrive_time = #{tpArriveTime,jdbcType=TIMESTAMP},
+        tp_arrive_time = #{tpArriveTime,jdbcType=VARCHAR},
       </if>
       <if test="tpTprice != null">
-        tp_tprice = #{tpTprice,jdbcType=DOUBLE},
+        tp_tprice = #{tpTprice,jdbcType=VARCHAR},
       </if>
     </set>
     where tp_Tid = #{tpTid,jdbcType=INTEGER}
@@ -217,9 +193,31 @@
     set tp_type = #{tpType,jdbcType=VARCHAR},
       tp_current = #{tpCurrent,jdbcType=VARCHAR},
       tp_destination = #{tpDestination,jdbcType=VARCHAR},
-      tp_current_time = #{tpCurrentTime,jdbcType=TIMESTAMP},
-      tp_arrive_time = #{tpArriveTime,jdbcType=TIMESTAMP},
-      tp_tprice = #{tpTprice,jdbcType=DOUBLE}
+      tp_current_time = #{tpCurrentTime,jdbcType=VARCHAR},
+      tp_arrive_time = #{tpArriveTime,jdbcType=VARCHAR},
+      tp_tprice = #{tpTprice,jdbcType=VARCHAR}
     where tp_Tid = #{tpTid,jdbcType=INTEGER}
   </update>
+
+
+  <!--交通列表模糊搜索-->
+  <select id="trafficPointSearch" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM
+    tp_traffic
+    <where>
+      <if test="tpType != null and tpType != ''">
+        or tp_type LIKE concat('%', #{tpType}, '%')
+      </if>
+
+      <if test="tpCurrent != null and tpCurrent != ''">
+        or tp_current  LIKE concat('%', #{tpCurrent}, '%')
+      </if>
+
+      <if test="tpDestination != null and tpDestination != ''">
+        or tp_destination  LIKE concat('%', #{tpDestination}, '%')
+      </if>
+    </where>
+  </select>
 </mapper>

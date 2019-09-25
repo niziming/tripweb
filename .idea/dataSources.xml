@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="ziming@localhost" uuid="5a350f94-b9a4-4ed9-be56-8d1c5f55f419">
+    <data-source source="LOCAL" name="trip_Web_db@localhost" uuid="e4c2a095-cbdb-49f3-8edc-dc7eb3b02c29">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/trip_web_db</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/trip_Web_db</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

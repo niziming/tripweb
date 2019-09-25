@@ -1,7 +1,6 @@
 package cn.zm.trip.web.domain;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class TrafficExample {
@@ -475,52 +474,62 @@ public class TrafficExample {
             return (Criteria) this;
         }
 
-        public Criteria andTpCurrentTimeEqualTo(Date value) {
+        public Criteria andTpCurrentTimeEqualTo(String value) {
             addCriterion("tp_current_time =", value, "tpCurrentTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpCurrentTimeNotEqualTo(Date value) {
+        public Criteria andTpCurrentTimeNotEqualTo(String value) {
             addCriterion("tp_current_time <>", value, "tpCurrentTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpCurrentTimeGreaterThan(Date value) {
+        public Criteria andTpCurrentTimeGreaterThan(String value) {
             addCriterion("tp_current_time >", value, "tpCurrentTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpCurrentTimeGreaterThanOrEqualTo(Date value) {
+        public Criteria andTpCurrentTimeGreaterThanOrEqualTo(String value) {
             addCriterion("tp_current_time >=", value, "tpCurrentTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpCurrentTimeLessThan(Date value) {
+        public Criteria andTpCurrentTimeLessThan(String value) {
             addCriterion("tp_current_time <", value, "tpCurrentTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpCurrentTimeLessThanOrEqualTo(Date value) {
+        public Criteria andTpCurrentTimeLessThanOrEqualTo(String value) {
             addCriterion("tp_current_time <=", value, "tpCurrentTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpCurrentTimeIn(List<Date> values) {
+        public Criteria andTpCurrentTimeLike(String value) {
+            addCriterion("tp_current_time like", value, "tpCurrentTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTpCurrentTimeNotLike(String value) {
+            addCriterion("tp_current_time not like", value, "tpCurrentTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTpCurrentTimeIn(List<String> values) {
             addCriterion("tp_current_time in", values, "tpCurrentTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpCurrentTimeNotIn(List<Date> values) {
+        public Criteria andTpCurrentTimeNotIn(List<String> values) {
             addCriterion("tp_current_time not in", values, "tpCurrentTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpCurrentTimeBetween(Date value1, Date value2) {
+        public Criteria andTpCurrentTimeBetween(String value1, String value2) {
             addCriterion("tp_current_time between", value1, value2, "tpCurrentTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpCurrentTimeNotBetween(Date value1, Date value2) {
+        public Criteria andTpCurrentTimeNotBetween(String value1, String value2) {
             addCriterion("tp_current_time not between", value1, value2, "tpCurrentTime");
             return (Criteria) this;
         }
@@ -535,52 +544,62 @@ public class TrafficExample {
             return (Criteria) this;
         }
 
-        public Criteria andTpArriveTimeEqualTo(Date value) {
+        public Criteria andTpArriveTimeEqualTo(String value) {
             addCriterion("tp_arrive_time =", value, "tpArriveTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpArriveTimeNotEqualTo(Date value) {
+        public Criteria andTpArriveTimeNotEqualTo(String value) {
             addCriterion("tp_arrive_time <>", value, "tpArriveTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpArriveTimeGreaterThan(Date value) {
+        public Criteria andTpArriveTimeGreaterThan(String value) {
             addCriterion("tp_arrive_time >", value, "tpArriveTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpArriveTimeGreaterThanOrEqualTo(Date value) {
+        public Criteria andTpArriveTimeGreaterThanOrEqualTo(String value) {
             addCriterion("tp_arrive_time >=", value, "tpArriveTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpArriveTimeLessThan(Date value) {
+        public Criteria andTpArriveTimeLessThan(String value) {
             addCriterion("tp_arrive_time <", value, "tpArriveTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpArriveTimeLessThanOrEqualTo(Date value) {
+        public Criteria andTpArriveTimeLessThanOrEqualTo(String value) {
             addCriterion("tp_arrive_time <=", value, "tpArriveTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpArriveTimeIn(List<Date> values) {
+        public Criteria andTpArriveTimeLike(String value) {
+            addCriterion("tp_arrive_time like", value, "tpArriveTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTpArriveTimeNotLike(String value) {
+            addCriterion("tp_arrive_time not like", value, "tpArriveTime");
+            return (Criteria) this;
+        }
+
+        public Criteria andTpArriveTimeIn(List<String> values) {
             addCriterion("tp_arrive_time in", values, "tpArriveTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpArriveTimeNotIn(List<Date> values) {
+        public Criteria andTpArriveTimeNotIn(List<String> values) {
             addCriterion("tp_arrive_time not in", values, "tpArriveTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpArriveTimeBetween(Date value1, Date value2) {
+        public Criteria andTpArriveTimeBetween(String value1, String value2) {
             addCriterion("tp_arrive_time between", value1, value2, "tpArriveTime");
             return (Criteria) this;
         }
 
-        public Criteria andTpArriveTimeNotBetween(Date value1, Date value2) {
+        public Criteria andTpArriveTimeNotBetween(String value1, String value2) {
             addCriterion("tp_arrive_time not between", value1, value2, "tpArriveTime");
             return (Criteria) this;
         }
@@ -595,52 +614,62 @@ public class TrafficExample {
             return (Criteria) this;
         }
 
-        public Criteria andTpTpriceEqualTo(Double value) {
+        public Criteria andTpTpriceEqualTo(String value) {
             addCriterion("tp_tprice =", value, "tpTprice");
             return (Criteria) this;
         }
 
-        public Criteria andTpTpriceNotEqualTo(Double value) {
+        public Criteria andTpTpriceNotEqualTo(String value) {
             addCriterion("tp_tprice <>", value, "tpTprice");
             return (Criteria) this;
         }
 
-        public Criteria andTpTpriceGreaterThan(Double value) {
+        public Criteria andTpTpriceGreaterThan(String value) {
             addCriterion("tp_tprice >", value, "tpTprice");
             return (Criteria) this;
         }
 
-        public Criteria andTpTpriceGreaterThanOrEqualTo(Double value) {
+        public Criteria andTpTpriceGreaterThanOrEqualTo(String value) {
             addCriterion("tp_tprice >=", value, "tpTprice");
             return (Criteria) this;
         }
 
-        public Criteria andTpTpriceLessThan(Double value) {
+        public Criteria andTpTpriceLessThan(String value) {
             addCriterion("tp_tprice <", value, "tpTprice");
             return (Criteria) this;
         }
 
-        public Criteria andTpTpriceLessThanOrEqualTo(Double value) {
+        public Criteria andTpTpriceLessThanOrEqualTo(String value) {
             addCriterion("tp_tprice <=", value, "tpTprice");
             return (Criteria) this;
         }
 
-        public Criteria andTpTpriceIn(List<Double> values) {
+        public Criteria andTpTpriceLike(String value) {
+            addCriterion("tp_tprice like", value, "tpTprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andTpTpriceNotLike(String value) {
+            addCriterion("tp_tprice not like", value, "tpTprice");
+            return (Criteria) this;
+        }
+
+        public Criteria andTpTpriceIn(List<String> values) {
             addCriterion("tp_tprice in", values, "tpTprice");
             return (Criteria) this;
         }
 
-        public Criteria andTpTpriceNotIn(List<Double> values) {
+        public Criteria andTpTpriceNotIn(List<String> values) {
             addCriterion("tp_tprice not in", values, "tpTprice");
             return (Criteria) this;
         }
 
-        public Criteria andTpTpriceBetween(Double value1, Double value2) {
+        public Criteria andTpTpriceBetween(String value1, String value2) {
             addCriterion("tp_tprice between", value1, value2, "tpTprice");
             return (Criteria) this;
         }
 
-        public Criteria andTpTpriceNotBetween(Double value1, Double value2) {
+        public Criteria andTpTpriceNotBetween(String value1, String value2) {
             addCriterion("tp_tprice not between", value1, value2, "tpTprice");
             return (Criteria) this;
         }

@@ -533,7 +533,10 @@ public class AdminController {
 	}
 
 	/**
-	 * forummutidelete
+	 *
+	 * @param tpFids
+	 * @param model
+	 * @return
 	 */
 	@ResponseBody//返回给前端
 	@RequestMapping(value = "forumMutiDelete", method = RequestMethod.GET)
@@ -628,11 +631,11 @@ public class AdminController {
 	public String trafficInsertHandler(Traffic traffic, String currentTime, String arriveTime, Model model) {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		try {
-			Date parseCurrent = simpleDateFormat.parse(currentTime);
-			Date parseArriveTime = simpleDateFormat.parse(arriveTime);
-			traffic.setTpCurrentTime(parseCurrent);
-			traffic.setTpArriveTime(parseArriveTime);
-		} catch (ParseException e) {
+			// String parseCurrent = simpleDateFormat.format(currentTime);
+			// String parseArriveTime = simpleDateFormat.format(arriveTime);
+			traffic.setTpCurrentTime(currentTime);
+			traffic.setTpArriveTime(arriveTime);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		trafficDao.insertSelective(traffic);
@@ -668,7 +671,7 @@ public class AdminController {
 
 	/**
 	 * 跳转交通编辑页面
-	 * @return
+	 * @return String
 	 */
 	@RequestMapping(value = "trafficEdit", method = RequestMethod.GET)
 	public String trafficEdit(Integer tpTid, Model model) {
@@ -686,11 +689,11 @@ public class AdminController {
 	public String trafficEditHandle(Traffic traffic, String currentTime, String arriveTime, Model model) {
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		try {
-			Date parseCurrent = simpleDateFormat.parse(currentTime);
-			Date parseArriveTime = simpleDateFormat.parse(arriveTime);
-			traffic.setTpCurrentTime(parseCurrent);
-			traffic.setTpArriveTime(parseArriveTime);
-		} catch (ParseException e) {
+			// String parseCurrent = simpleDateFormat.format(currentTime);
+			// String parseArriveTime = simpleDateFormat.format(arriveTime);
+			traffic.setTpCurrentTime(currentTime);
+			traffic.setTpArriveTime(arriveTime);
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		trafficDao.updateByPrimaryKeySelective(traffic);

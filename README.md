@@ -19,6 +19,9 @@
 ### 数据库
 MySQL 5.5
 
+### 本项目数据库
+src/resources/trip_web_db.sql
+
 ### 工具
 - IDEA
 - Maven
