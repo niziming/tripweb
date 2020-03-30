@@ -34,7 +34,9 @@ src/resources/trip_web_db.sql
 ### 开发参考
 > Java单体视频合集
 > https://www.funtl.com/zh/guide/%E8%B5%B0%E5%90%91%E5%8D%95%E4%BD%93%E5%9C%B0%E7%8B%B1.html#%E8%A7%86%E9%A2%91%E5%90%88%E9%9B%86
+>
 > Dropzone
 > https://www.dropzonejs.com/
+>
 > BootStrap
 > https://layoutit.com/build
