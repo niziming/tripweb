@@ -50,7 +50,7 @@
 		<!-- 映入JSON -->
 		<jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
 		<!--spring json-->
-		<jackson.version>2.9.5</jackson.version>
+		<jackson.version>2.9.10.8</jackson.version>
 	</properties>
 
 	<dependencies>
