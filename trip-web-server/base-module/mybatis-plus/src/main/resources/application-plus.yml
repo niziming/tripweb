@@ -1,0 +1,23 @@
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  globalConfig:
+    db-config:
+      #主键类型  0:"数据库ID自增", 1:"用户输入ID",2:"全局唯一ID (数字类型唯一ID)", 3:"全局唯一ID UUID";
+      idType: AUTO
+      #字段策略 0:"忽略判断",1:"非 NULL 判断"),2:"非空判断"
+      fieldStrategy: 2
+      #驼峰下划线转换
+      dbColumnUnderline: true
+      #刷新mapper 调试神器
+      isRefresh: true
+      #数据库大写下划线转换
+      isCapitalMode: true
+      #逻辑删除配置
+      logicDeleteValue: 0
+      logicNotDeleteValue: 1
+  mapper-locations: classpath:/mapper/*.xml   #XML文件路径
+  type-aliases-package: cn.zm.plus.entity
+  generate:
+    module: mybatis-plus
+    package: cn.zm.plus
