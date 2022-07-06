@@ -23,7 +23,7 @@
         <!--公共模块-->
         <dependency>
             <groupId>cn.zm</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>datasource</artifactId>
         </dependency>
 
         <!--mybatis-plus -->

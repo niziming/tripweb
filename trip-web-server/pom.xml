@@ -16,6 +16,9 @@
 
     <modules>
         <module>base-module</module>
+        <module>trip-web-model</module>
+        <module>trip-web-service</module>
+        <module>trip-web-api</module>
     </modules>
 
     <properties>
@@ -31,7 +34,6 @@
 
     <dependencyManagement>
         <dependencies>
-
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -46,12 +48,29 @@
                 <artifactId>spring-security-jwt</artifactId>
             </dependency>
 
-
             <!--jwt-->
             <dependency>
                 <groupId>io.jsonwebtoken</groupId>
                 <artifactId>jjwt</artifactId>
                 <!--<version>0.9.1</version>-->
+            </dependency>
+
+            <dependency>
+                <groupId>cn.zm</groupId>
+                <artifactId>datasource</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.zm</groupId>
+                <artifactId>trip-web-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.zm</groupId>
+                <artifactId>trip-web-service</artifactId>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
