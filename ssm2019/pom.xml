@@ -25,7 +25,7 @@
 		<jstl.version>1.2</jstl.version>
 		<servlet-api.version>3.1.0</servlet-api.version>
 		<!--junit4-->
-		<junit.version>4.12</junit.version>
+		<junit.version>4.13.1</junit.version>
 		<!-- spring版本号 -->
 		<spring.version>4.3.17.RELEASE</spring.version>
 		<spring-test.version>4.3.17.RELEASE</spring-test.version>
