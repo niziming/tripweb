@@ -38,6 +38,10 @@ public class ServiceException extends RuntimeException {
         this(ResEnum.BUSINESS_FAIL.getCode(), message);
     }
 
+    public ServiceException(ResEnum res) {
+        this(res.getCode(), res.getMsg());
+    }
+
     public ServiceException(String alertMessage, String message, Throwable cause) {
         this(ResEnum.BUSINESS_FAIL.getCode(), message, cause);
         this.alertMessage = alertMessage;
