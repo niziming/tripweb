@@ -11,11 +11,11 @@
   - ssm架构
 - trip-web-server后端服务
   - knife4j
+    - 启动后访问文档交互工具 http://ip:port/doc.html
   - mybatis-plus
   - SpringBoot
   - sql path:
     - trip-web-server/trip-web-api/src/main/resources/trip_web-202207071144.sql
-
 
 ## 2019年春
 我在2019年毕业时用SSM架构写了这个前后端都在一起的web项目, 如今参加工作几年后回头看感觉这个项目做的实在是无法直视.所有的前后端交互的都是阻塞同步的.
