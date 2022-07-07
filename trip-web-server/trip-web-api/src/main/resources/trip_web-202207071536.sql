@@ -27,7 +27,33 @@ CREATE TABLE `base_account` (
   `username` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '账户',
   `password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL COMMENT '密码',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='基础账户表';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='基础账户表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `base_scenic_spot`
+--
+
+DROP TABLE IF EXISTS `base_scenic_spot`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `base_scenic_spot` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `title` varchar(64) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '景点信息标题',
+  `author` bigint(20) DEFAULT NULL COMMENT '景点发布作者ID',
+  `author_name` varchar(32) DEFAULT NULL COMMENT '景点发布作者姓名',
+  `type` varchar(32) DEFAULT NULL COMMENT '景点类型',
+  `avatar` varchar(64) DEFAULT NULL COMMENT '景点缩略图',
+  `phone` varchar(32) DEFAULT NULL COMMENT '景点联系电话',
+  `level` varchar(1) DEFAULT NULL COMMENT '景点级别',
+  `price` double DEFAULT NULL COMMENT '景点门票',
+  `location` varchar(100) DEFAULT NULL COMMENT '景点位置',
+  `zip` varchar(100) DEFAULT NULL COMMENT '景点邮政编码',
+  `opentime` varchar(100) DEFAULT NULL COMMENT '景点开放时间',
+  `creatTime` timestamp NULL DEFAULT NULL COMMENT '景点信息发布时间',
+  `content` text COMMENT '景点描述内容',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='基础景点';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,9 +68,9 @@ CREATE TABLE `base_user` (
   `name` varchar(32) DEFAULT NULL COMMENT '名称',
   `avatar` varchar(800) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '头像',
   `intro` text COMMENT '简介',
-  `phone` int(11) DEFAULT NULL COMMENT '电话号码',
+  `phone` varchar(32) DEFAULT NULL COMMENT '电话号码',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='基础用户';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='基础用户';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,9 +85,24 @@ CREATE TABLE `bus_comments` (
   `parent_id` bigint(20) DEFAULT NULL COMMENT '父评论id',
   `content` text COMMENT '内容',
   `like` int(11) DEFAULT NULL COMMENT '点赞',
-  `datetime` datetime DEFAULT NULL COMMENT '评论时间',
+  `createTime` datetime DEFAULT NULL COMMENT '评论时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='业务评论表';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `rela_scenic_spot_comments`
+--
+
+DROP TABLE IF EXISTS `rela_scenic_spot_comments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `rela_scenic_spot_comments` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+  `scenic_spot_id` bigint(20) DEFAULT NULL COMMENT '景点id',
+  `comments_id` bigint(20) DEFAULT NULL COMMENT '评论id',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='关联景区评论关联表';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -73,10 +114,10 @@ DROP TABLE IF EXISTS `rela_user_account`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `rela_user_account` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `user_id` varchar(32) DEFAULT NULL COMMENT '用户id',
-  `account_id` varchar(800) DEFAULT NULL COMMENT '账户id',
+  `user_id` bigint(20) DEFAULT NULL COMMENT '用户id',
+  `account_id` bigint(20) DEFAULT NULL COMMENT '账户id',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='关联表用户与账户';
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='关联表用户与账户';
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,6 +134,23 @@ CREATE TABLE `rela_user_comments` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='关联用户评论表';
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Temporary view structure for view `view_scenic_spot_comments_user`
+--
+
+DROP TABLE IF EXISTS `view_scenic_spot_comments_user`;
+/*!50001 DROP VIEW IF EXISTS `view_scenic_spot_comments_user`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8mb4;
+/*!50001 CREATE VIEW `view_scenic_spot_comments_user` AS SELECT 
+ 1 AS `name`,
+ 1 AS `avatar`,
+ 1 AS `phone`,
+ 1 AS `intro`,
+ 1 AS `parent_id`,
+ 1 AS `content`*/;
+SET character_set_client = @saved_cs_client;
 
 --
 -- Temporary view structure for view `view_user_account`
@@ -115,6 +173,24 @@ SET character_set_client = @saved_cs_client;
 --
 -- Dumping routines for database 'trip_web'
 --
+
+--
+-- Final view structure for view `view_scenic_spot_comments_user`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_scenic_spot_comments_user`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_scenic_spot_comments_user` AS select `bu`.`name` AS `name`,`bu`.`avatar` AS `avatar`,`bu`.`phone` AS `phone`,`bu`.`intro` AS `intro`,`bc`.`parent_id` AS `parent_id`,`bc`.`content` AS `content` from ((((`base_scenic_spot` `bss` join `rela_scenic_spot_comments` `rssc` on((`bss`.`id` = `rssc`.`scenic_spot_id`))) join `rela_user_comments` `ruc` on((`rssc`.`comments_id` = `ruc`.`comments_id`))) join `bus_comments` `bc` on((`ruc`.`comments_id` = `bc`.`id`))) join `base_user` `bu` on((`ruc`.`user_id` = `bu`.`id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 
 --
 -- Final view structure for view `view_user_account`
@@ -143,4 +219,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-07 11:44:17
+-- Dump completed on 2022-07-07 15:36:36
