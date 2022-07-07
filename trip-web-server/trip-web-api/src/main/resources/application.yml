@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8095
 spring:
   application:
     name: trip-web

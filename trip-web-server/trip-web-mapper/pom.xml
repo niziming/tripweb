@@ -9,16 +9,18 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>trip-web-service</artifactId>
+    <artifactId>trip-web-mapper</artifactId>
+    <version>${parent.version}</version>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>cn.zm</groupId>
-            <artifactId>trip-web-mapper</artifactId>
+            <artifactId>trip-web-model</artifactId>
         </dependency>
     </dependencies>
 

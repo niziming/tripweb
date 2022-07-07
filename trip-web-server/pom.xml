@@ -15,7 +15,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>base-module</module>
+        <module>baseframe</module>
+        <module>trip-web-mapper</module>
         <module>trip-web-model</module>
         <module>trip-web-service</module>
         <module>trip-web-api</module>
@@ -26,10 +27,7 @@
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
@@ -64,6 +62,13 @@
             <dependency>
                 <groupId>cn.zm</groupId>
                 <artifactId>trip-web-model</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>cn.zm</groupId>
+                <artifactId>trip-web-mapper</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
