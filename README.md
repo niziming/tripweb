@@ -13,6 +13,8 @@
   - knife4j
   - mybatis-plus
   - SpringBoot
+  - sql path:
+    - trip-web-server/trip-web-api/src/main/resources/trip_web-202207071144.sql
 
 
 ## 2019年春

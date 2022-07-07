@@ -40,7 +40,7 @@ DROP TABLE IF EXISTS `base_user`;
 CREATE TABLE `base_user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `name` varchar(32) DEFAULT NULL COMMENT '名称',
-  `avatar` varchar(800) DEFAULT NULL COMMENT '头像',
+  `avatar` varchar(800) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '头像',
   `intro` text COMMENT '简介',
   `phone` int(11) DEFAULT NULL COMMENT '电话号码',
   PRIMARY KEY (`id`)
@@ -59,6 +59,7 @@ CREATE TABLE `bus_comments` (
   `parent_id` bigint(20) DEFAULT NULL COMMENT '父评论id',
   `content` text COMMENT '内容',
   `like` int(11) DEFAULT NULL COMMENT '点赞',
+  `datetime` datetime DEFAULT NULL COMMENT '评论时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='业务评论表';
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -94,8 +95,44 @@ CREATE TABLE `rela_user_comments` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Temporary view structure for view `view_user_account`
+--
+
+DROP TABLE IF EXISTS `view_user_account`;
+/*!50001 DROP VIEW IF EXISTS `view_user_account`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8mb4;
+/*!50001 CREATE VIEW `view_user_account` AS SELECT 
+ 1 AS `id`,
+ 1 AS `name`,
+ 1 AS `avatar`,
+ 1 AS `phone`,
+ 1 AS `intro`,
+ 1 AS `username`,
+ 1 AS `password`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Dumping routines for database 'trip_web'
 --
+
+--
+-- Final view structure for view `view_user_account`
+--
+
+/*!50001 DROP VIEW IF EXISTS `view_user_account`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_user_account` AS select `rua`.`id` AS `id`,`bu`.`name` AS `name`,`bu`.`avatar` AS `avatar`,`bu`.`phone` AS `phone`,`bu`.`intro` AS `intro`,`ba`.`username` AS `username`,`ba`.`password` AS `password` from ((`base_user` `bu` join `rela_user_account` `rua` on((`bu`.`id` = `rua`.`user_id`))) join `base_account` `ba` on((`ba`.`id` = `rua`.`account_id`))) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -106,4 +143,4 @@ CREATE TABLE `rela_user_comments` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-07-07  9:28:32
+-- Dump completed on 2022-07-07 11:44:17
