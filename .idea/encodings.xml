@@ -8,8 +8,8 @@
     <file url="file://$PROJECT_DIR$/trip-web-server/baseframe/knife4j/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/trip-web-server/baseframe/mybatis-plus/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/trip-web-server/trip-web-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/trip-web-server/trip-web-entity/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/trip-web-server/trip-web-mapper/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/trip-web-server/trip-web-model/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/trip-web-server/trip-web-service/src/main/java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

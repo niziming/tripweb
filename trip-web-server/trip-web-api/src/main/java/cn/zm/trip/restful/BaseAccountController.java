@@ -32,12 +32,12 @@ public class BaseAccountController extends BaseController {
 
     @GetMapping
     @ApiOperation("基础账户表page查询")
-    @ApiImplicitParams({
-        @ApiImplicitParam(name = "page", value = "当前页数", defaultValue = "1"),
-        @ApiImplicitParam(name = "size", value = "每页个数", defaultValue = "10"),
-        @ApiImplicitParam(name = "orderByColumn", value = "排序字段"),
-        @ApiImplicitParam(name = "isDesc", value = "是否降序")
-    })
+    // @ApiImplicitParams({
+    //     @ApiImplicitParam(name = "page", value = "当前页数", defaultValue = "1"),
+    //     @ApiImplicitParam(name = "size", value = "每页个数", defaultValue = "10"),
+    //     @ApiImplicitParam(name = "orderByColumn", value = "排序字段"),
+    //     @ApiImplicitParam(name = "isDesc", value = "是否降序")
+    // })
     public ResResult<IPage<BaseAccountVO>> getByPage(@Validated BaseAccountDTO baseAccount) {
         // TODO 分页查询
         IPage<BaseAccountVO> page = baseAccountService.selectByPage(getPage(), baseAccount);

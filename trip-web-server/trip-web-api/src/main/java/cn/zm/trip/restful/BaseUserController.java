@@ -32,12 +32,12 @@ public class BaseUserController extends BaseController {
 
     @GetMapping
     @ApiOperation("基础用户page查询")
-    @ApiImplicitParams({
-        @ApiImplicitParam(name = "page", value = "当前页数", defaultValue = "1"),
-        @ApiImplicitParam(name = "size", value = "每页个数", defaultValue = "10"),
-        @ApiImplicitParam(name = "orderByColumn", value = "排序字段"),
-        @ApiImplicitParam(name = "isDesc", value = "是否降序")
-    })
+    // @ApiImplicitParams({
+    //     @ApiImplicitParam(name = "page", value = "当前页数", defaultValue = "1"),
+    //     @ApiImplicitParam(name = "size", value = "每页个数", defaultValue = "10"),
+    //     @ApiImplicitParam(name = "orderByColumn", value = "排序字段"),
+    //     @ApiImplicitParam(name = "isDesc", value = "是否降序")
+    // })
     public ResResult<IPage<BaseUserVO>> getByPage(@Validated BaseUserDTO baseUser) {
         // TODO 分页查询
         IPage<BaseUserVO> page = baseUserService.selectByPage(getPage(), baseUser);

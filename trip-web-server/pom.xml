@@ -17,7 +17,7 @@
     <modules>
         <module>baseframe</module>
         <module>trip-web-mapper</module>
-        <module>trip-web-model</module>
+        <module>trip-web-entity</module>
         <module>trip-web-service</module>
         <module>trip-web-api</module>
     </modules>
@@ -61,7 +61,7 @@
 
             <dependency>
                 <groupId>cn.zm</groupId>
-                <artifactId>trip-web-model</artifactId>
+                <artifactId>trip-web-entity</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

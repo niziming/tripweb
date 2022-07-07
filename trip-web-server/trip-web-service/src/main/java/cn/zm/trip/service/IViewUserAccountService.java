@@ -15,4 +15,10 @@ public interface IViewUserAccountService extends IService<ViewUserAccount> {
     * @return 分页结果
     */
     IPage<ViewUserAccountVO> selectByPage(IPage<ViewUserAccount> page, ViewUserAccountDTO ViewUserAccount);
+
+    /**
+     * 注册
+     * @param dto
+     */
+    void register(ViewUserAccountDTO dto);
 }

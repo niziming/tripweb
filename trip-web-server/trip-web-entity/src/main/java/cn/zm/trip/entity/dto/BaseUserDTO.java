@@ -1,5 +1,6 @@
-package cn.zm.trip.entity.vo;
+package cn.zm.trip.entity.dto;
 
+import cn.zm.trip.entity.BaseUser;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -12,8 +13,8 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 @TableName("base_user")
-@ApiModel(value="BaseUserVO对象", description="基础用户")
-public class BaseUserVO {
+@ApiModel(value="BaseUserDTO对象", description="基础用户")
+public class BaseUserDTO extends ObjectConvert<BaseUser>{
     @ApiModelProperty(value = "ID")
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
@@ -24,6 +25,6 @@ public class BaseUserVO {
     @ApiModelProperty(value = "简介")
     private String intro;
     @ApiModelProperty(value = "电话号码")
-    private Integer phone;
+    private String phone;
 }
 

@@ -35,12 +35,12 @@ public class ViewUserAccountController extends BaseController {
 
     @GetMapping
     @ApiOperation("用户及账户信息page查询")
-    @ApiImplicitParams({
-        @ApiImplicitParam(name = "page", value = "当前页数", defaultValue = "1"),
-        @ApiImplicitParam(name = "size", value = "每页个数", defaultValue = "10"),
-        @ApiImplicitParam(name = "orderByColumn", value = "排序字段"),
-        @ApiImplicitParam(name = "isDesc", value = "是否降序")
-    })
+    // @ApiImplicitParams({
+    //     @ApiImplicitParam(name = "page", value = "当前页数", defaultValue = "1"),
+    //     @ApiImplicitParam(name = "size", value = "每页个数", defaultValue = "10"),
+    //     @ApiImplicitParam(name = "orderByColumn", value = "排序字段"),
+    //     @ApiImplicitParam(name = "isDesc", value = "是否降序")
+    // })
     public ResResult<IPage<ViewUserAccountVO>> getByPage(@Validated ViewUserAccountDTO viewUserAccount) {
         // TODO 分页查询
         IPage<ViewUserAccountVO> page = viewUserAccountService.selectByPage(getPage(), viewUserAccount);

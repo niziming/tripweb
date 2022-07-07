@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.zm.plus.web.mapper.BaseAccountMapper">
+<mapper namespace="cn.zm.trip.mapper.BaseAccountMapper">
     <insert id="add"
             useGeneratedKeys="true"
             keyProperty="web_id"
-            parameterType="cn.zm.plus.web.entity.BaseAccount">
+            parameterType="cn.zm.trip.entity.BaseAccount">
         insert into base_account(
                 id,
                 username,
@@ -17,8 +17,8 @@
     </insert>
 
     <select id="get"
-            parameterType="cn.zm.plus.web.entity.BaseAccount"
-            resultType="cn.zm.plus.web.entity.BaseAccount">
+            parameterType="cn.zm.trip.entity.BaseAccount"
+            resultType="cn.zm.trip.entity.BaseAccount">
         select
             v.id,
             v.username,
@@ -36,8 +36,8 @@
     </select>
 
     <select id="getById"
-            parameterType="cn.zm.plus.web.entity.BaseAccount"
-            resultType="cn.zm.plus.web.entity.BaseAccount">
+            parameterType="cn.zm.trip.entity.BaseAccount"
+            resultType="cn.zm.trip.entity.BaseAccount">
         select
             v.id,
             v.username,
@@ -51,7 +51,7 @@
     </select>
 
     <update id="update"
-            parameterType="cn.zm.plus.web.entity.BaseAccount">
+            parameterType="cn.zm.trip.entity.BaseAccount">
         update base_account v
         set v.web_id = #{web_id}
                 <if test="id != null and id != ''"> , v.id

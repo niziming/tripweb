@@ -17,7 +17,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>ssm2019</module>
+        <!--<module>ssm2019</module>-->
         <module>trip-web-server</module>
     </modules>
 

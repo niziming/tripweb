@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>trip-web-model</artifactId>
+    <artifactId>trip-web-entity</artifactId>
     <version>${parent.version}</version>
 
     <properties>

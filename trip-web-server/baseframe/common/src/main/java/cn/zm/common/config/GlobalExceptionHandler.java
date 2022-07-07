@@ -1,8 +1,12 @@
-package cn.zm.common.base;
+package cn.zm.common.config;
 
+import cn.zm.common.base.ResResult;
+import cn.zm.common.base.ServiceException;
 import cn.zm.common.enums.ResEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;

@@ -20,7 +20,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.zm</groupId>
-            <artifactId>trip-web-model</artifactId>
+            <artifactId>trip-web-entity</artifactId>
         </dependency>
     </dependencies>
 
