@@ -11,6 +11,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -35,7 +36,7 @@ public class AuthController {
 
   @PostMapping("/register")
   @ApiOperation("注册")
-  public ResResult register(@RequestBody ViewUserAccountDTO dto) {
+  public ResResult register(@RequestBody @Validated ViewUserAccountDTO dto) {
     userAccountService.register(dto);
     return ResResult.succ();
   }
