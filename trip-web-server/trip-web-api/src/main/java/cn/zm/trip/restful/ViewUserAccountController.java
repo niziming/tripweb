@@ -27,7 +27,7 @@ import java.util.List;
  */
 @RequestMapping("viewUserAccount")
 @RestController
-@Api(tags = "VIEW用户及账户信息")
+@Api(tags = "视图-用户及账户信息")
 public class ViewUserAccountController extends BaseController {
 
     @Resource
