@@ -31,7 +31,7 @@ public class RelaUserCommentsController extends BaseController {
     private IRelaUserCommentsService relaUserCommentsService;
 
     @GetMapping
-    @ApiOperation("关联用户评论表page查询")
+    @ApiOperation("关联-用户评论表page查询")
     // @ApiImplicitParams({
     //     @ApiImplicitParam(name = "page", value = "当前页数", defaultValue = "1"),
     //     @ApiImplicitParam(name = "size", value = "每页个数", defaultValue = "10"),

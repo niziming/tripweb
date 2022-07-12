@@ -31,7 +31,7 @@ public class RelaScenicSpotCommentsController extends BaseController {
     private IRelaScenicSpotCommentsService relaScenicSpotCommentsService;
 
     @GetMapping
-    @ApiOperation("关联景区评论关联表page查询")
+    @ApiOperation("关联-景区评论关联表page查询")
     public ResResult<IPage<RelaScenicSpotCommentsVO>> getByPage(@Validated RelaScenicSpotCommentsDTO relaScenicSpotComments) {
         // TODO 分页查询
         IPage<RelaScenicSpotCommentsVO> page = relaScenicSpotCommentsService.selectByPage(getPage(), relaScenicSpotComments);

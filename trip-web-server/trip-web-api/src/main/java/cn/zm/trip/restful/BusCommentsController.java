@@ -24,7 +24,7 @@ import java.util.List;
  */
 @RequestMapping("busComments")
 @RestController
-@Api(tags = "业务评论表")
+@Api(tags = "业务-评论表")
 public class BusCommentsController extends BaseController {
 
     @Resource

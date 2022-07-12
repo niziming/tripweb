@@ -24,7 +24,7 @@ import java.util.List;
  */
 @RequestMapping("baseAccount")
 @RestController
-@Api(tags = "基础账户表")
+@Api(tags = "基础-账户表")
 public class BaseAccountController extends BaseController {
 
     @Resource

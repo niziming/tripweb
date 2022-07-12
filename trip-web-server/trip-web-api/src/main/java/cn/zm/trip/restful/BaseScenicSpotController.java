@@ -24,7 +24,7 @@ import java.util.List;
  */
 @RequestMapping("baseScenicSpot")
 @RestController
-@Api(tags = "基础景点")
+@Api(tags = "基础-景点")
 public class BaseScenicSpotController extends BaseController {
 
     @Resource
