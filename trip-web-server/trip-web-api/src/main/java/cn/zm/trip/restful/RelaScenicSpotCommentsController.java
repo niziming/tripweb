@@ -2,9 +2,19 @@ package cn.zm.trip.restful;
 
 import cn.zm.common.base.ResResult;
 import cn.zm.mybatis.base.BaseController;
+import cn.zm.trip.entity.BaseScenicSpot;
+import cn.zm.trip.entity.BusComments;
+import cn.zm.trip.entity.RelaScenicSpotComments;
+import cn.zm.trip.entity.dto.BaseScenicSpotDTO;
+import cn.zm.trip.entity.dto.BusCommentsDTO;
 import cn.zm.trip.entity.dto.RelaScenicSpotCommentsDTO;
+import cn.zm.trip.entity.dto.ScenicSpotCommentsDTO;
 import cn.zm.trip.entity.vo.RelaScenicSpotCommentsVO;
+import cn.zm.trip.service.IBaseScenicSpotService;
+import cn.zm.trip.service.IBusCommentsService;
 import cn.zm.trip.service.IRelaScenicSpotCommentsService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.ApiImplicitParam;
@@ -22,16 +32,24 @@ import java.util.List;
  * @author 十渊
  * @since 2022-07-12
  */
+@Slf4j
+@Transactional(rollbackFor = Exception.class)
 @RequestMapping("relaScenicSpotComments")
 @RestController
-@Api(tags = "关联景区评论关联表")
+@Api(tags = "关联-关联景区评论关联表")
 public class RelaScenicSpotCommentsController extends BaseController {
 
     @Resource
     private IRelaScenicSpotCommentsService relaScenicSpotCommentsService;
 
+    @Resource
+    private IBaseScenicSpotService baseScenicSpotService;
+
+    @Resource
+    private IBusCommentsService busCommentsService;
+
     @GetMapping
-    @ApiOperation("关联-景区评论关联表page查询")
+    @ApiOperation("关联景区评论关联表page查询")
     public ResResult<IPage<RelaScenicSpotCommentsVO>> getByPage(@Validated RelaScenicSpotCommentsDTO relaScenicSpotComments) {
         // TODO 分页查询
         IPage<RelaScenicSpotCommentsVO> page = relaScenicSpotCommentsService.selectByPage(getPage(), relaScenicSpotComments);
@@ -60,9 +78,9 @@ public class RelaScenicSpotCommentsController extends BaseController {
 
     @PostMapping
     @ApiOperation("关联景区评论关联表新增")
-    public ResResult add(@RequestBody @Validated RelaScenicSpotCommentsDTO relaScenicSpotComments) {
+    public ResResult add(@RequestBody @Validated RelaScenicSpotCommentsDTO dto) {
         // TODO 新增
-        relaScenicSpotCommentsService.save(relaScenicSpotComments.convert());
+        relaScenicSpotCommentsService.save(dto.convert());
         return ResResult.succ("新增成功");
     }
 

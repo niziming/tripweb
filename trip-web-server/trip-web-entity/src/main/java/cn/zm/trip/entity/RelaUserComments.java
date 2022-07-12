@@ -7,10 +7,16 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import cn.zm.mybatis.utils.ObjectConvert;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 @Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Accessors(chain = true)
 @TableName("rela_user_comments")
 @ApiModel(value="RelaUserComments对象", description="关联用户评论表")
@@ -21,6 +27,6 @@ public class RelaUserComments extends ObjectConvert<RelaUserCommentsVO>{
     @ApiModelProperty(value = "用户id")
     private Long userId;
     @ApiModelProperty(value = "评论id")
-    private String commentsId;
+    private Long commentsId;
 }
 

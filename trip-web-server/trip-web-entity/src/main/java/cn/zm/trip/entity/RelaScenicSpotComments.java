@@ -7,11 +7,17 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import cn.zm.mybatis.utils.ObjectConvert;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 @Data
 @Accessors(chain = true)
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @TableName("rela_scenic_spot_comments")
 @ApiModel(value="RelaScenicSpotComments对象", description="关联景区评论关联表")
 public class RelaScenicSpotComments extends ObjectConvert<RelaScenicSpotCommentsVO>{

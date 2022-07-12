@@ -130,7 +130,7 @@ DROP TABLE IF EXISTS `rela_user_comments`;
 CREATE TABLE `rela_user_comments` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `user_id` bigint(20) DEFAULT NULL COMMENT '用户id',
-  `comments_id` text COMMENT '评论id',
+  `comments_id` bigint(20) COMMENT '评论id',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='关联用户评论表';
 /*!40101 SET character_set_client = @saved_cs_client */;

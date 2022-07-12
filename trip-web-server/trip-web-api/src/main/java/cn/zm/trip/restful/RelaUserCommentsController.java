@@ -24,14 +24,14 @@ import java.util.List;
  */
 @RequestMapping("relaUserComments")
 @RestController
-@Api(tags = "关联用户评论表")
+@Api(tags = "关联-用户评论表")
 public class RelaUserCommentsController extends BaseController {
 
     @Resource
     private IRelaUserCommentsService relaUserCommentsService;
 
     @GetMapping
-    @ApiOperation("关联-用户评论表page查询")
+    @ApiOperation("关联用户评论表page查询")
     // @ApiImplicitParams({
     //     @ApiImplicitParam(name = "page", value = "当前页数", defaultValue = "1"),
     //     @ApiImplicitParam(name = "size", value = "每页个数", defaultValue = "10"),

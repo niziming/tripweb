@@ -2,9 +2,20 @@ package cn.zm.trip.restful;
 
 import cn.zm.common.base.ResResult;
 import cn.zm.mybatis.base.BaseController;
+import cn.zm.trip.entity.BusComments;
+import cn.zm.trip.entity.RelaScenicSpotComments;
+import cn.zm.trip.entity.RelaUserComments;
+import cn.zm.trip.entity.dto.BaseScenicSpotDTO;
 import cn.zm.trip.entity.dto.BusCommentsDTO;
+import cn.zm.trip.entity.dto.ScenicSpotCommentsDTO;
+import cn.zm.trip.entity.dto.ScenicSpotCommentsUserDTO;
 import cn.zm.trip.entity.vo.BusCommentsVO;
 import cn.zm.trip.service.IBusCommentsService;
+import cn.zm.trip.service.IRelaScenicSpotCommentsService;
+import cn.zm.trip.service.IRelaUserCommentsService;
+import cn.zm.trip.service.IViewScenicSpotCommentsUserService;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.ApiImplicitParam;
@@ -22,6 +33,8 @@ import java.util.List;
  * @author 十渊
  * @since 2022-07-12
  */
+@Transactional(rollbackFor = Exception.class)
+@Slf4j
 @RequestMapping("busComments")
 @RestController
 @Api(tags = "业务-评论表")
@@ -29,6 +42,14 @@ public class BusCommentsController extends BaseController {
 
     @Resource
     private IBusCommentsService busCommentsService;
+
+    @Resource
+    private IRelaScenicSpotCommentsService relaScenicSpotCommentsService;
+
+
+    @Resource
+    private IRelaUserCommentsService relaUserCommentsService;
+
 
     @GetMapping
     @ApiOperation("业务评论表page查询")
@@ -44,17 +65,31 @@ public class BusCommentsController extends BaseController {
         return ResResult.succ(page);
     }
 
-    // @PostMapping("list")
-    // @ApiOperation("业务评论表list查询")
-    // @ApiImplicitParams({
-    //     @ApiImplicitParam(name = "orderByColumn", value = "排序字段"),
-    //     @ApiImplicitParam(name = "isDesc", value = "是否降序")
-    // })
-    // public ResResult<List<BusCommentsVO>> list(@Validated @RequestBody BusCommentsDTO busComments) {
-    //     // TODO 分页查询
-    //     IPage<BusCommentsVO> page = busCommentsService.list(getPage(), busComments);
-    //     return ResResult.succ(page);
-    // }
+    @PostMapping("/scenic/spot")
+    @ApiOperation("业务-用户评论景点")
+    public ResResult scenicSpotCommentsSave(@RequestBody @Validated ScenicSpotCommentsUserDTO dto) {
+        // TODO 新增
+        BusComments comments = dto.getCommentsDTO().convert();
+        BaseScenicSpotDTO scenicSpotDTO = dto.getScenicSpotDTO();
+        log.info("评论景点-评论存库");
+        busCommentsService.save(comments);
+
+        log.info("评论景点-景点评论关联存库");
+        relaScenicSpotCommentsService.save(RelaScenicSpotComments.builder()
+            .scenicSpotId(scenicSpotDTO.getId())
+            .commentsId(comments.getId())
+          .build());
+        log.info("评论景点-用户评论关联存库");
+
+        relaUserCommentsService.save(
+          RelaUserComments.builder()
+            .commentsId(comments.getId())
+            .userId(dto.getUserDTO().getId())
+            .build()
+        );
+
+        return ResResult.succ("新增成功");
+    }
 
     @GetMapping("{id}")
     @ApiOperation("业务评论表查询(id)")

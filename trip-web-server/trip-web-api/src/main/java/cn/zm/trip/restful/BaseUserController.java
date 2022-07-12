@@ -24,14 +24,14 @@ import java.util.List;
  */
 @RequestMapping("baseUser")
 @RestController
-@Api(tags = "基础用户")
+@Api(tags = "基础-用户")
 public class BaseUserController extends BaseController {
 
     @Resource
     private IBaseUserService baseUserService;
 
     @GetMapping
-    @ApiOperation("基础-用户page查询")
+    @ApiOperation("基础用户page查询")
     // @ApiImplicitParams({
     //     @ApiImplicitParam(name = "page", value = "当前页数", defaultValue = "1"),
     //     @ApiImplicitParam(name = "size", value = "每页个数", defaultValue = "10"),

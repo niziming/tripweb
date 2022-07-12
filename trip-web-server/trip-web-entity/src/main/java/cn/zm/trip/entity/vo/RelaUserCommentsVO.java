@@ -20,6 +20,6 @@ public class RelaUserCommentsVO {
     @ApiModelProperty(value = "用户id")
     private Long userId;
     @ApiModelProperty(value = "评论id")
-    private String commentsId;
+    private Long commentsId;
 }
 
