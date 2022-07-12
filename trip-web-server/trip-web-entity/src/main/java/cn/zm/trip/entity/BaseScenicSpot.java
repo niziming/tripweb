@@ -40,8 +40,8 @@ public class BaseScenicSpot extends ObjectConvert<BaseScenicSpotVO>{
     private String location;
     @ApiModelProperty(value = "景点邮政编码")
     private String zip;
-    @ApiModelProperty(value = "景点开放时间")
-    private String opentime;
+    @ApiModelProperty(value = "景点开放时间范围")
+    private String openRangeTime;
     @ApiModelProperty(value = "景点信息发布时间")
     @TableField("creatTime")
     private LocalDateTime creatTime;

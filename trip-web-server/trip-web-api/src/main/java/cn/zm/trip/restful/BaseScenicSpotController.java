@@ -32,12 +32,12 @@ public class BaseScenicSpotController extends BaseController {
 
     @GetMapping
     @ApiOperation("基础景点page查询")
-    @ApiImplicitParams({
-        @ApiImplicitParam(name = "page", value = "当前页数", defaultValue = "1"),
-        @ApiImplicitParam(name = "size", value = "每页个数", defaultValue = "10"),
-        @ApiImplicitParam(name = "orderByColumn", value = "排序字段"),
-        @ApiImplicitParam(name = "isDesc", value = "是否降序")
-    })
+    // @ApiImplicitParams({
+    //     @ApiImplicitParam(name = "page", value = "当前页数", defaultValue = "1"),
+    //     @ApiImplicitParam(name = "size", value = "每页个数", defaultValue = "10"),
+    //     @ApiImplicitParam(name = "orderByColumn", value = "排序字段"),
+    //     @ApiImplicitParam(name = "isDesc", value = "是否降序")
+    // })
     public ResResult<IPage<BaseScenicSpotVO>> getByPage(@Validated BaseScenicSpotDTO baseScenicSpot) {
         // TODO 分页查询
         IPage<BaseScenicSpotVO> page = baseScenicSpotService.selectByPage(getPage(), baseScenicSpot);
