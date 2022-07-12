@@ -3,30 +3,21 @@ package cn.zm.trip.restful;
 import cn.zm.common.base.ResResult;
 import cn.zm.mybatis.base.BaseController;
 import cn.zm.trip.entity.BusComments;
-import cn.zm.trip.entity.RelaScenicSpotComments;
-import cn.zm.trip.entity.RelaUserComments;
 import cn.zm.trip.entity.dto.BaseScenicSpotDTO;
 import cn.zm.trip.entity.dto.BusCommentsDTO;
-import cn.zm.trip.entity.dto.ScenicSpotCommentsDTO;
 import cn.zm.trip.entity.dto.ScenicSpotCommentsUserDTO;
 import cn.zm.trip.entity.vo.BusCommentsVO;
 import cn.zm.trip.service.IBusCommentsService;
-import cn.zm.trip.service.IRelaScenicSpotCommentsService;
-import cn.zm.trip.service.IRelaUserCommentsService;
-import cn.zm.trip.service.IViewScenicSpotCommentsUserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RestController;
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.Api;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.Objects;
-import java.util.List;
 
 /**
  * 业务评论表
@@ -43,12 +34,8 @@ public class BusCommentsController extends BaseController {
     @Resource
     private IBusCommentsService busCommentsService;
 
-    @Resource
-    private IRelaScenicSpotCommentsService relaScenicSpotCommentsService;
-
-
-    @Resource
-    private IRelaUserCommentsService relaUserCommentsService;
+    // @Resource
+    // private IRelaUserCommentsService relaUserCommentsService;
 
 
     @GetMapping
@@ -75,18 +62,18 @@ public class BusCommentsController extends BaseController {
         busCommentsService.save(comments);
 
         log.info("评论景点-景点评论关联存库");
-        relaScenicSpotCommentsService.save(RelaScenicSpotComments.builder()
-            .scenicSpotId(scenicSpotDTO.getId())
-            .commentsId(comments.getId())
-          .build());
+        // relaScenicSpotCommentsService.save(RelaScenicSpotComments.builder()
+        //     .scenicSpotId(scenicSpotDTO.getId())
+        //     .commentsId(comments.getId())
+        //   .build());
         log.info("评论景点-用户评论关联存库");
 
-        relaUserCommentsService.save(
-          RelaUserComments.builder()
-            .commentsId(comments.getId())
-            .userId(dto.getUserDTO().getId())
-            .build()
-        );
+        // relaUserCommentsService.save(
+        //   RelaUserComments.builder()
+        //     .commentsId(comments.getId())
+        //     .userId(dto.getUserDTO().getId())
+        //     .build()
+        // );
 
         return ResResult.succ("新增成功");
     }

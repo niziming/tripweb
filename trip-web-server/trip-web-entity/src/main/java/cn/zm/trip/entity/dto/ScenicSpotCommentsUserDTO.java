@@ -1,8 +1,5 @@
 package cn.zm.trip.entity.dto;
 
-import cn.zm.mybatis.utils.ObjectConvert;
-import cn.zm.trip.entity.ViewScenicSpotCommentsUser;
-import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
