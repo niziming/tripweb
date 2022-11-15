@@ -84,7 +84,7 @@ CREATE TABLE `bus_comments` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `parent_id` bigint(20) DEFAULT NULL COMMENT '父评论id',
   `content` text COMMENT '内容',
-  `like` int(11) DEFAULT NULL COMMENT '点赞',
+  `up` int(11) DEFAULT NULL COMMENT '点赞',
   `createTime` datetime DEFAULT NULL COMMENT '评论时间',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='业务评论表';
