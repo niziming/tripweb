@@ -25,7 +25,7 @@ public class BusCommentsDTO extends ObjectConvert<BusComments>{
     @ApiModelProperty(value = "内容")
     private String content;
     @ApiModelProperty(value = "点赞")
-    private Integer like;
+    private Integer up;
     @ApiModelProperty(value = "评论时间")
     @TableField("createTime")
     private LocalDateTime createTime;
