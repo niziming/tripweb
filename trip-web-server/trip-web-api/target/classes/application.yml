@@ -1,7 +1,0 @@
-server:
-  port: 8095
-spring:
-  application:
-    name: trip-web
-  profiles:
-    active: plus, datasource
