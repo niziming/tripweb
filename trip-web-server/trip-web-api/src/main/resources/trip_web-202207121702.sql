@@ -50,7 +50,7 @@ CREATE TABLE `base_scenic_spot` (
   `location` varchar(100) DEFAULT NULL COMMENT '景点位置',
   `zip` varchar(100) DEFAULT NULL COMMENT '景点邮政编码',
   `open_range_time` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '景点开放时间',
-  `creatTime` timestamp NULL DEFAULT NULL COMMENT '景点信息发布时间',
+  `createTime` timestamp NULL DEFAULT NULL COMMENT '景点信息发布时间',
   `content` text COMMENT '景点描述内容',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='基础景点';
