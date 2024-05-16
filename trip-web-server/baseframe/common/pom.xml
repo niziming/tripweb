@@ -14,7 +14,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <hutool.version>5.3.10</hutool.version>
+        <hutool.version>5.8.21</hutool.version>
         <knife4j.version>2.0.8</knife4j.version>
         <mysql.version>8.0.27</mysql.version>
         <fastjson.version>1.2.58</fastjson.version>
